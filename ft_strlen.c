@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:46:43 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/18 18:15:34 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/10/23 17:00:38 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ size_t	ft_strlen(const char *s)
 	if (!s)
 		return (len);
 	while (s[len])
-		len++;
+		++len;
 	return (len);
 }
