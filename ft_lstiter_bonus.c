@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:45:16 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/18 18:11:13 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:59:41 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@
 
 @returns
 	`void` Nothing.
+
+@notes
+	The function does not need to check the return
+	of `f` since the function returns `void`.
 
 */
 

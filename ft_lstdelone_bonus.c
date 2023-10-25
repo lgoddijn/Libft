@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:30:21 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/22 16:25:56 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:00:15 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 
 @notes
 	The function should terminate if any argument is `NULL`
+	The function does not need to check the return value
+	of `del` since `del` returns `void`.
 
 */
 

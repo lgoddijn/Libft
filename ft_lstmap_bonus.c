@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:52:59 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/18 18:11:06 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:58:47 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,31 @@
 	The `ft_lstadd_back` is slightly inefficient.
 	An `O(1)` approach might be better.
 
+	We should also check if the result of `f` is `NULL`
+	since `f` returns `void *` therefore the return value
+	could infact be `NULL` unlike other argument functions
+	which do not return `void *`.
+
 */
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*new_node;
+	void	*result;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	new_list = NULL;
 	while (lst)
 	{
-		new_node = ft_lstnew(f(lst->content));
+		result = f(lst->content);
+		if (!result)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		new_node = ft_lstnew(result);
 		if (!new_node)
 		{
 			ft_lstclear(&new_list, del);

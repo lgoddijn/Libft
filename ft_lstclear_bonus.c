@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:34:03 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/22 16:25:52 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:00:25 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@
 	If either argument is `NULL` the function should terminate.
 	The `ft_lstdelone` function already calls the free and del
 	function on the node and its content, therefore less is more.
+
+	The function does not need to check the return value
+	of `del` since `del` returns `void`.
 
 */
 

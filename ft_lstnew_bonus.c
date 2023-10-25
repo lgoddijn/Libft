@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:06:52 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/18 18:11:04 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:59:00 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
-	node = (t_list *)ft_calloc(1, sizeof(t_list));
+	node = (t_list *)ft_calloc(
+			1, sizeof(t_list));
 	if (node == NULL)
 		return (NULL);
 	node->content = content;
