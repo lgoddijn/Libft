@@ -37,7 +37,7 @@
 	This function does not account for the null-terminator
 	when counting the length of the string.
 
-	ex. "hello\0" -> size_t 5
+	ex. "hello world\0" -> size_t 11
 
 	Note that the `if (!s)` statement is vital
 	for a lot of other functions in this library.
