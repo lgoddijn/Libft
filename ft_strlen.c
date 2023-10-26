@@ -39,11 +39,6 @@
 
 	ex. "hello\0" -> size_t 5
 
-	Also I would have liked to just 1 line the loop,
-	but norminette is like no so I have to live with it.
-
-	while (s[len++]); :'(
-
 	Note that the `if (!s)` statement is vital
 	for a lot of other functions in this library.
 
