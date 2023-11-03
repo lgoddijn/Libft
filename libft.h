@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/03 16:18:51 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/03 20:04:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,9 @@ typedef struct s_list
 
 typedef struct s_file
 {
-	int		fd;
-	char	*content;
+	int				fd;
+	char			*content;
+	struct s_file	*next;
 }	t_file;
 
 typedef unsigned int		t_bitmask32;
@@ -230,6 +231,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+char				*get_next_line(int fd);
 
 # pragma endregion file
 

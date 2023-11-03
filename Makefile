@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/11/03 16:17:18 by lgoddijn         ###   ########.fr        #
+#    Updated: 2023/11/03 20:05:35 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRCS = string/ft_atoi.c \
 	   file/ft_putendl_fd.c \
 	   file/ft_putnbr_fd.c \
 	   file/ft_putstr_fd.c \
+	   file/get_next_line/ft_get_next_line_utils.c \
+	   file/get_next_line/ft_get_next_line.c \
 	   string/ft_split.c \
 	   string/ft_strchr.c \
 	   string/ft_strdup.c \
