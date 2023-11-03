@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:00 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:19:25 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 	Creates a string buffer containing the digits of the integer `n`.
 
 @description
-	Allocates (with ft_calloc) and returns a string
+	Allocates (with `ft_calloc`) and returns a string
 	representing the integer received as an argument.
 	Negative numbers must be handled.
 
@@ -104,7 +104,7 @@ char	*ft_itoa(int n)
 	len = n_len(n);
 	if (is_neg)
 		++len;
-	alloc = ft_calloc(len + 1, sizeof(char));
+	alloc = (char *)ft_calloc(len + 1, sizeof(char));
 	if (alloc == NULL)
 		return (NULL);
 	fill_buffer(alloc, n, is_neg, len);

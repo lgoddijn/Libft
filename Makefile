@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/10/31 16:25:32 by lgoddijn         ###   ########.fr        #
+#    Updated: 2023/11/03 16:17:18 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,8 @@ SRCS = string/ft_atoi.c \
 	   string/ft_substr.c \
 	   string/ft_tolower.c \
 	   string/ft_toupper.c \
+	   string/ft_strshove.c \
+	   string/ft_strshove_wild.c \
 	   linkedlist/ft_append_lst.c \
 	   linkedlist/ft_clear_lst.c \
 	   linkedlist/ft_del_one_lst.c \

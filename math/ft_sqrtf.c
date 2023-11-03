@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:15:04 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 17:09:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:22:07 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 
 @def
-	`math/ft_sqrtf.c : ft_sqrtf`
+	`ft_sqrtf.c : ft_sqrtf`
 
 @brief
 	Calculates the square root of a float number.
@@ -65,12 +65,22 @@
 	the inverse of our computed inverse square root.
 */
 
+/*
+
+CURRENTLY DOESN'T WORK
+
+               D,:
+
+*/
+
 float	ft_sqrtf(float n)
 {
 	const float		x2 = n * 0.5;
 	const float		th = 1.5;
 	union u_sqrtf	conv;
 
+	if (n < 0.0f)
+		return (0.0f);
 	conv.d = n;
 	conv.i = 0x5fe6eb50c7b537a9 - (conv.i >> 1);
 	conv.d *= (th - (x2 * conv.d * conv.d));

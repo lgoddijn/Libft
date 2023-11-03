@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:02:45 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:09:52 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 	Joins two string buffers together.
 
 @description
-	Allocates (with ft_calloc) and returns a new
+	Allocates (with `ft_calloc`) and returns a new
 	string, which is the result of the concatenation
 	of ’s1’ and ’s2’.
 
@@ -73,7 +73,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	const size_t	s2_len = ft_strlen(s2);
 	char			*alloc;
 
-	alloc = ft_calloc(s1_len + s2_len + 1, sizeof(char));
+	alloc = (char *)ft_calloc(s1_len + s2_len + 1, sizeof(char));
 	ft_memcpy(alloc, s1, s1_len);
 	ft_memcpy(alloc + s1_len, s2, s2_len);
 	return (alloc);
