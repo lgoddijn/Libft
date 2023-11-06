@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:37:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 14:35:13 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:58:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ static int	split_words(char **split, int words, const char *s, char c)
 		}
 		i++;
 	}
-	split[i] = NULL;
 	return (C_0K_LMA0);
 }
 

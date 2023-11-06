@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:47:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 15:01:05 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:16:02 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (!n || !s1 && !s2)
+	if ((!s1 && !s2) || !n)
 		return (0);
 	if (s1 && !s2)
 		return (ft_strlen(s1));

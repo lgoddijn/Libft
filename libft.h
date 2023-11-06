@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/03 20:04:51 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:15:03 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strshove(const char *s1, const char *s2);
+char				*ft_strnshove(char **strings, size_t n, bool should_free);
 char				*ft_strshove_wild(const char *s1, ...);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
