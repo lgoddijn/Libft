@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/03 16:19:25 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:33:30 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@
 	The function uses `ft_strdup` because the return value
 	must always be freeable, and `ft_strdup` uses `malloc(3)`.
 
+	I wrote this function ages ago (I hate it and its terrible).
+
 */
 
 static size_t	n_len(int n)
@@ -81,7 +83,7 @@ static void	fill_buffer(char *buff, int n,
 		n /= 10;
 	}
 	if (is_neg)
-		buff[0] = '-';
+		buff[len] = '-';
 }
 
 char	*ft_itoa(int n)
@@ -94,16 +96,16 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
+	len = 0;
 	if (n < 0)
 	{
 		is_neg = true;
 		n = -n;
+		++len;
 	}
 	else
 		is_neg = false;
 	len = n_len(n);
-	if (is_neg)
-		++len;
 	alloc = (char *)ft_calloc(len + 1, sizeof(char));
 	if (alloc == NULL)
 		return (NULL);

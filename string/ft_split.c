@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:37:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:05 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:35:13 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@
 	The three possible approaches would be the following returns:
 
 	`NULL, NULL` ; `"", NULL` ; `"" * strlen, NULL`. 
+
+	I wrote this function ages ago (its terrible, probably faulty).
 
 */
 

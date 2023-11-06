@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:47:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:38 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:01:05 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,50 @@
 		  if s1 (or the first n bytes thereof) is found, respectively,
 		  to be less than, to match, or be greater than s2.
 
+@see
+	`ft_strlen.c : ft_strlen`
+
 @notes
 	I know its hard to understand but bare with me...
 
 	First the function checks if the arguments are valid.
-	Then the function enters a loop which checks for how
-	long the character in `s1` is equal to the next
-	character in `s2`. Simultaneously the `n` condition
-	is accounted for. If at any point the characters are
-	still equal and `s1` terminates, then we know that
-	the two strings are equal. Otherwise, once they are
-	not equal we can backtrack `s2` to the previous
-	character such that the position of both string is equal.
-	We can then return the `unsigned char` difference of the two.
-
-	The cast for `unsigned char` isn't too important, however
-	it serves portability and memory applications when dealing
-	with integer conversion on certain systems.
-
+	Since `n` is `size_t`, it is unsigned. Therefore we 
+	must check that `n` is not `0` otherwise the loop will
+	underflow to `SIZE_MAX`. If instead `s1` is not `NULL`
+	while `s2` is, we return the string length of `s1` as
+	`len(s1) - 0 = len(s1)`, respectively, if `s1` is `NULL`
+	while `s2` isn't, then the difference is equivalent to
+	`0 - len(s2) = -len(s2)`. The main loop of the function
+	is designed to iterate through both strings as long as
+	they are the same. We check that the values of `s1` and `s2`
+	are the same before incrementing `s2`. We do not increment `s1`
+	due to the check later on. We also simultaneously check that
+	`n` is still above `0`. We do `--n` such that we decrement
+	`n` before comparing since normally this is treated as an
+	index and would therefore be accounted for `1` position behind.
+	We then check that `s1` at the position we compared is still
+	not the end of the string. if it isn't then we can increment
+	`s1` and continue, otherwise because the two strings are the
+	same, `s2` will also be terminated, therefore we know they are
+	the same, so we can return `0`. Once we exit the loop we know
+	that there is a difference in the strings. To ensure proper
+	arithmetics we castt both strings to unsigned character buffers.
+	Where we can then decrement `s2` once, since the original function
+	has this odd behavior (ex. diff "test", "tests" == -1)
+	(ex. diff "tests", "test" == 1). Notice how the position of the
+	argument will change the sign of the output. This is also why
+	at the start we return `-ft_strlen(s2)`. So we decrement `s2`
+	before evaluating the difference and returning it.
 */
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (!n || !s1 || !s2)
+	if (!n || !s1 && !s2)
 		return (0);
+	if (s1 && !s2)
+		return (ft_strlen(s1));
+	if (!s1 && s2)
+		return (-ft_strlen(s2));
 	while (*s1 == *s2++ && --n > 0)
 		if (!*s1++)
 			return (0);
