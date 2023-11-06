@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:47:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 18:16:02 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:00:32 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@
 	Since `n` is `size_t`, it is unsigned. Therefore we 
 	must check that `n` is not `0` otherwise the loop will
 	underflow to `SIZE_MAX`. If instead `s1` is not `NULL`
-	while `s2` is, we return the string length of `s1` as
-	`len(s1) - 0 = len(s1)`, respectively, if `s1` is `NULL`
-	while `s2` isn't, then the difference is equivalent to
-	`0 - len(s2) = -len(s2)`. The main loop of the function
-	is designed to iterate through both strings as long as
-	they are the same. We check that the values of `s1` and `s2`
-	are the same before incrementing `s2`. We do not increment `s1`
-	due to the check later on. We also simultaneously check that
-	`n` is still above `0`. We do `--n` such that we decrement
-	`n` before comparing since normally this is treated as an
-	index and would therefore be accounted for `1` position behind.
-	We then check that `s1` at the position we compared is still
-	not the end of the string. if it isn't then we can increment
-	`s1` and continue, otherwise because the two strings are the
-	same, `s2` will also be terminated, therefore we know they are
+	while `s2` is, we return the string value of `s1` as 
+	respectively, if `s1` is `NULL` while `s2` isn't,
+	then the difference is equivalent to `0 - ` the value of `s2`.
+	The main loop of the function is designed to iterate through both
+	strings as long as they are the same. We check that the values
+	of `s1` and `s2` are the same before incrementing `s2`.
+	We do not increment `s1` due to the check later on.
+	We also simultaneously check that `n` is still above `0`.
+	We do `--n` such that we decrement `n` before comparing since
+	normally this is treated as an index and would therefore be
+	accounted for `1` position behind. We then check that `s1` at
+	the position we compared is still not the end of the string.
+	If it isn't then we can increment `s1` and continue,
+	otherwise because the two strings are the same, `s2` will
+	also be terminated, therefore we know they are
 	the same, so we can return `0`. Once we exit the loop we know
 	that there is a difference in the strings. To ensure proper
 	arithmetics we castt both strings to unsigned character buffers.
@@ -79,9 +79,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if ((!s1 && !s2) || !n)
 		return (0);
 	if (s1 && !s2)
-		return (ft_strlen(s1));
+		return ((int)*s1);
 	if (!s1 && s2)
-		return (-ft_strlen(s2));
+		return (-(int)*s2);
 	while (*s1 == *s2++ && --n > 0)
 		if (!*s1++)
 			return (0);
