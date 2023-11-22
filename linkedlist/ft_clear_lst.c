@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:34:03 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/28 16:45:35 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:00:02 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_clear_lst(t_list **lst, void (*del)(void*))
 {
 	t_list	*next;
 
-	if (lst == NULL || del == NULL)
+	if (!lst || !del)
 		return ;
 	while (*lst)
 	{

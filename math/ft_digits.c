@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_magnitude_v3.c                                  :+:      :+:    :+:   */
+/*   ft_digits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 18:30:48 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/08 15:21:21 by lgoddijn         ###   ########.fr       */
+/*   Created: 2023/11/19 16:11:37 by lgoddijn          #+#    #+#             */
+/*   Updated: 2023/11/19 19:15:11 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-float	ft_magnitude_v3(t_vector3 v)
+size_t	ft_digits(long n)
 {
-	return (sqrtf(ft_sqr_magnitude_v3(v)));
+	size_t	digits;
+
+	digits = 0;
+	if (n <= 0)
+		++digits;
+	while (n != 0)
+	{
+		++digits;
+		n /= 10;
+	}
+	return (digits);
 }

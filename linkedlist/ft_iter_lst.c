@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:45:16 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/28 16:45:43 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:05:37 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 
 void	ft_iter_lst(t_list *lst, void (*f)(void *))
 {
+	if (!f)
+		return ;
 	while (lst)
 	{
 		f(lst->content);

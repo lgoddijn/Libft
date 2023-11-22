@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_magnitude_v3.c                                  :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 18:30:48 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/08 15:21:21 by lgoddijn         ###   ########.fr       */
+/*   Created: 2023/10/13 14:13:02 by lgoddijn          #+#    #+#             */
+/*   Updated: 2023/11/19 16:08:29 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-float	ft_magnitude_v3(t_vector3 v)
+int	ft_print_char(const int c)
 {
-	return (sqrtf(ft_sqr_magnitude_v3(v)));
+	write(1, &c, sizeof(char));
+	return (1);
 }

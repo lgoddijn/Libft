@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 18:15:03 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:31:17 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,14 +137,12 @@ typedef unsigned long long	t_bitmask64;
 
 typedef struct s_bitmap32
 {
-	t_bitmask32	bits[BITMAP_32_SIZE \
-		/ (sizeof(t_bitmask32) * 8)];
+	t_bitmask32	bits[BITMAP_32_SIZE];
 }	t_bitmap32;
 
 typedef struct s_bitmap64
 {
-	t_bitmask64	bits[BITMAP_64_SIZE \
-		/ (sizeof(t_bitmask64) * 8)];
+	t_bitmask64	bits[BITMAP_64_SIZE];
 }	t_bitmap64;
 
 typedef struct s_color
@@ -189,69 +187,9 @@ void				*ft_memset(void *s, int c, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
+void				*ft_realloc(void *ptr, size_t size);
 
 # pragma endregion memory
-
-# pragma region string
-
-size_t				ft_strlen(const char *s);
-int					ft_atoi(const char *nptr);
-char				*ft_itoa(int n);
-char				**ft_split(char const *s, char c);
-char				*ft_strchr(const char *s, int c);
-char				*ft_strdup(const char *s);
-void				ft_striteri(char *s, void (*f)(unsigned int, char*));
-char				*ft_strjoin(char const *s1, char const *s2);
-size_t				ft_strlcat(char *dst, const char *src, size_t size);
-size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strnstr(
-						const char *big,
-						const char *little,
-						size_t len);
-char				*ft_strrchr(const char *s, int c);
-char				*ft_strtrim(char const *s1, char const *set);
-char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strshove(const char *s1, const char *s2);
-char				*ft_strnshove(char **strings, size_t n, bool should_free);
-char				*ft_strshove_wild(const char *s1, ...);
-int					ft_toupper(int c);
-int					ft_tolower(int c);
-int					ft_isalnum(int c);
-int					ft_isalpha(int c);
-int					ft_isascii(int c);
-int					ft_isdigit(int c);
-int					ft_isprint(int c);
-
-# pragma endregion string
-
-# pragma region file
-
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
-char				*get_next_line(int fd);
-
-# pragma endregion file
-
-# pragma region linkedlist
-
-t_list				*ft_init_lst(void *content);
-void				ft_prepend_lst(t_list **lst, t_list *node);
-size_t				ft_size_lst(t_list *lst);
-t_list				*ft_last_lst(t_list *lst);
-void				ft_append_lst(t_list **lst, t_list *node);
-void				ft_del_one_lst(t_list *lst, void (*del)(void*));
-void				ft_clear_lst(t_list **lst, void (*del)(void*));
-void				ft_iter_lst(t_list *lst, void (*f)(void *));
-t_list				*ft_map_lst(
-						t_list *lst,
-						void *(*f)(void *),
-						void (*del)(void *));
-
-# pragma endregion linkedlist
 
 # pragma region math
 
@@ -308,6 +246,7 @@ float				ft_clampf_0_1(float value);
 float				ft_clampf(float value, float min, float max);
 double				ft_delta_angled(double current, double target);
 float				ft_delta_anglef(float current, float target);
+size_t				ft_digits(long n);
 int					ft_pow(int base, int exp);
 double				ft_powd(double base, int exp);
 float				ft_powf(float base, int exp);
@@ -369,6 +308,86 @@ float				ft_smooth_stepf(float from, float to, float t);
 
 # pragma endregion math
 
+# pragma region string
+
+size_t				ft_strlen(const char *s);
+int					ft_atoi(const char *nptr);
+char				*ft_itoa(int n);
+char				**ft_strsplit(const char *s, char c, bool should_free);
+char				*ft_strchr(const char *s, int c);
+char				*ft_strdup(const char *s);
+void				ft_striteri(char *s, void (*f)(unsigned int, char*));
+char				*ft_strjoin(
+						const char *s1,
+						const char *s2,
+						bool should_free);
+size_t				ft_strlcat(char *dst, const char *src, size_t size);
+size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+char				*ft_strnstr(
+						const char *big,
+						const char *little,
+						size_t len);
+char				*ft_strrchr(const char *s, int c);
+char				*ft_strtrim(const char *s1, const char *set);
+char				*ft_substr(const char *s, unsigned int start, size_t len);
+char				*ft_strnjoin(char **strings, size_t n, bool should_free);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+int					ft_isalnum(int c);
+int					ft_isalpha(int c);
+int					ft_isascii(int c);
+int					ft_isdigit(int c);
+int					ft_isprint(int c);
+
+# pragma endregion string
+
+# pragma region file
+
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
+char				*get_next_line(int fd);
+
+# pragma endregion file
+
+# pragma region linkedlist
+
+t_list				*ft_init_lst(void *content);
+size_t				ft_size_lst(t_list *lst);
+t_list				*ft_last_lst(t_list *lst);
+void				ft_prepend_lst(t_list **lst, t_list *node);
+void				ft_append_lst(t_list **lst, t_list *node);
+void				ft_del_one_lst(t_list *lst, void (*del)(void *));
+void				ft_clear_lst(t_list **lst, void (*del)(void *));
+void				ft_iter_lst(t_list *lst, void (*f)(void *));
+t_list				*ft_map_lst(
+						t_list *lst,
+						void *(*f)(void *),
+						void (*del)(void *));
+
+# pragma endregion linkedlist
+
+# pragma region dictionary
+
+t_dict				*ft_init_dict(void *key, void *value);
+size_t				ft_size_dict(t_dict *dict);
+t_dict				*ft_last_dict(t_dict *dict);
+t_dict				*ft_search_dict(t_dict *dict, const char *key);
+void				ft_prepend_dict(t_dict **dict, t_dict *entry);
+void				ft_append_dict(t_dict **dict, t_dict *entry);
+void				ft_del_one_dict(t_dict *dict, void (*del)(void *));
+void				ft_clear_dict(t_dict **dict, void (*del)(void *));
+void				ft_iter_dict(t_dict *dict, void (*f)(void *));
+t_dict				*ft_map_dict(
+						t_dict *dict,
+						void *(*f)(void *),
+						void (*del)(void *));
+
+# pragma endregion dictionary
+
 # pragma region vector3_functions
 
 t_vector3			ft_init_v3(float x, float y, float z);
@@ -405,5 +424,18 @@ t_vector3			ft_max_v3(t_vector3 lhs, t_vector3 rhs);
 t_vector3			ft_slerp_v3(t_vector3 v1, t_vector3 v2, float t);
 
 # pragma endregion vector3_functions
+
+# pragma region print
+
+int					ft_print_char(const int c);
+int					ft_print_str(const char *buffer);
+int					ft_print_int(int n);
+int					ft_print_unsigned(const unsigned int n);
+int					ft_print_hex(long long n,
+						const bool is_upper, const bool is_ptr);
+int					ft_print_ptr(const void *ptr_addr);
+int					ft_printf(const char *fmt, ...);
+
+# pragma endregion print
 
 #endif // LIBFT_H

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:00:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/03 20:07:12 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:31:56 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*extract_line(char **content, char *nl_pos)
 
 	if (!nl_pos)
 	{
-		line = ft_strshove(*content, NULL);
+		line = ft_strjoin(*content, NULL, false);
 		if (!line)
 			return (NULL);
 		free(*content);
@@ -61,31 +61,31 @@ static char	*extract_line(char **content, char *nl_pos)
 	ft_memcpy(line, *content, nl_pos - *content + 1);
 	line[nl_pos - *content + 1] = '\0';
 	if (*(nl_pos + 1) != '\0')
-		*content = ft_strshove(nl_pos + 1, NULL);
+		*content = ft_strjoin(nl_pos + 1, NULL, false);
 	else
 		*content = NULL;
 	free((void *)to_free);
 	return (line);
 }
 
-static void	remove_and_free_file(t_file **files, t_file *file)
+static void	clear_entry(t_file **cache, t_file *entry)
 {
 	t_file	*previous_node;
 	t_file	*current_node;
 
 	previous_node = NULL;
-	current_node = *files;
+	current_node = *cache;
 	while (current_node)
 	{
-		if (current_node == file)
+		if (current_node == entry)
 		{
 			if (previous_node)
 				previous_node->next = current_node->next;
 			else
-				*files = current_node->next;
-			if (file->content)
-				free(file->content);
-			free(file);
+				*cache = current_node->next;
+			if (entry->content)
+				free(entry->content);
+			free(entry);
 			break ;
 		}
 		previous_node = current_node;
@@ -94,15 +94,17 @@ static void	remove_and_free_file(t_file **files, t_file *file)
 }
 
 static bool	is_success(int read_status,
-		t_file **files, t_file *state, char **line)
+		t_file **cache, t_file *entry, char **line)
 {
 	if (read_status <= 0)
 	{
-		if (read_status < 0 || !state->content || !*state->content)
+		if (read_status < 0
+			|| !entry->content
+			|| !*entry->content)
 			*line = NULL;
 		else if (read_status == 0)
-			*line = ft_strshove(state->content, NULL);
-		remove_and_free_file(files, state);
+			*line = ft_strjoin(entry->content, NULL, false);
+		clear_entry(cache, entry);
 		return (false);
 	}
 	return (true);
@@ -110,26 +112,27 @@ static bool	is_success(int read_status,
 
 char	*get_next_line(int fd)
 {
-	static t_file	*files;
-	t_file			*state;
+	static t_file	*cache;
+	t_file			*entry;
 	char			*line;
 	int				read_status;
 	bool			success;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 		return (NULL);
-	state = get_file_state(fd, &files);
-	if (!state)
+	entry = search_cache(fd, &cache);
+	if (!entry)
 		return (NULL);
-	while (!state->content || !ft_strchr(state->content, '\n'))
+	while (!entry->content || !ft_strchr(entry->content, '\n'))
 	{
-		read_status = ft_read_fd(fd, &state->content);
-		success = is_success(read_status, &files, state, &line);
+		read_status = ft_read_fd(fd, &entry->content);
+		success = is_success(read_status, &cache, entry, &line);
 		if (!success)
 			return (line);
 	}
-	line = extract_line(&state->content, ft_strchr(state->content, '\n'));
-	if (!line || !state->content || !*state->content)
-		remove_and_free_file(&files, state);
+	line = extract_line(&entry->content,
+			ft_strchr(entry->content, '\n'));
+	if (!line || !entry->content || !*entry->content)
+		clear_entry(&cache, entry);
 	return (line);
 }

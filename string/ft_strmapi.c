@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:28:58 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:34 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:26:14 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 
 */
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	const size_t	s_len = ft_strlen(s);
 	char			*start;
@@ -73,8 +73,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	start = alloc;
 	while (*s)
 	{
-		*alloc = f((unsigned int)
-				(alloc - start), *s++);
+		*alloc = f((unsigned int) \
+		(alloc - start), *s++);
 		++alloc;
 	}
 	return (start);

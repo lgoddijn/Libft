@@ -6,39 +6,39 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:02:19 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/03 20:09:32 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:04:10 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_get_next_line.h"
 
-t_file	*get_file_state(int fd, t_file **head)
+t_file	*search_cache(int fd, t_file **cache)
 {
-	t_file	*file_state;
+	t_file	*entry;
 	t_file	*tmp;
 
-	tmp = *head;
+	tmp = *cache;
 	while (tmp)
 	{
 		if (tmp->fd == fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	file_state = (t_file *)malloc(sizeof(t_file));
-	if (!file_state)
+	entry = (t_file *)malloc(sizeof(t_file));
+	if (!entry)
 		return (NULL);
-	file_state->fd = fd;
-	file_state->content = NULL;
-	file_state->next = *head;
-	*head = file_state;
-	return (file_state);
+	entry->fd = fd;
+	entry->content = NULL;
+	entry->next = *cache;
+	*cache = entry;
+	return (entry);
 }
 
 int	update_content_buffer(char **content, char *buffer)
 {
 	char	*tmp;
 
-	tmp = ft_strshove(*content, buffer);
+	tmp = ft_strjoin(*content, buffer, false);
 	if (!tmp)
 	{
 		if (*content)

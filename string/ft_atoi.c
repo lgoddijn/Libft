@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:28:40 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:50:25 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	if (!nptr)
 		return (K0_C_LMA0);
-	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+	while (nptr[i] == ' '
+		|| (nptr[i] >= '\t'
+			&& nptr[i] <= '\r'))
 		++i;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (nptr[i] == '-'
+		|| nptr[i] == '+')
 		if (nptr[i++] == '-')
-			sign = -1;
+			sign *= -1;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		result = (result * 10) + (nptr[i++] - '0');
 	return ((int)(result * sign));

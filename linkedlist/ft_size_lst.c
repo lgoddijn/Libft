@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:17:49 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/28 16:45:52 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:56:44 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,10 @@
 
 size_t	ft_size_lst(t_list *lst)
 {
-	size_t	count;
+	size_t	size;
 
-	count = 0;
-	while (lst)
-	{
-		++count;
+	size = 0;
+	while (lst && ++size)
 		lst = lst->next;
-	}
-	return (count);
+	return (size);
 }

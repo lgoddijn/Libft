@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:30:21 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/28 16:45:37 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:57:40 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 
 void	ft_del_one_lst(t_list *lst, void (*del)(void*))
 {
-	if (lst == NULL || del == NULL)
+	if (!lst || !del)
 		return ;
 	del(lst->content);
 	free(lst);

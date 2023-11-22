@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:56:40 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:27:13 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:36:18 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*alloc;
 
-	if (nmemb == 0 || size == 0)
-	{
-		nmemb = 1;
-		size = 1;
-	}
 	if (SIZE_MAX / nmemb < size)
 		return (NULL);
 	alloc = malloc(nmemb * size);

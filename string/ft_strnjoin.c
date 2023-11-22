@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnshove.c                                     :+:      :+:    :+:   */
+/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:59:40 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 18:17:16 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:37:49 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 /*
 
 @def
-	`ft_strnshove.c : ft_strnshove`
+	`ft_strnjoin.c : ft_strnjoin`
 
 @brief
-	Duplicates a single string or joins multiple strings together.
+	Joins multiple strings together.
 
 @description
 	Allocates (with `ft_calloc`) and returns a new
-	string, which is the merged parent of all the child
-	strings within the 2d array `strings`.
+	string, which is the merged parent of all the
+	substrings within the 2d array `strings`.
 
 @synopsis
-	`char	*ft_strnshove(char **strings, size_t n, bool should_free);`
+	`char	*ft_strnjoin(char **strings, size_t n, bool should_free);`
 
 @params
-	`char **strings` The 2d array of strings to "shove".
+	`char **strings` The 2d array of strings to join.
 	`size_t n` The number of strings within the array or that you wish to merge.
 	`bool should_free` A switch to specify if the array should be freed.
 
@@ -57,7 +57,7 @@
 
 */
 
-char	*ft_strnshove(char **strings, size_t n, bool should_free)
+char	*ft_strnjoin(char **strings, size_t n, bool should_free)
 {
 	const char	**strs = \
 	(const char **)strings;

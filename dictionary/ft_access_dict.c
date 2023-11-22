@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_magnitude_v3.c                                  :+:      :+:    :+:   */
+/*   ft_access_dict.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 18:30:48 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/08 15:21:21 by lgoddijn         ###   ########.fr       */
+/*   Created: 2023/11/19 17:22:12 by lgoddijn          #+#    #+#             */
+/*   Updated: 2023/11/20 18:42:32 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-float	ft_magnitude_v3(t_vector3 v)
+void	*ft_access_dict(t_dict *dict, const char *key)
 {
-	return (sqrtf(ft_sqr_magnitude_v3(v)));
+	const t_dict	*entry = ft_search_dict(dict, key);
+
+	if (!entry)
+		return (NULL);
+	return (entry->value);
 }

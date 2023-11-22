@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:48:43 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:42 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:57:06 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@
 	`NULL` If no instance of `little` is found in `big`.
 
 @notes
-	If `little` is invalid then we return `big`.
-	
+	If `little` is invalid then the original function returns `big`.
+	In our case we return `NULL` since the original one makes no sense.
+
 	The function goes through `big` at the first
 	occurrence of the first character of `little`
 	The `static check_substring` function is called.
@@ -54,17 +55,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	const size_t	little_len = ft_strlen(little);
 	size_t			i;
 
-	if (!big || !little)
-		return (NULL);
-	if (!*little)
-		return ((char *)big);
 	i = 0;
+	if (!big || !little || !*little)
+		return (NULL);
 	while (i < len && big[i])
-	{
-		if (big[i] == *little && i + little_len <= len)
-			if (ft_strncmp(big + i, little, little_len) == 0)
+		if (big[i] == *little && i++ + little_len <= len)
+			if (ft_strncmp(big + --i, little, little_len) == 0)
 				return ((char *)(big + i));
-		++i;
-	}
 	return (NULL);
 }

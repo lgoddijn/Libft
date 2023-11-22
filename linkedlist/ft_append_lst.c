@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:24:00 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/28 16:45:33 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:50:32 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ void	ft_append_lst(t_list **lst, t_list *node)
 			*lst = node;
 		else
 		{
-			last = *lst;
-			while (last->next != NULL)
-				last = last->next;
+			last = ft_last_lst(*lst);
 			last->next = node;
 		}
 	}

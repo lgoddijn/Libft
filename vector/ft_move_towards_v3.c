@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:41:40 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/10/31 16:15:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:21:45 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_vector3	ft_move_towards_v3(t_vector3 current,
 	const float	num4 = (num1 * num1) \
 						+ (num2 * num2) \
 						+ (num3 * num3);
-	const float	num5 = ft_sqrtf(num4);
+	const float	num5 = sqrtf(num4);
 
 	if (num4 == 0.0f || ((max_distance_delta >= 0.0f)
 			&& (num4 <= (max_distance_delta * max_distance_delta))))

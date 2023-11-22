@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 14:33:30 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:22:00 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,34 +58,6 @@
 
 */
 
-static size_t	n_len(int n)
-{
-	size_t	len;
-
-	len = 0;
-	if (n <= 0)
-		++len;
-	while (n != 0)
-	{
-		++len;
-		n /= 10;
-	}
-	return (len);
-}
-
-static void	fill_buffer(char *buff, int n,
-				bool is_neg, size_t len)
-{
-	buff[len] = '\0';
-	while (n != 0)
-	{
-		buff[--len] = (n % 10) + '0';
-		n /= 10;
-	}
-	if (is_neg)
-		buff[len] = '-';
-}
-
 char	*ft_itoa(int n)
 {
 	char	*alloc;
@@ -96,19 +68,21 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
+	is_neg = false;
 	len = 0;
 	if (n < 0)
-	{
 		is_neg = true;
-		n = -n;
-		++len;
-	}
-	else
-		is_neg = false;
-	len = n_len(n);
+	len = ft_digits((long)n);
 	alloc = (char *)ft_calloc(len + 1, sizeof(char));
-	if (alloc == NULL)
+	if (!alloc)
 		return (NULL);
-	fill_buffer(alloc, n, is_neg, len);
+	while (n != 0 && --len)
+	{
+		alloc[len] = \
+		(n % 10) + '0';
+		n /= 10;
+	}
+	if (is_neg)
+		alloc[len] = '-';
 	return (alloc);
 }

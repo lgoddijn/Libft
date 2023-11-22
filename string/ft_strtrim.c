@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:14:57 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/06 14:38:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:00:26 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 
 */
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	start;
 	size_t	end;
@@ -61,14 +61,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
-		++start;
 	end = ft_strlen(s1);
-	while (end > start && ft_strrchr(set, s1[end - 1]))
-		--end;
+	while (s1[start] && ft_strchr(set, s1[start++]))
+		;
+	while (end > start && ft_strchr(set, s1[end-- - 1]))
+		;
 	alloc = (char *)ft_calloc(end - start + 1, sizeof(char));
-	if (!alloc)
-		return (NULL);
 	ft_memcpy(alloc, s1 + start, end - start);
 	return (alloc);
 }

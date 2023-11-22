@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/11/06 18:15:20 by lgoddijn         ###   ########.fr        #
+#    Updated: 2023/11/22 17:24:36 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,27 +17,22 @@ CFLAGS = -Wall -Wextra -Werror
 
 DEPENDENCIES = libft.h
 
-SRCS = string/ft_atoi.c \
-	   memory/ft_bzero.c \
+SRCS = memory/ft_bzero.c \
 	   memory/ft_calloc.c \
+	   memory/ft_memchr.c \
+	   memory/ft_memcmp.c \
+	   memory/ft_memcpy.c \
+	   memory/ft_memmove.c \
+	   memory/ft_memset.c \
+	   memory/ft_realloc.c \
+	   string/ft_atoi.c \
 	   string/ft_isalnum.c \
 	   string/ft_isalpha.c \
 	   string/ft_isascii.c \
 	   string/ft_isdigit.c \
 	   string/ft_isprint.c \
 	   string/ft_itoa.c \
-	   memory/ft_memchr.c \
-	   memory/ft_memcmp.c \
-	   memory/ft_memcpy.c \
-	   memory/ft_memmove.c \
-	   memory/ft_memset.c \
-	   file/ft_putchar_fd.c \
-	   file/ft_putendl_fd.c \
-	   file/ft_putnbr_fd.c \
-	   file/ft_putstr_fd.c \
-	   file/get_next_line/ft_get_next_line_utils.c \
-	   file/get_next_line/ft_get_next_line.c \
-	   string/ft_split.c \
+	   string/ft_strsplit.c \
 	   string/ft_strchr.c \
 	   string/ft_strdup.c \
 	   string/ft_striteri.c \
@@ -53,9 +48,7 @@ SRCS = string/ft_atoi.c \
 	   string/ft_substr.c \
 	   string/ft_tolower.c \
 	   string/ft_toupper.c \
-	   string/ft_strshove.c \
-	   string/ft_strshove_wild.c \
-	   string/ft_strnshove.c \
+	   string/ft_strnjoin.c \
 	   linkedlist/ft_append_lst.c \
 	   linkedlist/ft_clear_lst.c \
 	   linkedlist/ft_del_one_lst.c \
@@ -65,6 +58,23 @@ SRCS = string/ft_atoi.c \
 	   linkedlist/ft_map_lst.c \
 	   linkedlist/ft_prepend_lst.c \
 	   linkedlist/ft_size_lst.c \
+	   dictionary/ft_access_dict.c \
+	   dictionary/ft_append_dict.c \
+	   dictionary/ft_clear_dict.c \
+	   dictionary/ft_del_one_dict.c \
+	   dictionary/ft_init_dict.c \
+	   dictionary/ft_iter_dict.c \
+	   dictionary/ft_last_dict.c \
+	   dictionary/ft_map_dict.c \
+	   dictionary/ft_prepend_dict.c \
+	   dictionary/ft_search_dict.c \
+	   dictionary/ft_size_dict.c \
+	   file/ft_putchar_fd.c \
+	   file/ft_putendl_fd.c \
+	   file/ft_putnbr_fd.c \
+	   file/ft_putstr_fd.c \
+	   file/get_next_line/ft_get_next_line_utils.c \
+	   file/get_next_line/ft_get_next_line.c \
 	   math/ft_abs.c \
 	   math/ft_absd.c \
 	   math/ft_absf.c \
@@ -145,7 +155,14 @@ SRCS = string/ft_atoi.c \
 	   vector/ft_signed_angle_v3.c \
 	   vector/ft_slerp_v3.c \
 	   vector/ft_sqr_magnitude_v3.c \
-	   vector/ft_sub_v3.c
+	   vector/ft_sub_v3.c \
+	   print/ft_print_char.c \
+	   print/ft_print_str.c \
+	   print/ft_print_int.c \
+	   print/ft_print_unsigned.c \
+	   print/ft_print_hex.c \
+	   print/ft_print_ptr.c \
+	   print/ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
