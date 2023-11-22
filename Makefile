@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/11/22 17:24:36 by lgoddijn         ###   ########.fr        #
+#    Updated: 2023/11/22 17:59:11 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,7 @@ SRCS = memory/ft_bzero.c \
 	   math/ft_clampf.c \
 	   math/ft_delta_angled.c \
 	   math/ft_delta_anglef.c \
+	   math/ft_digits.c \
 	   math/ft_expd.c \
 	   math/ft_expf.c \
 	   math/ft_factorial.c \
