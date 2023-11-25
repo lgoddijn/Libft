@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:34:03 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/19 18:00:02 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:58:03 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@
 	NULL.
 
 @synopsis
-	`void	ft_clear_lst(t_list **lst, void (*del)(void*));`
+	`void	ft_clear_lst(t_list **lst, void (*del)(void *));`
 
 @params
 	`t_list **lst` The linked list to add the node to.
-	`void (*del)(void*)` The function that deletes the content of each node.
+	`void (*del)(void *)` The function that deletes the content of each node.
 
 @returns
 	`void` Nothing.
 
 @see
-	`ft_del_one_lst.c : ft_del_one_lst`
+	`ft_pop_lst.c : ft_pop_lst`
 
 @extern
 	`stdlib.h : free(3)`
@@ -53,7 +53,7 @@
 
 */
 
-void	ft_clear_lst(t_list **lst, void (*del)(void*))
+void	ft_clear_lst(t_list **lst, void (*del)(void *))
 {
 	t_list	*next;
 
@@ -62,7 +62,7 @@ void	ft_clear_lst(t_list **lst, void (*del)(void*))
 	while (*lst)
 	{
 		next = (*lst)->next;
-		ft_del_one_lst(*lst, del);
+		ft_pop_lst(*lst, del);
 		*lst = next;
 	}
 }

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_dict.c                                    :+:      :+:    :+:   */
+/*   ft_free_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 17:59:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/25 16:58:13 by lgoddijn         ###   ########.fr       */
+/*   Created: 2023/11/25 16:36:27 by lgoddijn          #+#    #+#             */
+/*   Updated: 2023/11/25 16:44:29 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_clear_dict(t_dict **dict, void (*del)(void *))
+void	ft_free_stack(t_stack *stack, void (*del)(t_stack *))
 {
-	t_dict	*next;
-
-	if (!dict || !del)
-		return ;
-	while (*dict)
+	if (stack && del)
 	{
-		next = (*dict)->next;
-		ft_pop_dict(*dict, del);
-		*dict = next;
+		del(stack->content);
+		free(stack);
 	}
 }

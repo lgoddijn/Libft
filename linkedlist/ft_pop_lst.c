@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:30:21 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/19 17:57:40 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:37:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 
 @def
-	`ft_del_one_lst.c : ft_del_one_lst`
+	`ft_pop_lst.c : ft_pop_lst`
 
 @brief
 	Deletes a node.
@@ -27,11 +27,11 @@
 	’next’ must not be freed.
 
 @synopsis
-	`void	ft_del_one_lst(t_list *lst, void (*del)(void*));`
+	`void	ft_pop_lst(t_list *lst, void (*del)(void *));`
 
 @params
 	`t_list *lst` The node that should be deleted.
-	`void (*del)(void*)` The function that deletes the content of the node.
+	`void (*del)(void *)` The function that deletes the content of the node.
 
 @returns
 	`void` Nothing.
@@ -49,7 +49,7 @@
 
 */
 
-void	ft_del_one_lst(t_list *lst, void (*del)(void*))
+void	ft_pop_lst(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;

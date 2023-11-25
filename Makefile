@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/11/22 17:59:11 by lgoddijn         ###   ########.fr        #
+#    Updated: 2023/11/25 16:58:37 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = memory/ft_bzero.c \
 	   string/ft_strchr.c \
 	   string/ft_strdup.c \
 	   string/ft_striteri.c \
+	   string/ft_strequals.c \
 	   string/ft_strjoin.c \
 	   string/ft_strlcat.c \
 	   string/ft_strlcpy.c \
@@ -51,7 +52,7 @@ SRCS = memory/ft_bzero.c \
 	   string/ft_strnjoin.c \
 	   linkedlist/ft_append_lst.c \
 	   linkedlist/ft_clear_lst.c \
-	   linkedlist/ft_del_one_lst.c \
+	   linkedlist/ft_pop_lst.c \
 	   linkedlist/ft_init_lst.c \
 	   linkedlist/ft_iter_lst.c \
 	   linkedlist/ft_last_lst.c \
@@ -61,7 +62,7 @@ SRCS = memory/ft_bzero.c \
 	   dictionary/ft_access_dict.c \
 	   dictionary/ft_append_dict.c \
 	   dictionary/ft_clear_dict.c \
-	   dictionary/ft_del_one_dict.c \
+	   dictionary/ft_pop_dict.c \
 	   dictionary/ft_init_dict.c \
 	   dictionary/ft_iter_dict.c \
 	   dictionary/ft_last_dict.c \
@@ -69,6 +70,13 @@ SRCS = memory/ft_bzero.c \
 	   dictionary/ft_prepend_dict.c \
 	   dictionary/ft_search_dict.c \
 	   dictionary/ft_size_dict.c \
+	   stack/ft_init_stack.c \
+	   stack/ft_is_empty_stack.c \
+	   stack/ft_is_full_stack.c \
+	   stack/ft_peek_stack.c \
+	   stack/ft_pop_stack.c \
+	   stack/ft_push_stack.c \
+	   stack/ft_free_stack.c \
 	   file/ft_putchar_fd.c \
 	   file/ft_putendl_fd.c \
 	   file/ft_putnbr_fd.c \

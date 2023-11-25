@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/22 17:31:17 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:53:54 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,8 @@ typedef struct s_dict
 typedef struct s_stack
 {
 	int		top;
-	size_t	cap;
+	size_t	max_size;
+	size_t	elem_size;
 	void	*content;
 }	t_stack;
 
@@ -316,6 +317,7 @@ char				*ft_itoa(int n);
 char				**ft_strsplit(const char *s, char c, bool should_free);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s);
+bool				ft_strequals(const char *lhs, const char *rhs);
 void				ft_striteri(char *s, void (*f)(unsigned int, char*));
 char				*ft_strjoin(
 						const char *s1,
@@ -360,7 +362,7 @@ size_t				ft_size_lst(t_list *lst);
 t_list				*ft_last_lst(t_list *lst);
 void				ft_prepend_lst(t_list **lst, t_list *node);
 void				ft_append_lst(t_list **lst, t_list *node);
-void				ft_del_one_lst(t_list *lst, void (*del)(void *));
+void				ft_pop_lst(t_list *lst, void (*del)(void *));
 void				ft_clear_lst(t_list **lst, void (*del)(void *));
 void				ft_iter_lst(t_list *lst, void (*f)(void *));
 t_list				*ft_map_lst(
@@ -378,7 +380,11 @@ t_dict				*ft_last_dict(t_dict *dict);
 t_dict				*ft_search_dict(t_dict *dict, const char *key);
 void				ft_prepend_dict(t_dict **dict, t_dict *entry);
 void				ft_append_dict(t_dict **dict, t_dict *entry);
-void				ft_del_one_dict(t_dict *dict, void (*del)(void *));
+void				ft_pop_dict(t_dict *dict, void (*del)(void *));
+void				ft_rm_entry_dict(
+						t_dict *dict,
+						const char *key,
+						void (*del)(void *));
 void				ft_clear_dict(t_dict **dict, void (*del)(void *));
 void				ft_iter_dict(t_dict *dict, void (*f)(void *));
 t_dict				*ft_map_dict(
@@ -387,6 +393,16 @@ t_dict				*ft_map_dict(
 						void (*del)(void *));
 
 # pragma endregion dictionary
+
+# pragma region stack
+
+t_stack				*ft_init_stack(size_t max_size, size_t elem_size);
+bool				ft_is_empty_stack(t_stack *stack);
+bool				ft_is_full_stack(t_stack *stack);
+bool				ft_peek_stack(t_stack *stack, void *elem);
+bool				ft_pop_stack(t_stack *stack, void *elem);
+bool				ft_push_stack(t_stack *stack, void *elem);
+void				ft_free_stack(t_stack *stack, void (*del)(t_stack *));
 
 # pragma region vector3_functions
 
