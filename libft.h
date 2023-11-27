@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/25 16:53:54 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:59:54 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -400,7 +400,7 @@ t_stack				*ft_init_stack(size_t max_size, size_t elem_size);
 bool				ft_is_empty_stack(t_stack *stack);
 bool				ft_is_full_stack(t_stack *stack);
 bool				ft_peek_stack(t_stack *stack, void *elem);
-bool				ft_pop_stack(t_stack *stack, void *elem);
+bool				ft_pop_stack(t_stack *stack, void *out);
 bool				ft_push_stack(t_stack *stack, void *elem);
 void				ft_free_stack(t_stack *stack, void (*del)(t_stack *));
 
