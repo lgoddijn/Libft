@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/25 17:59:54 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:03:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -402,7 +402,7 @@ bool				ft_is_full_stack(t_stack *stack);
 bool				ft_peek_stack(t_stack *stack, void *elem);
 bool				ft_pop_stack(t_stack *stack, void *out);
 bool				ft_push_stack(t_stack *stack, void *elem);
-void				ft_free_stack(t_stack *stack, void (*del)(t_stack *));
+void				ft_free_stack(t_stack *stack, void (*del)(void *));
 
 # pragma region vector3_functions
 
