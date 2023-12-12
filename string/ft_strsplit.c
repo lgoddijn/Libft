@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:37:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/22 17:24:16 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:50:54 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,34 +66,43 @@
 
 */
 
-static char	*get_next_substr(const char **s, char c, bool should_free)
+static size_t	get_substr_count(const char *s, char c)
 {
-	void	*to_free;
+	size_t	count;
+	bool	in_word;
+
+	count = 0;
+	in_word = false;
+	while (*s)
+	{
+		if (*s != c && !in_word && ++count)
+			in_word = true;
+		if (*s++ == c)
+			in_word = false;
+	}
+	return (count);
+}
+
+static char	*get_next_substr(const char **s, char c)
+{
 	char	*substr;
 	size_t	len;
 
 	len = 0;
-	while (*(*s++) == c)
-		;
-	while ((*s)[len] && (*s)[len++] != c)
-		;
-	substr = ft_substr(*s, 0, len + 1);
+	while (**s == c)
+		++*s;
+	while ((*s)[len] && (*s)[len] != c)
+		++len;
+	substr = ft_substr(*s, 0, len);
 	if (!substr)
 		return (NULL);
-	if (should_free)
-	{
-		to_free = (void *)s;
-		s = ft_realloc((void *)*s + len,
-				ft_strlen(*s + len));
-		free(to_free);
-	}
-	else
-		*s += len;
+	*s += len;
 	return (substr);
 }
 
 char	**ft_strsplit(const char *s, char c, bool should_free)
 {
+	char	*to_free;
 	char	**alloc;
 	size_t	count;
 	size_t	i;
@@ -101,15 +110,12 @@ char	**ft_strsplit(const char *s, char c, bool should_free)
 	i = 0;
 	if (!s)
 		return (NULL);
-	count = 0;
-	while (*s)
-		if (*s++ != c)
-			++count;
-	alloc = (char **)ft_calloc(
-			count + 1, sizeof(char *));
+	to_free = (char *)s;
+	count = get_substr_count(s, c);
+	alloc = (char **)ft_calloc(count + 1, sizeof(char *));
 	while (i < count && alloc)
 	{
-		alloc[i] = get_next_substr(&s, c, should_free);
+		alloc[i] = get_next_substr(&s, c);
 		if (!alloc[i++])
 		{
 			while (i > 0)
@@ -118,5 +124,7 @@ char	**ft_strsplit(const char *s, char c, bool should_free)
 			return (NULL);
 		}
 	}
+	if (should_free && alloc)
+		free((void *)to_free);
 	return (alloc);
 }

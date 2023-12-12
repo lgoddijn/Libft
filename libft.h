@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/27 16:03:58 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:43:02 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@
 # include <pthread.h>
 # include <complex.h>
 # include <math.h>
+# include <fcntl.h>
 
-# pragma region macros
+# pragma region values
 
 // When you can't return NULL or -1
 // This is just an int bool ig
@@ -91,7 +92,7 @@
 # define DEG2RAD				0.01745329251994329576923690768489
 # define RAD2DEG				57.2957795130823208767981548141050
 
-# pragma endregion macros
+# pragma endregion values
 
 # pragma region types
 
@@ -351,7 +352,8 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-char				*get_next_line(int fd);
+int					get_next_line(int fd, char **line);
+char				*ft_read_file(const char *path);
 
 # pragma endregion file
 
@@ -399,7 +401,7 @@ t_dict				*ft_map_dict(
 t_stack				*ft_init_stack(size_t max_size, size_t elem_size);
 bool				ft_is_empty_stack(t_stack *stack);
 bool				ft_is_full_stack(t_stack *stack);
-bool				ft_peek_stack(t_stack *stack, void *elem);
+bool				ft_peek_stack(t_stack *stack, void *out);
 bool				ft_pop_stack(t_stack *stack, void *out);
 bool				ft_push_stack(t_stack *stack, void *elem);
 void				ft_free_stack(t_stack *stack, void (*del)(void *));
@@ -451,6 +453,7 @@ int					ft_print_hex(long long n,
 						const bool is_upper, const bool is_ptr);
 int					ft_print_ptr(const void *ptr_addr);
 int					ft_printf(const char *fmt, ...);
+void				ft_raise(const char *msg, ...);
 
 # pragma endregion print
 

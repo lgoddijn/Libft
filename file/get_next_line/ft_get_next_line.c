@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:00:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/11/22 17:31:56 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:09:35 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,29 +110,31 @@ static bool	is_success(int read_status,
 	return (true);
 }
 
-char	*get_next_line(int fd)
+int	get_next_line(int fd, char **line)
 {
 	static t_file	*cache;
 	t_file			*entry;
-	char			*line;
 	int				read_status;
 	bool			success;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
-		return (NULL);
+		return (-1);
 	entry = search_cache(fd, &cache);
 	if (!entry)
-		return (NULL);
+		return (-1);
 	while (!entry->content || !ft_strchr(entry->content, '\n'))
 	{
 		read_status = ft_read_fd(fd, &entry->content);
-		success = is_success(read_status, &cache, entry, &line);
+		success = is_success(read_status, &cache, entry, line);
 		if (!success)
-			return (line);
+			return (read_status);
 	}
-	line = extract_line(&entry->content,
+	*line = extract_line(&entry->content,
 			ft_strchr(entry->content, '\n'));
-	if (!line || !entry->content || !*entry->content)
+	if (!line || !*line || !entry->content || !*entry->content)
+	{
 		clear_entry(&cache, entry);
-	return (line);
+		return (0);
+	}
+	return (1);
 }

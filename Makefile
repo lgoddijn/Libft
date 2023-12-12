@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/11/25 16:58:37 by lgoddijn         ###   ########.fr        #
+#    Updated: 2023/12/05 15:21:20 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRCS = memory/ft_bzero.c \
 	   file/ft_putstr_fd.c \
 	   file/get_next_line/ft_get_next_line_utils.c \
 	   file/get_next_line/ft_get_next_line.c \
+	   file/ft_read_file.c \
 	   math/ft_abs.c \
 	   math/ft_absd.c \
 	   math/ft_absf.c \
@@ -171,7 +172,8 @@ SRCS = memory/ft_bzero.c \
 	   print/ft_print_unsigned.c \
 	   print/ft_print_hex.c \
 	   print/ft_print_ptr.c \
-	   print/ft_printf.c
+	   print/ft_printf.c \
+	   print/ft_raise.c
 
 OBJS = $(SRCS:.c=.o)
 
