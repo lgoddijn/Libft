@@ -33,7 +33,7 @@ void	*ft_mmap(
 		return (MAP_FAILED);
 	if (__x86_64__)
 	{
-		out = (void *)__syscall(SYS_mmap, NULL,
+		out = (void *)__syscall(__NR_mmap, NULL,
 				__size, __prot, __flags, -1, __offset);
 		if (out == MAP_FAILED || out == NULL)
 			return (MAP_FAILED);
