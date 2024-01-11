@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dictionary.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:28:54 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 14:43:23 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:39:02 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

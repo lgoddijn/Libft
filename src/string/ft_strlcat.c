@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:48:02 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:07 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:37:35 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@
     strings.  This means that for strlcpy() src must be NUL-terminated and
     for strlcat() both src and dst must be NUL-terminated.
 
-	The strlcat() function appends the NULL-terminated string src to the end of dst.
-	It will append at most size - strlen(dst) - 1 bytes, NUL-terminating the result.
+	The strlcat() function appends the NULL-terminated
+	string src to the end of dst. It will append at most
+	size - strlen(dst) - 1 bytes, NUL-terminating the result.
 
 	strlcat() traverses size characters without finding a NUL,
 	the length of the string is considered to be size and the destination

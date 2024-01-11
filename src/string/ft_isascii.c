@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:55:59 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:10:18 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:36:52 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@
 	`c` is required to be an unsigned char OR `EOF`
 	therefore the function has to check if c is less than 0 and not `-1`.
 	An unsigned char is essentially an unsigned integer.
-
-	The "is" functions have a tendency to return numbers such as `1024` and `2048`
-	if the condition is met. However the original design of these functions is to
-	return `0` and `1`, therefore these functions do not account for those returns.
 
 */
 

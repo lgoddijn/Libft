@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_lst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:52:59 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:06:07 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:35:57 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 @params
 	`t_list *lst` The starting node of the linked list.
 	`void *(*f)(void *)` The function to apply to the content of each node.
-	`void (*del)(void *)` The function to delete the content of the old linked list.
+	`void (*del)(void *)` The function to delete the content of the old list.
 
 @returns
 	`t_list *` A pointer to the first node in the new linked list.
