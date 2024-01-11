@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:00:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:04:52 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:37:28 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_read_fd(int fd, char **content)
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (-1);
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	bytes_read = ft_read(fd, buffer, BUFFER_SIZE);
 	while (bytes_read > 0)
 	{
 		buffer[bytes_read] = '\0';
@@ -31,7 +31,7 @@ static int	ft_read_fd(int fd, char **content)
 			free(buffer);
 			return (update_result);
 		}
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		bytes_read = ft_read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
 	if (bytes_read <= 0)
