@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 17:38:38 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/01/01 14:56:50 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/01/11 17:24:46 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 
 SRC		= ft_mmap.c		\
 		  ft_calloc.c	\
-		  ft_realloc.c
+		  ft_realloc.c	\
+		  ft_free2d.c
 
 OBJ		= $(SRC:.c=.o)
 
