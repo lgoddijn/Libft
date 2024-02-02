@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:07:03 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/01/01 21:06:55 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/02/02 16:28:05 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,9 @@ SRC		= ft_write.c		\
 		  ft_pipe.c			\
 		  ft_rmdir.c		\
 		  ft_symlink.c		\
-		  ft_sync.c
+		  ft_sync.c			\
+		  ft_waitpid.c		\
+		  ft_wait.c
 
 OBJ		= $(SRC:.c=.o)
 

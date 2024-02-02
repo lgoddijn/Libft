@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 15:40:07 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:27:49 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ ssize_t		ft_write(int __fd, const void *__buf, size_t __size);
 int			ft_open(const char *__path, int __flag, ...);
 ssize_t		ft_read(int __fd, const void *__buf, size_t __size);
 int			ft_close(int __fd);
+pid_t		ft_waitpid(pid_t __pid, int *__status, int __options);
+pid_t		ft_wait(int *__status);
 
 #endif
