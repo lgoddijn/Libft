@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/02/02 16:27:49 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:39:55 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ int			ft_chown(const char *__path, uid_t __uid, gid_t __gid);
 int			ft_chdir(const char *__path);
 int			ft_dup(int __fd);
 int			ft_dup2(int __old, int __new);
+int			ft_execve(
+				const char *__path,
+				char *const __argv[],
+				char *const __envp[]);
 void		ft_exit(int __status);
 int			ft_fchdir(int __fd);
 int			ft_fchown(int __fd, uid_t __uid, gid_t __gid);
