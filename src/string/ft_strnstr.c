@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:48:43 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:41 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:02:15 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	const size_t	little_len = ft_strlen(little);
 	size_t			i;
 
-	i = 0;
+	i = SIZE_MAX;
 	if (!big || !little || !*little)
 		return (NULL);
-	while (i < len && big[i])
-		if (big[i] == *little && i++ + little_len <= len)
-			if (ft_strncmp(big + --i, little, little_len) == 0)
+	while (++i < len && big[i])
+		if (big[i] == *little && i + little_len <= len)
+			if (ft_strncmp(big + i, little, little_len) == 0)
 				return ((char *)(big + i));
 	return (NULL);
 }
