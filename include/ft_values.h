@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:03:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 15:39:45 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/03 13:23:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,10 @@
 
 typedef unsigned int		t_bitmask32;
 typedef unsigned long long	t_bitmask64;
+
+typedef unsigned long		t_ulong;
+typedef unsigned long long	t_ullong;
+typedef unsigned int		t_uint;
+typedef unsigned int		t_ushort;
 
 #endif
