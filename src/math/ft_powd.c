@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_powd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 22:02:57 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:28:36 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:17:20 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-double	ft_powd(double base, int exp)
+double	ft_powd(double base, int32_t exp)
 {
 	double	result;
 

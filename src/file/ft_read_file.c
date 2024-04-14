@@ -6,32 +6,32 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:40:58 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 16:37:10 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:16:15 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_file.h"
 
-static void	handle_line(char **line, char **buffer, size_t *buffer_size, int fd)
+static void	handle_line(char **line, char **buf, size_t *buf_size, int32_t fd)
 {
 	size_t	line_size;
 
 	line_size = ft_strlen(*line);
-	*buffer = (char *)ft_realloc(*buffer, *buffer_size + line_size + 1);
-	if (!buffer)
+	*buf = (char *)ft_realloc(*buf, *buf_size + line_size + 1);
+	if (!buf)
 	{
 		free(*line);
 		ft_close(fd);
 		ft_raise("Allocation Failure.");
 	}
-	ft_memcpy(*buffer + *buffer_size, *line, line_size);
-	*buffer_size += line_size;
-	(*buffer)[*buffer_size] = '\0';
+	ft_memcpy(*buf + *buf_size, *line, line_size);
+	*buf_size += line_size;
+	(*buf)[*buf_size] = '\0';
 }
 
-static void	read_lines(int fd, char **buffer)
+static void	read_lines(int32_t fd, char **buffer)
 {
-	int			read_status;
+	int32_t		read_status;
 	size_t		buffer_size;
 	char		*line;
 
@@ -57,8 +57,8 @@ static void	read_lines(int fd, char **buffer)
 
 char	*ft_read_file(const char *path)
 {
-	const int	fd = ft_open(path, O_RDONLY);
-	char		*buffer;
+	const int32_t	fd = ft_open(path, O_RDONLY);
+	char			*buffer;
 
 	if (fd == -1)
 		ft_raise("Unable to open file: %s", path);

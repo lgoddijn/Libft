@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_logf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:30:12 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:26:58 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:07:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 float	ft_logf(float x)
 {
-	int			n;
-	float		result;
-	float		term;
-	const int	max_iter = 10;
+	const int32_t	max_iter = 10;
+	float			result;
+	float			term;
+	int32_t			n;
 
 	if (x <= 0)
 		return (-1.0f / 0.0f);

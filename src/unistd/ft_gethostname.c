@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gethostname.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 17:12:23 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 20:36:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:38:45 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_unistd.h"
 
-int	ft_gethostname(char *__name, size_t __len)
+int32_t	ft_gethostname(char *__name, size_t __len)
 {
 	size_t			i;
 	struct utsname	uts;

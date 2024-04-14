@@ -15,13 +15,13 @@
 static t_bitmask64	get_offset_mask(void)
 {
 	return (0xfffULL | (~((1ULL << (64 - (12 + 8 \
-		* (sizeof(off_t) - sizeof(long))))) - 1)));
+		* (sizeof(off_t) - sizeof(int64_t))))) - 1)));
 }
 
 void	*ft_mmap(
 	size_t __size,
-	int __prot,
-	int __flags,
+	int32_t __prot,
+	int32_t __flags,
 	off_t __offset
 	)
 {
@@ -37,7 +37,7 @@ void	*ft_mmap(
 				__size, __prot, __flags, -1, __offset);
 		if (out == MAP_FAILED || out == NULL)
 			return (MAP_FAILED);
-		if ((unsigned long)out >= (unsigned long) - 1 - 4096)
+		if ((uint64_t)out >= (uint64_t) - 1 - 4096)
 			return (MAP_FAILED);
 		return (out);
 	}

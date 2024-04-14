@@ -6,17 +6,17 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:00:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 16:37:28 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:14:37 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_file.h"
 
-static int	ft_read_fd(int fd, char **content)
+static int32_t	ft_read_fd(int32_t fd, char **content)
 {
 	char	*buffer;
 	ssize_t	bytes_read;
-	int		update_result;
+	int32_t	update_result;
 
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buffer)
@@ -110,11 +110,11 @@ static bool	is_success(int read_status,
 	return (true);
 }
 
-int	get_next_line(int fd, char **line)
+int	get_next_line(int32_t fd, char **line)
 {
 	static t_file	*cache;
 	t_file			*entry;
-	int				read_status;
+	int32_t			read_status;
 	bool			success;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)

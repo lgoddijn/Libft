@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:47:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:32 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:32:34 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@
 	before evaluating the difference and returning it.
 */
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int32_t	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if ((!s1 && !s2) || !n)
 		return (0);
 	if (s1 && !s2)
-		return ((int)*s1);
+		return ((int32_t)(*s1));
 	if (!s1 && s2)
-		return (-(int)*s2);
+		return (-(int32_t)(*s2));
 	while (*s1 == *s2++ && --n > 0)
 		if (!*s1++)
 			return (0);

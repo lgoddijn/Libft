@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:06:24 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:27:06 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:21:21 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-int	ft_max(int a, int b)
+int32_t	ft_max(int32_t a, int32_t b)
 {
 	if (a > b)
 		return (a);

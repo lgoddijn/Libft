@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_powf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:07:08 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:28:43 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:17:23 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-float	ft_powf(float base, int exp)
+float	ft_powf(float base, int32_t exp)
 {
 	float	result;
 

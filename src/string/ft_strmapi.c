@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:28:58 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:25 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:32:16 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 
 */
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(uint32_t, char))
 {
 	const size_t	s_len = ft_strlen(s);
 	char			*start;
@@ -73,7 +73,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	start = alloc;
 	while (*s)
 	{
-		*alloc = f((unsigned int) \
+		*alloc = f((uint32_t) \
 		(alloc - start), *s++);
 		++alloc;
 	}

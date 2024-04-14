@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:56:18 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 15:37:01 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:29:27 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 
 */
 
-int	ft_isprint(int c)
+int32_t	ft_isprint(int32_t c)
 {
 	if (c < 0 && c != EOF)
 		return (c);

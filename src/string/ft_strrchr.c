@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:49:56 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:45 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:33:03 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 
 */
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int32_t c)
 {
 	unsigned char	*ptr;
 	unsigned char	target;

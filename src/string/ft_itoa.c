@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:10:30 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:12:03 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 
 */
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int32_t n)
 {
 	char	*alloc;
 	size_t	len;
@@ -72,7 +72,7 @@ char	*ft_itoa(int n)
 	len = 0;
 	if (n < 0)
 		is_neg = true;
-	len = ft_digits((long)n);
+	len = ft_digits((int64_t)n);
 	alloc = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!alloc)
 		return (NULL);

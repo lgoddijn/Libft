@@ -3,24 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 14:00:49 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/01/01 22:08:09 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/04/14 19:01:40 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= internal.a
-SRC		= ft_syscall.s
-OBJ		= $(SRC:.s=.o)
+SRC		= ft_syscall.c
+OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $@ $(OBJ)
 
-.s.o:
-	as $< -o $@
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ) $(NAME)

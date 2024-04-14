@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:30:21 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:01:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:10:41 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_print.h"
 
-static char	*ft_handle_cases(long long *n, int *c,
+static char	*ft_handle_cases(int64_t *n, int32_t *c,
 			const bool is_upper, const bool is_ptr)
 {
 	char	*digits;
@@ -36,12 +36,12 @@ static char	*ft_handle_cases(long long *n, int *c,
 	return (digits);
 }
 
-int	ft_print_hex(long long n, const bool is_upper, const bool is_ptr)
+int32_t	ft_print_hex(int64_t n, const bool is_upper, const bool is_ptr)
 {
-	char				*digits;
-	unsigned long long	t;
-	int					i;
-	int					c;
+	char		*digits;
+	uint64_t	t;
+	int32_t		i;
+	int32_t		c;
 
 	c = 0;
 	i = 0;

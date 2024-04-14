@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:53:55 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:12:18 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:33:48 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 
 */
 
-int	ft_tolower(int c)
+int32_t	ft_tolower(int32_t c)
 {
 	if (c < 0 && c != EOF)
 		return (c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:10:02 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:28:24 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@
 
 */
 
-int	ft_atoi(const char *nptr)
+int32_t	ft_atoi(const char *nptr)
 {
-	int				i;
-	int				sign;
-	unsigned long	result;
+	int32_t		i;
+	int32_t		sign;
+	uint64_t	result;
 
 	i = 0;
 	sign = 1;
@@ -70,5 +70,5 @@ int	ft_atoi(const char *nptr)
 			sign *= -1;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		result = (result * 10) + (nptr[i++] - '0');
-	return ((int)(result * sign));
+	return ((int32_t)(result * sign));
 }

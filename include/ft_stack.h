@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:29:35 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 15:40:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:18:41 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_stack
 {
-	int		top;
+	int32_t	top;
 	size_t	max_size;
 	size_t	elem_size;
 	void	*content;

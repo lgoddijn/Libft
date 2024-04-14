@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_internal.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:50:29 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 14:26:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:46:14 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 
 # include <sys/syscall.h>
 # include <sys/sysinfo.h>
+# include <stdint.h>
+# include <stdarg.h>
 
-long	__syscall(long __flag, ...);
+int64_t	__syscall(int64_t __flag, ...);
 
 #endif

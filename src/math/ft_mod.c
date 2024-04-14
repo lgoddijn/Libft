@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mod.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:52:56 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:27:32 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:21:32 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-int	ft_mod(int x, int y)
+int32_t	ft_mod(int32_t x, int32_t y)
 {
-	return ((x) - ((int)((x) / (y))) * (y));
+	return ((x) - ((int32_t)((x) / (y))) * (y));
 }

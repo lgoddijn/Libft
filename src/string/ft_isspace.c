@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 14:25:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:41:24 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/04/14 17:54:24 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/04/14 18:29:33 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_unistd.h"
+#include "../../include/ft_string.h"
 
-ssize_t	ft_read(int32_t __fd, const void *__buf, size_t __size)
+int32_t	ft_isspace(int32_t c)
 {
-	if (!__x86_64__)
-		return ((ssize_t)ARCH_FAIL);
-	return ((ssize_t)__syscall(
-			__NR_read, __fd,
-			__buf, __size));
+	if (c < 0 && c != EOF)
+		return (c);
+	return ((c >= 9 && c <= 13) || c == ' ');
 }

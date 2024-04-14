@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:08:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 20:39:32 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:36:43 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_unistd.h"
 
-int	ft_dup(int __fd)
+int32_t	ft_dup(int32_t __fd)
 {
 	if (!__x86_64__)
 		return (ARCH_FAIL);
-	return ((int)__syscall(__NR_dup, __fd));
+	return ((int32_t)__syscall(__NR_dup, __fd));
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:05:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:27:21 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:21:26 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-int	ft_min(int a, int b)
+int32_t	ft_min(int32_t a, int32_t b)
 {
 	if (a < b)
 		return (a);

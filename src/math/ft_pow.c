@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:13:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:28:29 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:21:49 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-int	ft_pow(int base, int exp)
+int32_t	ft_pow(int32_t base, int32_t exp)
 {
-	int	result;
+	int32_t	result;
 
 	if (exp == 0)
 		return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getcwd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:49:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 20:36:05 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:13:10 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_getcwd(char *__buf, size_t __size)
 		return ((char *)ARCH_FAIL);
 	success = __syscall(
 			__NR_getcwd,
-			(long)__buf,
+			(int64_t)__buf,
 			__size) > 0;
 	if (success)
 		return (NULL);

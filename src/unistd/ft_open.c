@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_open.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:29:01 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 14:13:12 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:40:33 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_unistd.h"
 
-int	ft_open(const char *__path, int __flag, ...)
+int32_t	ft_open(const char *__path, int32_t __flag, ...)
 {
 	mode_t	mode;
 	va_list	args;
@@ -22,7 +22,7 @@ int	ft_open(const char *__path, int __flag, ...)
 	va_start(args, __flag);
 	mode = va_arg(args, mode_t);
 	va_end(args);
-	return ((int)__syscall(
+	return ((int32_t)__syscall(
 			__NR_open, __path,
 			__flag, mode));
 }

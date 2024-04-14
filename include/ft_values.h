@@ -6,13 +6,15 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:03:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/03 13:23:51 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:24:39 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_VALUES_H
 
 # define FT_VALUES_H
+
+# include <stdint.h>
 
 // When you can't return NULL or -1
 // This is just an int bool ig
@@ -54,12 +56,7 @@
 
 # define ARCH_FAIL				-1
 
-typedef unsigned int		t_bitmask32;
-typedef unsigned long long	t_bitmask64;
-
-typedef unsigned long		t_ulong;
-typedef unsigned long long	t_ullong;
-typedef unsigned int		t_uint;
-typedef unsigned int		t_ushort;
+typedef uint32_t	t_bitmask32;
+typedef uint64_t	t_bitmask64;
 
 #endif

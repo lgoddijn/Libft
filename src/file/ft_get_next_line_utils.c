@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:02:19 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:04:39 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:13:47 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_file.h"
 
-t_file	*__search_cache(int fd, t_file **cache)
+t_file	*__search_cache(int32_t fd, t_file **cache)
 {
 	t_file	*entry;
 	t_file	*tmp;
@@ -34,7 +34,7 @@ t_file	*__search_cache(int fd, t_file **cache)
 	return (entry);
 }
 
-int	__update_content_buffer(char **content, char *buffer)
+int32_t	__update_content_buffer(char **content, char *buffer)
 {
 	char	*tmp;
 

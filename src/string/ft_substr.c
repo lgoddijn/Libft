@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:46:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:12:14 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:33:36 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@
 
 */
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, uint32_t start, size_t len)
 {
 	const size_t	s_len = ft_strlen(s);
 	char			*alloc;

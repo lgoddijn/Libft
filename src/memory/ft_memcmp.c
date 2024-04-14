@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:52:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:07:00 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:22:34 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 
 */
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int32_t	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;

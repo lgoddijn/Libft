@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_clamp_0_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:17:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:25:14 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:19:44 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-int	ft_clamp_0_1(int value)
+int32_t	ft_clamp_0_1(int32_t value)
 {
 	if (value < 0)
 		return (0);

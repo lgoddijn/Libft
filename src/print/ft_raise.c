@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raise.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:44:47 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 15:07:51 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:26:33 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static void	flag_parse(const char flag, va_list args)
 {
 	if (flag == 'c')
-		ft_print_char(va_arg(args, int));
+		ft_print_char(va_arg(args, int32_t));
 	if (flag == 's')
 		ft_print_str(va_arg(args, char *));
 	if (flag == 'p')
 		ft_print_ptr(va_arg(args, void *));
 	if (flag == 'd' || flag == 'i')
-		ft_print_int(va_arg(args, int));
+		ft_print_int(va_arg(args, int32_t));
 	if (flag == 'u')
-		ft_print_uint((int)va_arg(args, unsigned int));
+		ft_print_uint((int32_t)va_arg(args, uint32_t));
 	if (flag == 'X')
-		ft_print_hex(va_arg(args, unsigned int), true, false);
+		ft_print_hex(va_arg(args, uint32_t), true, false);
 	if (flag == 'x')
-		ft_print_hex(va_arg(args, unsigned int), false, false);
+		ft_print_hex(va_arg(args, uint32_t), false, false);
 	if (flag == '%')
 		ft_print_char('%');
 }

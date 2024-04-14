@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_full_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:19:36 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:09:00 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:27:02 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 bool	ft_is_full_stack(t_stack *stack)
 {
 	if (stack)
-		return (stack->top == (int)stack->max_size - 1);
+		return (stack->top == (int32_t)stack->max_size - 1);
 	return (false);
 }

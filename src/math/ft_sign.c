@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sign.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 21:25:23 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:29:01 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:21:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_math.h"
 
-int	ft_sign(int n)
+int32_t	ft_sign(int32_t n)
 {
 	if (n >= 0)
 		return (1);

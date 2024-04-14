@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:51:26 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:07:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:22:50 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 
 */
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int32_t c, size_t n)
 {
 	unsigned char	*ptr;
 	unsigned char	val;
