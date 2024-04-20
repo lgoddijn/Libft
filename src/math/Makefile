@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 18:29:47 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/12/31 18:43:54 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/04/20 17:30:00 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC		= ft_abs.c					\
 		  ft_gammaf.c				\
 		  ft_gaussian_kerneld.c 	\
 		  ft_gaussian_kernelf.c		\
+		  ft_isneg.c				\
 		  ft_lerpd_angle.c			\
 		  ft_lerpd_unclamped.c		\
 		  ft_lerpd.c				\

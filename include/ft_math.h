@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:33:51 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 19:23:19 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/20 17:32:22 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ double		ft_gammad(double value, double absmax, double gamma);
 float		ft_gammaf(float value, float absmax, float gamma);
 double		ft_gaussian_kerneld(double d, double sigma);
 float		ft_gaussian_kernelf(float d, float sigma);
+bool		ft_isneg(int64_t n);
 double		ft_lerpd_angle(double current, double target, double t);
 double		ft_lerpd_unclamped(double a, double b, double t);
 double		ft_lerpd(double a, double b, double t);
