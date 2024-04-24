@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:49:34 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/20 17:31:38 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:49:00 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ static int32_t	skip_space_sign(const char *s, int32_t *is_neg)
 	return (i);
 }
 
-uint32_t	ft_atox(const char *s)
+int32_t	ft_atox(const char *s)
 {
-	uint32_t	result;
-	int32_t		is_neg;
-	int32_t		i;
+	int32_t	result;
+	int32_t	is_neg;
+	int32_t	i;
 
 	result = 0;
 	i = skip_space_sign(s, &is_neg) - 1;
-	if (!s[i + 1] || !ft_isdigit(s[i + 1]))
-		return ((uint32_t)K0_C_LMA0);
+	if (!s[i + 1] || (!ft_isalnum(s[i + 1])))
+		return ((int32_t)K0_C_LMA0);
 	while (s[++i] != '\0')
 	{
 		if (*s >= '0' && *s <= '9')
@@ -45,5 +45,5 @@ uint32_t	ft_atox(const char *s)
 		if (*s >= 'A' && *s <= 'F')
 			result = result * 16 + (*s - 'A' + 10);
 	}
-	return (result);
+	return (result * is_neg);
 }
