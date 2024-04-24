@@ -6,11 +6,12 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:49:34 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/24 19:49:00 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:27:55 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_string.h"
+
 
 static int32_t	skip_space_sign(const char *s, int32_t *is_neg)
 {
@@ -33,17 +34,18 @@ int32_t	ft_atox(const char *s)
 	int32_t	i;
 
 	result = 0;
+	is_neg = 1;
 	i = skip_space_sign(s, &is_neg) - 1;
 	if (!s[i + 1] || (!ft_isalnum(s[i + 1])))
 		return ((int32_t)K0_C_LMA0);
 	while (s[++i] != '\0')
 	{
-		if (*s >= '0' && *s <= '9')
-			result = result * 16 + (*s - '0');
-		if (*s >= 'a' && *s <= 'f')
-			result = result * 16 + (*s - 'a' + 10);
-		if (*s >= 'A' && *s <= 'F')
-			result = result * 16 + (*s - 'A' + 10);
+		if (s[i] >= '0' && s[i] <= '9')
+			result = result * 16 + (s[i] - '0');
+		else if (s[i] >= 'a' && s[i] <= 'f')
+			result = result * 16 + (s[i] - 'a' + 10);
+		else if (s[i] >= 'A' && s[i] <= 'F')
+			result = result * 16 + (s[i] - 'A' + 10);
 	}
 	return (result * is_neg);
 }
