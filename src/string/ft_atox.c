@@ -6,12 +6,11 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:49:34 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/24 22:27:55 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:24:57 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_string.h"
-
 
 static int32_t	skip_space_sign(const char *s, int32_t *is_neg)
 {

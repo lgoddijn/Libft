@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 18:18:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 19:25:05 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:24:08 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ static void	__get_args(
 	va_list __arg_list,
 	uint64_t __args[6])
 {
-	int	i;
+	int32_t	i;
 
-	i = 0;
-	while (i < 6)
+	i = -1;
+	while (++i < 6)
 		__args[i] = va_arg(
 				__arg_list,
 				uint64_t);
@@ -82,4 +82,3 @@ int64_t	__syscall(int64_t __flag, ...)
 		);
 	return (result);
 }
-
