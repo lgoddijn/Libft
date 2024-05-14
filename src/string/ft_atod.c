@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:47:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/25 16:33:26 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:19:47 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int32_t	skip_space_sign(const char *s, int32_t *is_neg)
 {
-	int32_t i;
+	int32_t	i;
 
 	i = 0;
-	while (ft_isspace((unsigned char)s[i]))
+	while (ft_isspace((int32_t)s[i]))
 		++i;
 	if (s[i] == '-' || s[i] == '+')
 	{
@@ -35,7 +35,7 @@ double	ft_atod(const char *s)
 	int32_t	is_neg;
 	double	div;
 
-	if (!s)
+	if (!s || !*s)
 		return ((double)K0_C_LMA0);
 	is_neg = 1;
 	div = 0.1;

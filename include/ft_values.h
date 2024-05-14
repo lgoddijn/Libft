@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:03:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 19:24:39 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:53:36 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 
 # define ARCH_FAIL				-1
 
-typedef uint32_t	t_bitmask32;
-typedef uint64_t	t_bitmask64;
+typedef uint32_t				t_bitmask32;
+typedef uint64_t				t_bitmask64;
 
 #endif

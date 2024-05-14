@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:49:34 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/25 15:24:57 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:21:05 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int32_t	skip_space_sign(const char *s, int32_t *is_neg)
 	int32_t	i;
 
 	i = 0;
-	while (ft_isspace(s[i++]))
+	while (ft_isspace((int32_t)s[i++]))
 		;
 	if (s[i] == '0' && (s[i + 1] && (s[i + 1] == 'x' || s[i] == 'X')))
 		i += 2;
@@ -34,6 +34,8 @@ int32_t	ft_atox(const char *s)
 
 	result = 0;
 	is_neg = 1;
+	if (!s || !*s)
+		return ((int32_t)K0_C_LMA0);
 	i = skip_space_sign(s, &is_neg) - 1;
 	if (!s[i + 1] || (!ft_isalnum(s[i + 1])))
 		return ((int32_t)K0_C_LMA0);

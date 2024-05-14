@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:10:45 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/04/14 18:12:07 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/05/14 13:21:48 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,14 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 SRC		= ft_atod.c			\
 		  ft_atof.c			\
 		  ft_atoi.c			\
+		  ft_atol.c			\
 		  ft_atox.c			\
 		  ft_isalnum.c		\
 		  ft_isalpha.c		\
 		  ft_isascii.c		\
 		  ft_isdigit.c		\
+		  ft_isfloat.c		\
+		  ft_isint.c		\
 		  ft_isprint.c		\
 		  ft_isspace.c		\
 		  ft_itoa.c			\

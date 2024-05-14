@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:28:24 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:17:48 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@
 
 @man
     The  atoi() function converts the initial portion of the string pointed
-    to by nptr to int.  The behavior is the same as
+    to by s to int.  The behavior is the same as
 
-        strtol(nptr, NULL, 10);
+        strtol(s, NULL, 10);
 
     Except that atoi() does not detect errors.
 
 @synopsis
-	`int	ft_atoi(const char *nptr);`
+	`int	ft_atoi(const char *s);`
 
 @params
-	`const char *nptr` The string buffer to convert.
+	`const char *s` The string buffer to convert.
 
 @returns
 	`int` The integer representation of the string buffer.
@@ -49,7 +49,7 @@
 
 */
 
-int32_t	ft_atoi(const char *nptr)
+int32_t	ft_atoi(const char *s)
 {
 	int32_t		i;
 	int32_t		sign;
@@ -58,17 +58,15 @@ int32_t	ft_atoi(const char *nptr)
 	i = 0;
 	sign = 1;
 	result = 0;
-	if (!nptr)
-		return (K0_C_LMA0);
-	while (nptr[i] == ' '
-		|| (nptr[i] >= '\t'
-			&& nptr[i] <= '\r'))
+	if (!s || !ft_isint(s))
+		return ((int32_t)K0_C_LMA0);
+	while (ft_isspace((int32_t)s[i]))
 		++i;
-	while (nptr[i] == '-'
-		|| nptr[i] == '+')
-		if (nptr[i++] == '-')
+	while (s[i] == '-'
+		|| s[i] == '+')
+		if (s[i++] == '-')
 			sign *= -1;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		result = (result * 10) + (nptr[i++] - '0');
+	while (*s)
+		result = (result * 10) + (s[i++] - '0');
 	return ((int32_t)(result * sign));
 }
