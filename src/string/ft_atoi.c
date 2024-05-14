@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 13:17:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:12:06 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int32_t	ft_atoi(const char *s)
 		|| s[i] == '+')
 		if (s[i++] == '-')
 			sign *= -1;
-	while (*s)
+	while (s[i])
 		result = (result * 10) + (s[i++] - '0');
 	return ((int32_t)(result * sign));
 }
