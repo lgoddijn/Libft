@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:56:50 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 13:22:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:03:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,29 @@
 
 */
 
-bool	ft_isfloat(const char *s)
+int32_t	ft_isfloat(const char *s)
 {
-	bool	has_digit;
-	bool	has_dot;
+	int32_t	has_digit;
+	int32_t	has_dot;
 
-	has_digit = false;
-	has_dot = false;
+	has_digit = 0;
+	has_dot = 0;
 	if (!s || !*s)
-		return (false);
+		return (0);
 	while (*s == '-' || *s == '+')
 		++s;
 	if (!*s)
-		return (false);
+		return (0);
 	while (*s)
 	{
 		if (*s == '.' && has_dot)
-			return (false);
+			return (0);
 		else if (*s == '.' && !has_dot)
-			has_dot = true;
+			has_dot = 1;
 		else if (!ft_isdigit(*s))
-			return (false);
+			return (0);
 		else
-			has_digit = true;
+			has_digit = 1;
 		++s;
 	}
 	return (has_digit);

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 13:16:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:04:38 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ int32_t	ft_isalpha(int32_t c);
 int32_t	ft_isascii(int32_t c);
 int32_t	ft_isdigit(int32_t c);
 int32_t	ft_isprint(int32_t c);
+int32_t	ft_issign(int32_t c);
 int32_t	ft_isspace(int32_t c);
-bool	ft_isint(const char *s);
-bool	ft_isfloat(const char *s);
+int32_t	ft_isint(const char *s);
+int32_t	ft_isfloat(const char *s);
 
 #endif

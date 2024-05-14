@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isint.c                                         :+:      :+:    :+:   */
+/*   ft_issign.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 12:44:23 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 14:01:26 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/05/14 13:53:21 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/05/14 14:04:27 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_string.h"
 
-int32_t	ft_isint(const char *s)
+int32_t	ft_issign(int32_t c)
 {
-	if (!s || !*s)
-		return (0);
-	while (*s == '-'
-		|| *s == '+')
-		++s;
-	if (!*s)
-		return (0);
-	while (*s)
-		if (!ft_isdigit(*s++))
-			return (0);
-	return (1);
+	if (c < 0 && c != EOF)
+		return (c);
+	return (c == '+' || c == '-');
 }
