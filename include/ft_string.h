@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 14:04:38 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:45:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,16 @@ char	*ft_strrchr(const char *s, int32_t c);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, uint32_t start, size_t len);
 char	*ft_strnjoin(char **strings, size_t n, bool should_free);
+char	*ft_strchrnul(const char *s, int32_t c);
+size_t	ft_strspn(const char *s, const char *set);
+size_t	ft_strcspn(const char *s, const char *set);
+char	*ft_strpbrk(const char *s, const char *b);
+char	*ft_strtok(char *restrict s, const char *restrict sep);
+char	*ft_strtok_r(
+			char *restrict s,
+			const char *restrict sep,
+			char **restrict p
+			);
 int32_t	ft_toupper(int32_t c);
 int32_t	ft_tolower(int32_t c);
 int32_t	ft_isalnum(int32_t c);
