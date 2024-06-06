@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:00:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:14:37 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:41:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*extract_line(char **content, char *nl_pos)
 
 	if (!nl_pos)
 	{
-		line = ft_strjoin(*content, NULL, false);
+		line = ft_strjoin(*content, NULL);
 		if (!line)
 			return (NULL);
 		free(*content);
@@ -61,7 +61,7 @@ static char	*extract_line(char **content, char *nl_pos)
 	ft_memcpy(line, *content, nl_pos - *content + 1);
 	line[nl_pos - *content + 1] = '\0';
 	if (*(nl_pos + 1) != '\0')
-		*content = ft_strjoin(nl_pos + 1, NULL, false);
+		*content = ft_strjoin(nl_pos + 1, NULL);
 	else
 		*content = NULL;
 	free((void *)to_free);
@@ -103,7 +103,7 @@ static bool	is_success(int read_status,
 			|| !*entry->content)
 			*line = NULL;
 		else if (read_status == 0)
-			*line = ft_strjoin(entry->content, NULL, false);
+			*line = ft_strjoin(entry->content, NULL);
 		clear_entry(cache, entry);
 		return (false);
 	}

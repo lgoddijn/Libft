@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:02:19 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:13:47 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:41:27 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int32_t	__update_content_buffer(char **content, char *buffer)
 {
 	char	*tmp;
 
-	tmp = ft_strjoin(*content, buffer, false);
+	tmp = ft_strjoin(*content, buffer);
 	if (!tmp)
 	{
 		if (*content)

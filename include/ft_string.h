@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/04 17:45:51 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:40:26 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int32_t	ft_atoi(const char *s);
 int64_t	ft_atol(const char *s);
 int32_t	ft_atox(const char *s);
 char	*ft_itoa(int32_t n);
-char	**ft_strsplit(const char *s, char c, bool should_free);
+char	**ft_strsplit(const char *__restrict__ s, const char set);
 char	*ft_strchr(const char *s, int32_t c);
 char	*ft_strdup(const char *s);
 bool	ft_strequals(const char *lhs, const char *rhs);
 void	ft_striteri(char *s, void (*f)(uint32_t, char*));
-char	*ft_strjoin(const char *s1, const char *s2, bool should_free);
+char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strmapi(const char *s, char (*f)(uint32_t, char));
@@ -44,16 +44,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int32_t c);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, uint32_t start, size_t len);
-char	*ft_strnjoin(char **strings, size_t n, bool should_free);
+char	*ft_strnjoin(char **strings, size_t n);
 char	*ft_strchrnul(const char *s, int32_t c);
 size_t	ft_strspn(const char *s, const char *set);
 size_t	ft_strcspn(const char *s, const char *set);
 char	*ft_strpbrk(const char *s, const char *b);
-char	*ft_strtok(char *restrict s, const char *restrict sep);
+char	*ft_strtok(char *__restrict__ s, const char *__restrict__ sep);
 char	*ft_strtok_r(
-			char *restrict s,
-			const char *restrict sep,
-			char **restrict p
+			char *__restrict__ s,
+			const char *__restrict__ sep,
+			char **__restrict__ p
 			);
 int32_t	ft_toupper(int32_t c);
 int32_t	ft_tolower(int32_t c);

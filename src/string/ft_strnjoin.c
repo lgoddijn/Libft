@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:59:40 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:37 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:39:40 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@
 
 */
 
-char	*ft_strnjoin(char **strings, size_t n, bool should_free)
+char	*ft_strnjoin(char **strings, size_t n)
 {
 	const char	**strs = \
 	(const char **)strings;
@@ -77,11 +77,7 @@ char	*ft_strnjoin(char **strings, size_t n, bool should_free)
 		len = ft_strlen(*strings);
 		ft_memcpy(alloc, *strings, len);
 		alloc += len;
-		if (should_free)
-			free(*strings);
 		++*strings;
 	}
-	if (should_free)
-		free(strings);
 	return (alloc);
 }

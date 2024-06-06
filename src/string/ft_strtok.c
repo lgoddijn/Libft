@@ -6,28 +6,34 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:17:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/04 17:19:41 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:30:23 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_string.h"
 
-char	*ft_strtok(char *restrict s, const char *restrict sep)
+char	*ft_strtok(
+	char *__restrict__ s,
+	const char *__restrict__ sep
+)
 {
 	static char	*p;
 
-	if (!s)
+	if (s)
+		p = s;
+	else if (!p)
 		return (NULL);
-	s += ft_strspn(s, sep);
-	if (!*s)
+	p += ft_strspn(p, sep);
+	if (!*p)
 	{
-		p = 0;
+		p = NULL;
 		return (NULL);
 	}
-	p = s + ft_strcspn(s, sep);
+	s = p;
+	p += ft_strcspn(p, sep);
 	if (*p)
-		*p++ = 0;
+		*p++ = '\0';
 	else
-		p = 0;
+		p = NULL;
 	return (s);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:02:45 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:01 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:40:18 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@
 	in this case the allocation should be checked.
 */
 
-char	*ft_strjoin(const char *s1, const char *s2, bool should_free)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	const size_t	s1_len = ft_strlen(s1);
 	const size_t	s2_len = ft_strlen(s2);
@@ -77,10 +77,5 @@ char	*ft_strjoin(const char *s1, const char *s2, bool should_free)
 	alloc = (char *)ft_calloc(s1_len + s2_len + 1, sizeof(char));
 	ft_memcpy(alloc, s1, s1_len);
 	ft_memcpy(alloc + s1_len, s2, s2_len);
-	if (should_free)
-	{
-		free((void *)s1);
-		free((void *)s2);
-	}
 	return (alloc);
 }
