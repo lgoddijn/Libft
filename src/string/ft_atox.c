@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:49:34 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 13:21:05 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:18:09 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ static int32_t	skip_space_sign(const char *s, int32_t *is_neg)
 		;
 	if (s[i] == '0' && (s[i + 1] && (s[i + 1] == 'x' || s[i] == 'X')))
 		i += 2;
-	if ((s[i] == '+' || s[i] == '-') && s[i++] == '-')
-		*is_neg *= -1;
+	if (s[i] == '+' || s[i] == '-')
+		if (s[i++] == '-')
+			*is_neg = -1;
 	return (i);
 }
 

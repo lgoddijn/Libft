@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:37:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/06 17:40:53 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/10 14:13:44 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	**alloc_fail(
 
 char	**ft_strsplit(
 	const char *__restrict__ s,
-	const char set
+	const char *__restrict__ set
 )
 {
 	const char	*copy = ft_strdup(s);
@@ -38,7 +38,7 @@ char	**ft_strsplit(
 	tokens = (char **)malloc(2 * sizeof(char *));
 	if (!tokens)
 		return (alloc_fail(tokens, copy));
-	token = ft_strtok((char *)copy, &set);
+	token = ft_strtok((char *)copy, set);
 	while (token)
 	{
 		tokens[size++] = ft_strdup(token);
@@ -47,8 +47,9 @@ char	**ft_strsplit(
 		tokens = ft_realloc(tokens, (size + 1) * sizeof(char *));
 		if (!tokens)
 			return (alloc_fail(tokens, copy));
-		token = ft_strtok(NULL, &set);
+		token = ft_strtok(NULL, set);
 	}
 	tokens[size] = NULL;
-	return (free((void *)copy), tokens);
+	free((void *)copy);
+	return (tokens);
 }

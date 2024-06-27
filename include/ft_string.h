@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/06 17:40:26 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:35:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int32_t	ft_atoi(const char *s);
 int64_t	ft_atol(const char *s);
 int32_t	ft_atox(const char *s);
 char	*ft_itoa(int32_t n);
-char	**ft_strsplit(const char *__restrict__ s, const char set);
+char	**ft_strsplit(
+			const char *__restrict__ s,
+			const char *__restrict__ set
+			);
 char	*ft_strchr(const char *s, int32_t c);
 char	*ft_strdup(const char *s);
 bool	ft_strequals(const char *lhs, const char *rhs);
@@ -66,5 +69,6 @@ int32_t	ft_issign(int32_t c);
 int32_t	ft_isspace(int32_t c);
 int32_t	ft_isint(const char *s);
 int32_t	ft_isfloat(const char *s);
+char	*ft_swapcase(const char *s);
 
 #endif

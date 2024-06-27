@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:10:45 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/06/04 17:45:27 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/06/27 15:36:17 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC		= ft_atod.c			\
 		  ft_strnjoin.c		\
 		  ft_strchrnul.c	\
 		  ft_strpbrk.c		\
+		  ft_swapcase.c		\
 		  ft_strspn.c		\
 		  ft_strcspn.c		\
 		  ft_strtok.c		\
