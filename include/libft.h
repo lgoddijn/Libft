@@ -55,5 +55,6 @@
 # include "ft_unistd.h"
 # include "ft_values.h"
 # include "ft_vector.h"
+# include "ft_graphics.h"
 
 #endif

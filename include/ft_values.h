@@ -58,5 +58,6 @@
 
 typedef uint32_t				t_bitmask32;
 typedef uint64_t				t_bitmask64;
+typedef uint8_t					t_byte;
 
 #endif

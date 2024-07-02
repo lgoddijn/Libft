@@ -15,11 +15,14 @@
 # define FT_MEMORY_H
 
 # include <sys/types.h>
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
 
 # include "ft_values.h"
 
+bool	ft_isnull(void *ptr);
+bool	ft_isanynull(size_t count, ...);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int32_t c, size_t n);
 int32_t	ft_memcmp(const void *s1, const void *s2, size_t n);
