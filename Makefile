@@ -19,7 +19,6 @@ CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes \
 
 SUBMODULES	= src/dictionary	\
 			  src/file			\
-			  src/graphics		\
 			  src/heap			\
 			  src/internal		\
 			  src/linked_list	\

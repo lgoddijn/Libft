@@ -15,6 +15,7 @@
 # define FT_MEMORY_H
 
 # include <sys/types.h>
+# include <stdbool.h>
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
