@@ -26,7 +26,7 @@ TARGET  =
 
 CC      = cc
 
-CFLAGS  = 
+CFLAGS  = -Wall -Wextra -Werror -Wstrict-prototypes -Wmissing-prototypes -Wpedantic -std=gnu17 -fstack-protector-strong -O2
 
 SRCS    = 
 
