@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 15:52:56 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/01/01 14:57:07 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:05:09 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	= memory.a
 
 CC		= cc
 
-CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes \
-		  -Wmissing-prototypes -Wpedantic -std=c99  \
+CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_bzero.c	\

@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 09:28:33 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/02 14:13:24 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:03:34 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= graphics.a
 CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
-		  -Wmissing-prototypes -Wpedantic -std=c99		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_build_pixel.c		\

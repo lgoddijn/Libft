@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:10:45 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/06/27 15:36:17 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:05:37 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= string.a
 CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
-		  -Wmissing-prototypes -Wpedantic -std=c99		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_atod.c			\

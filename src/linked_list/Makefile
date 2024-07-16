@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 17:00:18 by lgoddijn          #+#    #+#              #
-#    Updated: 2023/12/31 17:02:33 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:04:35 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= linked_list.a
 CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
-		  -Wmissing-prototypes -Wpedantic -std=c99		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_append_lst.c	\

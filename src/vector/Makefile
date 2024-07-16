@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 18:29:47 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/01/01 14:40:22 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:05:59 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	= vector.a
 
 CC		= cc
 
-CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes \
-		  -Wmissing-prototypes -Wpedantic -std=c99  \
+CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_add_v3.c				\

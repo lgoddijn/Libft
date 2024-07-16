@@ -3,15 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 14:00:49 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/04/14 19:01:40 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:04:23 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= internal.a
+
 SRC		= ft_syscall.c
+
+CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
+		  -fstack-protector-strong -O2 -g -I../../include
+
 OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)

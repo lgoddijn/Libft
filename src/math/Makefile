@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 18:29:47 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/04/20 17:30:00 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:04:56 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	= math.a
 
 CC		= cc
 
-CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes \
-		  -Wmissing-prototypes -Wpedantic -std=c99  \
+CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_abs.c					\

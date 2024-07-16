@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/06/27 15:45:14 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:06:10 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		= bin/Libft.a
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes \
-			  -Wmissing-prototypes -Wpedantic -std=c99  \
+CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes		\
+			  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 			  -fstack-protector-strong -O2 -g -I../../include
 
 SUBMODULES	= src/dictionary	\

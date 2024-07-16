@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:07:03 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/02/02 17:40:31 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:05:46 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= unistd.a
 CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
-		  -Wmissing-prototypes -Wpedantic -std=c99		\
+		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= ft_write.c		\
