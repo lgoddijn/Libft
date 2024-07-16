@@ -6,11 +6,11 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:06:10 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:20:37 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= bin/Libft.a
+NAME		= bin/Libft.a
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes		\
@@ -33,12 +33,12 @@ SUBMODULES	= src/dictionary	\
 LIBFILES = $(foreach submodule,$(SUBMODULES), \
 		   $(submodule)/$(notdir $(submodule)).a)
 
-all: $(SUBMODULES) $(TARGET)
+all: $(SUBMODULES) $(NAME)
 
 $(SUBMODULES):
 	$(MAKE) -C $@
 
-$(TARGET): $(LIBFILES)
+$(NAME): $(LIBFILES)
 	@echo "Combining Libraries..."
 	mkdir -p bin
 	rm -f *.o
@@ -55,7 +55,7 @@ clean:
 	done
 
 fclean: clean
-	rm -f $(TARGET) *.o
+	rm -f $(NAME) *.o
 	rm -rf bin
 
 re: clean all
