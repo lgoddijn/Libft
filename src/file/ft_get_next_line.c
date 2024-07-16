@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:00:09 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/06 17:41:51 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/16 23:04:21 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static int32_t	ft_read_fd(int32_t fd, char **content)
 		update_result = __update_content_buffer(content, buffer);
 		if (!update_result || ft_strchr(buffer, '\n'))
 		{
-			free(buffer);
+			free((void *)buffer);
 			return (update_result);
 		}
 		bytes_read = ft_read(fd, buffer, BUFFER_SIZE);
 	}
-	free(buffer);
+	free((void *)buffer);
 	if (bytes_read <= 0)
 		return (bytes_read);
 	if (*content && **content)
@@ -51,7 +51,7 @@ static char	*extract_line(char **content, char *nl_pos)
 		line = ft_strjoin(*content, NULL);
 		if (!line)
 			return (NULL);
-		free(*content);
+		free((void *)*content);
 		*content = NULL;
 		return (line);
 	}
@@ -84,8 +84,8 @@ static void	clear_entry(t_file **cache, t_file *entry)
 			else
 				*cache = current_node->next;
 			if (entry->content)
-				free(entry->content);
-			free(entry);
+				free((void *)entry->content);
+			free((void *)entry);
 			break ;
 		}
 		previous_node = current_node;

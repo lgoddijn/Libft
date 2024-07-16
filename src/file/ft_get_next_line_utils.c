@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:02:19 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/06 17:41:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/16 23:04:42 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ int32_t	__update_content_buffer(char **content, char *buffer)
 	{
 		if (*content)
 		{
-			free(*content);
+			free((void *)*content);
 			*content = NULL;
 		}
 		return (0);
 	}
 	if (*content)
-		free(*content);
+		free((void *)*content);
 	*content = tmp;
 	return (1);
 }
