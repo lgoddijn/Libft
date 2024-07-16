@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/27 15:35:58 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/16 19:18:16 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strmapi(const char *s, char (*f)(uint32_t, char));
 int32_t	ft_strcmp(const char *s1, const char *s2);
 int32_t	ft_strncmp(const char *s1, const char *s2, size_t n);
+bool	ft_strnequals(const char *lhs, const char *rhs, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int32_t c);
 char	*ft_strtrim(const char *s1, const char *set);

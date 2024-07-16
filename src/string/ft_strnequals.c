@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_instance_to_v3.c                                :+:      :+:    :+:   */
+/*   ft_strnequals.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 12:08:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/02 13:59:10 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/07/16 19:12:09 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/07/16 19:14:36 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_graphics.h"
+#include "../../include/ft_string.h"
 
-t_vector3	ft_instance_to_v3(void *instance)
+bool	ft_strnequals(const char *lhs, const char *rhs, size_t n)
 {
-	if (ft_isnull(instance))
-		return (ft_init_v3(0.0f, 0.0f, 0.0f));
-	return (ft_init_v3(
-			(float)instance->x,
-			(float)instance->y,
-			(float)instance->z));
+	if (lhs == rhs)
+		return (true);
+	if (!lhs || !rhs)
+		return (false);
+	while (*lhs && *rhs && --n > 0)
+		if (*lhs++ != *rhs++)
+			return (false);
+	if (*lhs == *rhs)
+		return (true);
+	return (false);
 }

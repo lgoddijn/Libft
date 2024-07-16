@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:10:45 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:05:37 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/16 19:14:53 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC		= ft_atod.c			\
 		  ft_strmapi.c		\
 		  ft_strcmp.c		\
 		  ft_strncmp.c		\
+		  ft_strnequals.c	\
 		  ft_strnstr.c		\
 		  ft_strrchr.c		\
 		  ft_strtrim.c		\
