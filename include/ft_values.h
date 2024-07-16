@@ -56,6 +56,10 @@
 
 # define ARCH_FAIL				-1
 
+# define null                   NULL
+# define nullptr                NULL
+# define NULLPTR                NULL
+
 typedef uint32_t				t_bitmask32;
 typedef uint64_t				t_bitmask64;
 typedef uint8_t					t_byte;
