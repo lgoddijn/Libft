@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_values.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:03:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/05/14 12:53:36 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/16 23:07:34 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,6 @@
 # define RAD2DEG				57.2957795130823208767981548141050
 
 # define ARCH_FAIL				-1
-
-# define null                   NULL
-# define nullptr                NULL
-# define NULLPTR                NULL
 
 typedef uint32_t				t_bitmask32;
 typedef uint64_t				t_bitmask64;
