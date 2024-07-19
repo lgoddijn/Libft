@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 22:07:22 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 23:37:03 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 23:42:19 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ __attribute__((__visibility__("hidden"))) __inline__ void \
 int32_t			ft_raise(int32_t __signo);
 int32_t			ft_kill(pid_t __pid, int32_t __sig);
 void			ft_signal(
-					int32_t __signo,
-					void (*__f)(int32_t),
-					void (*__old)(int32_t));
+		int32_t __signo,
+		void (*__f)(int32_t),
+		void (*__old)(int32_t));
 _Noreturn void	ft_abort(void);
 
 #endif
