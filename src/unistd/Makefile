@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:07:03 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:05:46 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/19 12:10:54 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ SRC		= ft_write.c		\
 		  ft_symlink.c		\
 		  ft_sync.c			\
 		  ft_waitpid.c		\
-		  ft_wait.c
+		  ft_wait.c			\
+		  ft_readlink.c
 
 OBJ		= $(SRC:.c=.o)
 

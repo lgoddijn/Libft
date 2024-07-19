@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unistd.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 19:20:58 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:10:14 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@
 # include <stddef.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <fcntl.h>
 
 # include "ft_internal.h"
 # include "ft_values.h"
+
+# ifndef __NR_readlink
+#  define __READLINK_NR	__NR_readlinkat
+# else
+#  define __READLINK_NR	__NR_readlink
+# endif
 
 int32_t		ft_access(const char *__path, int32_t __mode);
 uint32_t	ft_alarm(uint32_t seconds);
@@ -72,5 +79,10 @@ ssize_t		ft_read(int32_t __fd, const void *__buf, size_t __size);
 int32_t		ft_close(int32_t __fd);
 pid_t		ft_waitpid(pid_t __pid, int32_t *__status, int32_t __options);
 pid_t		ft_wait(int32_t *__status);
+ssize_t		ft_readlink(
+				const char *restrict path,
+				char *restrict buf,
+				size_t size
+				);
 
 #endif
