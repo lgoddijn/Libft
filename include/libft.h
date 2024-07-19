@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/11 16:12:12 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 23:44:11 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 # include "ft_math.h"
 # include "ft_memory.h"
 # include "ft_print.h"
+# include "ft_signal.h"
 # include "ft_stack.h"
 # include "ft_string.h"
 # include "ft_unistd.h"
