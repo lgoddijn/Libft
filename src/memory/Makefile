@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 15:52:56 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:05:09 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/18 20:24:26 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,13 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
-SRC		= ft_bzero.c	\
-		  ft_memchr.c	\
-		  ft_memcmp.c 	\
-		  ft_memcpy.c	\
-		  ft_memmove.c	\
-		  ft_memset.c
+SRC		= ft_bzero.c		\
+		  ft_memchr.c		\
+		  ft_memcmp.c 		\
+		  ft_memcpy.c		\
+		  ft_memmove.c		\
+		  ft_memset.c		\
+		  ft_memequals.c	\
 
 OBJ		= $(SRC:.c=.o)
 

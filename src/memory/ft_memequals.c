@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free2d.c                                        :+:      :+:    :+:   */
+/*   ft_memequals.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 17:22:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/17 00:46:37 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/07/18 20:20:32 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/07/18 20:23:55 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_heap.h"
+#include "../../include/ft_memory.h"
 
-void	ft_free2d(void **ptr)
+bool	ft_memequals(const void *lhs, const void *rhs)
 {
-	void	**tmp;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
-	if (!ptr)
-		return ;
-	tmp = ptr;
-	while (*tmp)
-		free((void *)*tmp++);
-	free(ptr);
+	if (lhs == rhs)
+		return (true);
+	if (!lhs || !rhs)
+		return (false);
+	ptr1 = (unsigned char *)lhs;
+	ptr2 = (unsigned char *)rhs;
+	while (*ptr1 && *ptr2)
+		if (*ptr1++ != *ptr2++)
+			return (false);
+	if (*ptr1 == *ptr2)
+		return (true);
+	return (false);
 }

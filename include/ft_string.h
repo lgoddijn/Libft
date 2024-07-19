@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/16 19:18:16 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:07:08 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,7 @@ int32_t	ft_isspace(int32_t c);
 int32_t	ft_isint(const char *s);
 int32_t	ft_isfloat(const char *s);
 char	*ft_swapcase(const char *s);
+bool	ft_strstartswith(const char *s, const char *match);
+bool	ft_strendswith(const char *s, const char *match);
 
 #endif
