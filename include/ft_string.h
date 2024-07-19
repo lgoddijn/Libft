@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 11:07:08 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:55:53 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <limits.h>
 
 size_t	ft_strlen(const char *s);
+size_t	ft_strnlen(const char *s, size_t n);
 double	ft_atod(const char *s);
 float	ft_atof(const char *s);
 int32_t	ft_atoi(const char *s);
