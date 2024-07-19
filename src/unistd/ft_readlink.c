@@ -6,13 +6,13 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:01:31 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 12:09:38 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:11:49 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_unistd.h"
 
-ssize_t ft_readlink(const char *restrict path, char *restrict buf, size_t size)
+ssize_t	ft_readlink(const char *restrict path, char *restrict buf, size_t size)
 {
 	char	dummy[1];
 	int32_t	ret;
