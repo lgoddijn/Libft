@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:21:45 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/19 23:36:19 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SUBMODULES	= src/dictionary	\
 			  src/math			\
 			  src/memory		\
 			  src/print			\
+			  src/signal		\
 			  src/stack			\
 			  src/string		\
 			  src/unistd		\

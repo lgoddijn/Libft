@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_kill.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 19:50:59 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:39:26 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/07/19 22:30:49 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/07/19 23:38:59 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_unistd.h"
+#include "../../include/ft_signal.h"
 
 int32_t	ft_kill(pid_t __pid, int32_t __sig)
 {

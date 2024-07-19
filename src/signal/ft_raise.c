@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_raise.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 16:24:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 22:26:54 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/07/19 22:10:30 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/07/19 22:56:01 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_unistd.h"
+#include "../../include/ft_signal.h"
 
-_Noreturn void	ft_exit(int32_t __status)
+int32_t	ft_raise(int32_t __signo)
 {
-	(void)__syscall(__NR_exit_group, __status);
-	while (true)
-		(void)__syscall(__NR_exit_group, __status);
+	pid_t		tid;
+	sigset_t	set;
+	int32_t		ret;
+
+	if (!__x86_64__)
+		return (ARCH_FAIL);
+	__block_app_sigs(&set);
+	tid = __syscall(__NR_gettid);
+	if (tid == -1)
+		return (-1);
+	ret = ft_kill(tid, __signo);
+	__restore_sigs(&set);
+	return (ret);
 }
