@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raise.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:44:47 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:26:33 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/19 23:47:28 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	print_msg(const char *msg, va_list args)
 	}
 }
 
-void	ft_raise(const char *msg, ...)
+void	ft_throw(const char *msg, ...)
 {
 	va_list	args;
 

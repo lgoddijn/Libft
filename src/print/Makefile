@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 17:10:45 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:05:19 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/19 23:47:41 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC		= ft_print_char.c	\
 		  ft_print_ptr.c	\
 		  ft_print_hex.c	\
 		  ft_printf.c		\
-		  ft_raise.c
+		  ft_throw.c
 
 OBJ		= $(SRC:.c=.o)
 
