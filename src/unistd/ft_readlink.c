@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_readlink.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:01:31 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 12:11:49 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:29:10 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ssize_t	ft_readlink(const char *restrict path, char *restrict buf, size_t size)
 		size = 1;
 	}
 	if (__READLINK_NR == __NR_readlinkat)
-		ret = __syscall(__READLINK_NR, AT_FDCWD, path, size);
+		ret = __syscall(__READLINK_NR, -100, path, size);
 	else
 		ret = __syscall(__READLINK_NR, path, buf, size);
 	if (buf == dummy && ret > 0)

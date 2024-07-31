@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:08:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 19:12:03 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:50:14 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@
 
 */
 
+static __inline__ size_t	count_digits(int32_t n)
+{
+	size_t	len;
+
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	len = 0;
+	while (n > 0 && ++len)
+		n /= 10;
+	return (len);
+}
+
 char	*ft_itoa(int32_t n)
 {
 	char	*alloc;
@@ -72,7 +86,7 @@ char	*ft_itoa(int32_t n)
 	len = 0;
 	if (n < 0)
 		is_neg = true;
-	len = ft_digits((int64_t)n);
+	len = count_digits(n);
 	alloc = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!alloc)
 		return (NULL);

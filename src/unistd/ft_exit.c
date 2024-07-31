@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:24:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 22:26:54 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:25:25 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 _Noreturn void	ft_exit(int32_t __status)
 {
 	(void)__syscall(__NR_exit_group, __status);
-	while (true)
+	while (1)
 		(void)__syscall(__NR_exit_group, __status);
 }

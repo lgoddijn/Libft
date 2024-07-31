@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_file.h                                          :+:      :+:    :+:   */
+/*   ft_env.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 20:03:10 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 12:46:55 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/07/31 11:33:05 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/07/31 12:40:46 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FILE_H
+#ifndef FT_ENV_H
 
-# define FT_FILE_H
+# define FT_ENV_H
 
-# include <fcntl.h>
+# include <stdlib.h>
 # include <unistd.h>
 
-# include "ft_internal.h"
 # include "ft_string.h"
-# include "ft_unistd.h"
 
-typedef struct s_file
-{
-	int32_t			fd;
-	char			*content;
-	struct s_file	*next;
-}	t_file;
-
-t_file	*__search_cache(int32_t fd, t_file **head);
-int32_t	__update_content_buffer(char **content, char *buffer);
-
-int32_t	get_next_line(int32_t fd, char **line);
-char	*ft_read_file(const char *path);
+void	__env_rm_add(char *__restrict__ old, char *__restrict__ new);
+char	*ft_getenv(const char *__restrict__ key);
+int32_t	ft_putenv_heap(char *__restrict__ s, char *__restrict__ r);
+int32_t	ft_putenv(char *__restrict__ s);
+int32_t	ft_setenv(
+			const char *__restrict__ key,
+			const char *__restrict__ value);
+int32_t	ft_unsetenv(const char *__restrict__ key);
 
 #endif

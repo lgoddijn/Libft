@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 23:44:11 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:08:23 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,15 @@
 
 # define LIBFT_H
 
-# include "ft_dictionary.h"
+# include "ft_env.h"
 # include "ft_file.h"
 # include "ft_heap.h"
 # include "ft_internal.h"
-# include "ft_linked_list.h"
-# include "ft_math.h"
 # include "ft_memory.h"
-# include "ft_print.h"
 # include "ft_signal.h"
-# include "ft_stack.h"
 # include "ft_string.h"
 # include "ft_unistd.h"
 # include "ft_values.h"
 # include "ft_vector.h"
-# include "ft_graphics.h"
 
 #endif

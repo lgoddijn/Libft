@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unistd.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 22:29:47 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:08:06 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@
 
 # include "ft_internal.h"
 # include "ft_values.h"
-
-# ifndef __NR_readlink
-#  define __READLINK_NR	__NR_readlinkat
-# else
-#  define __READLINK_NR	__NR_readlink
-# endif
 
 int32_t			ft_access(const char *__path, int32_t __mode);
 uint32_t		ft_alarm(uint32_t seconds);

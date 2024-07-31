@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:34:16 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 19:23:58 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:52:30 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 # define FT_VECTOR_H
 
-# include "ft_math.h"
+# include <stdbool.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <math.h>
+
+# include "ft_values.h"
 
 typedef struct s_vector2
 {

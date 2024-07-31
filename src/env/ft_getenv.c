@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 14:22:04 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:24:22 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/07/31 11:32:31 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/07/31 11:41:30 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_print.h"
+#include "../../include/ft_env.h"
 
-int32_t	ft_print_str(const char *buffer)
+char	*ft_getenv(const char *__restrict__ key)
 {
-	if (!buffer)
-		return ((int32_t)ft_write(1, "(null)", 6));
-	return ((int32_t)ft_write(1, buffer, ft_strlen(buffer)));
+	const size_t	l = ft_strchrnul(key, '=') - key;
+	char			**e;
+
+	if (l && !key[l] && __environ)
+	{
+		e = __environ - 1;
+		while (*++e)
+			if (!ft_strncmp(key, *e, l) && l[*e] == '=')
+				return (*e + l + 1);
+	}
+	return (NULL);
 }

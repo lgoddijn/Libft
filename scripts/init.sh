@@ -21,6 +21,12 @@ rm -rf $TARGET_DIR/Libft/.git
 
 echo "Cloned Libft into $TARGET_DIR/Libft/"
 
+for arg in "$@"; do
+	if [[ "$arg" == "--nomake" ]]; then
+		exit 0
+	fi
+done
+
 MAKEFILE_CONTENT="\
 TARGET  = 
 

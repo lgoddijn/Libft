@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:40:58 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 23:48:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:46:42 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	handle_line(char **line, char **buf, size_t *buf_size, int32_t fd)
 	{
 		free(*line);
 		ft_close(fd);
-		ft_throw("Allocation Failure.");
+		ft_exit(EXIT_FAILURE);
 	}
 	ft_memcpy(*buf + *buf_size, *line, line_size);
 	*buf_size += line_size;
@@ -50,7 +50,7 @@ static void	read_lines(int32_t fd, char **buffer)
 	{
 		free(*buffer);
 		ft_close(fd);
-		ft_throw("Error while reading bytes from file.");
+		ft_exit(EXIT_FAILURE);
 	}
 	free(line);
 }
@@ -61,7 +61,7 @@ char	*ft_read_file(const char *path)
 	char			*buffer;
 
 	if (fd == -1)
-		ft_throw("Unable to open file: %s", path);
+		ft_exit(EXIT_FAILURE);
 	buffer = NULL;
 	read_lines(fd, &buffer);
 	ft_close(fd);

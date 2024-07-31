@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 14:00:49 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:04:23 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/31 13:10:24 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= internal.a
 
-SRC		= ft_syscall.c
+SRC		= __syscall.c
 
 CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 		  -Wmissing-prototypes -Wpedantic -std=gnu17	\

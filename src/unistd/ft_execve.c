@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:37:19 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:37:56 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:25:06 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,5 @@ int32_t	ft_execve(
 	char *const __envp[]
 	)
 {
-	if (!__x86_64__)
-		return (ARCH_FAIL);
 	return ((int32_t)__syscall(__NR_execve, __path, __argv, __envp));
 }

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:08:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:36:43 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:25:00 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int32_t	ft_dup(int32_t __fd)
 {
-	if (!__x86_64__)
-		return (ARCH_FAIL);
 	return ((int32_t)__syscall(__NR_dup, __fd));
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/19 23:36:19 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/07/31 12:45:43 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,12 @@ CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes		\
 			  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 			  -fstack-protector-strong -O2 -g -I../../include
 
-SUBMODULES	= src/dictionary	\
+SUBMODULES	= src/env			\
 			  src/file			\
 			  src/heap			\
 			  src/internal		\
-			  src/linked_list	\
-			  src/math			\
 			  src/memory		\
-			  src/print			\
 			  src/signal		\
-			  src/stack			\
 			  src/string		\
 			  src/unistd		\
 			  src/vector

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_values.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:03:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/19 22:23:55 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:03:28 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@
 # define DEG2RAD				0.01745329251994329576923690768489
 # define RAD2DEG				57.2957795130823208767981548141050
 
-# define ARCH_FAIL				-1
+# define TTY_NAME_MAX			32;
 
 typedef uint32_t				t_bitmask32;
 typedef uint64_t				t_bitmask64;

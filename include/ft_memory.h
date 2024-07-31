@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memory.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:41:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/18 20:24:06 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:45:46 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@
 
 # include "ft_values.h"
 
-bool	ft_isnull(void *ptr);
-bool	ft_isanynull(size_t count, ...);
+__inline__ bool	ft_isnull(void *ptr)
+{
+	return (ptr == NULL);
+}
+
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int32_t c, size_t n);
 int32_t	ft_memcmp(const void *s1, const void *s2, size_t n);

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/31 17:53:56 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:05:29 by lgoddijn         ###   ########.fr        #
+#    Created: 2024/07/31 12:28:07 by lgoddijn          #+#    #+#              #
+#    Updated: 2024/07/31 12:29:28 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= stack.a
+NAME	= env.a
 
 CC		= cc
 
@@ -18,13 +18,11 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
-SRC		= ft_init_stack.c		\
-		  ft_is_empty_stack.c	\
-		  ft_is_full_stack.c	\
-		  ft_peek_stack.c		\
-		  ft_pop_stack.c		\
-		  ft_push_stack.c		\
-		  ft_free_stack.c
+SRC		= __env_rm_add.c	\
+		  ft_getenv.c		\
+		  ft_putenv.c		\
+		  ft_setenv.c		\
+		  ft_unsetenv.c
 
 OBJ		= $(SRC:.c=.o)
 
