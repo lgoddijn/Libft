@@ -39,28 +39,20 @@ Removed because .s files are not allowed in submissions
 
 So I remade a C implementation ¯\_(ツ)_/¯
 
+Unfortunately I cannot make it volatile cuz norminette
+
 */
-
-static __inline__ void	__get_args(va_list __arg_list, uint64_t __args[6])
-{
-	int32_t	i;
-
-	i = -1;
-	while (++i < 6)
-		__args[i] = va_arg(__arg_list, uint64_t);
-}
 
 #if defined(__i386__)
 
-__attribute__((__visibility__("hidden"))) \
-	int32_t	__syscall(int32_t __flag, ...)
+__inline__ int32_t	__syscall(int32_t __flag, ...)
 {
 	va_list		arg_list;
-	uint32_t	args[6];
+	uint32_t	args[5];
 	int32_t		result;
 
 	va_start(arg_list, __flag);
-	__get_args(arg_list, args);
+	__get_args32(arg_list, args);
 	va_end(arg_list);
 	__asm__(
 		"movl %1, %%eax\n\t"
@@ -83,15 +75,14 @@ __attribute__((__visibility__("hidden"))) \
 
 #elif defined(__x86_64__)
 
-__attribute__((__visibility__("hidden"))) \
-	int64_t	__syscall(int64_t __flag, ...)
+__inline__ int64_t	__syscall(int64_t __flag, ...)
 {
 	va_list		arg_list;
 	uint64_t	args[6];
 	uint64_t	result;
 
 	va_start(arg_list, __flag);
-	__get_args(arg_list, args);
+	__get_args64(arg_list, args);
 	va_end(arg_list);
 	__asm__(
 		"movq %1, %%rax\n\t"
@@ -115,15 +106,14 @@ __attribute__((__visibility__("hidden"))) \
 
 #elif defined(__arm__)
 
-__attribute__((__visibility__("hidden"))) \
-	int32_t	__syscall(int32_t __flag, ...)
+__inline__ int32_t	__syscall(int32_t __flag, ...)
 {
 	va_list		arg_list;
-	uint32_t	args[6];
+	uint32_t	args[5];
 	int32_t		result;
 
 	va_start(arg_list, __flag);
-	__get_args(arg_list, args);
+	__get_args32(arg_list, args);
 	va_end(arg_list);
 	__asm__(
 		"mov r0, %1\n\t"
@@ -146,15 +136,14 @@ __attribute__((__visibility__("hidden"))) \
 
 #elif defined(__aarch64__)
 
-__attribute__((__visibility__("hidden"))) \
-	int64_t	__syscall(int64_t __flag, ...)
+__inline__ int64_t	__syscall(int64_t __flag, ...)
 {
 	va_list		arg_list;
 	uint64_t	args[6];
 	uint64_t	result;
 
 	va_start(arg_list, __flag);
-	__get_args(arg_list, args);
+	__get_args64(arg_list, args);
 	va_end(arg_list);
 	__asm__(
 		"mov x8, %1\n\t"

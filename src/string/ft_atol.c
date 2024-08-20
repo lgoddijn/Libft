@@ -14,22 +14,20 @@
 
 int64_t	ft_atol(const char *s)
 {
-	int64_t	result;
-	int		sign;
+	int64_t	n;
+	int32_t	neg;
 
-	result = 0;
-	sign = 1;
-	if (!s || !ft_isint(s))
-		return ((int64_t)K0_C_LMA0);
-	while (ft_isspace((unsigned char)*s))
+	n = 0;
+	neg = 0;
+	while (ft_isspace(*s))
 		++s;
-	if (*s == '-' || *s == '+')
-	{
-		if (*s == '-')
-			sign = -1;
+	if (*s == '-')
+		neg = 1;
+	if (*s == '+')
 		++s;
-	}
-	while (*s)
-		result = result * 10 + (*s++ - '0');
-	return (result * sign);
+	while (ft_isdigit(*s))
+		n = 10 * n - (*s++ - '0');
+	if (neg)
+		return (n);
+	return (-n);
 }
