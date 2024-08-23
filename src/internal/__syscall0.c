@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   __syscall0.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 19:07:12 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 20:17:23 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/21 19:15:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 __inline__ int32_t	__syscall0(int32_t __nr)
 {
 	uint32_t	__ret;
-	__asm__		__volatile__ (SYSCALL_INSNS : "=a"(__ret) : "a"(__nr) : "memory");
 
+	__asm__ (SYSCALL_INSNS : "=a"(__ret) : "a"(__nr) : "memory");
 	return ((int32_t)__ret);
 }
 
@@ -27,8 +27,8 @@ __inline__ int32_t	__syscall0(int32_t __nr)
 __inline__ int64_t	__syscall0(int64_t __nr)
 {
 	uint64_t	__ret;
-	__asm__		__volatile__ ("syscall" : "=a"(__ret) : "a"(__nr) : "rcx", "r11", "memory");
 
+	__asm__ ("syscall" : "=a"(__ret) : "a"(__nr) : "rcx", "r11", "memory");
 	return ((int64_t)__ret);
 }
 

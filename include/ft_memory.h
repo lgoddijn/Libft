@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:41:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:45:46 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/23 17:36:27 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdint.h>
 
 # include "ft_values.h"
+
+typedef unsigned char	t_byte;
 
 __inline__ bool	ft_isnull(void *ptr)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:46:43 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:18 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/23 17:38:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,28 @@
 	`size_t` the number of bytes in the string pointed to by `s`.
 
 @notes
-	This function does not account for the null-terminator
-	when counting the length of the string.
-
-	ex. "hello world\0" -> size_t 11
-
-	Note that the `if (!s)` statement is vital
-	for a lot of other functions in this library.
+	Throw everything out the window, hyper optimize it,
+	pray and finally find out its not faster than glibc
 
 */
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	len;
+	const size_t __attribute__	((__may_alias__))	*w;
+	const char										*s0 = s;
 
-	len = 0;
 	if (!s)
-		return (len);
-	while (*s++ && ++len)
+		return (0);
+	while ((uintptr_t)s % sizeof(size_t))
+		if (!*s++)
+			return (s - s0 - 1);
+	w = (const void *)s;
+	while (!((*w) - ((size_t)-1 / UCHAR_MAX) & ~(*w)
+			& (((size_t)-1 / UCHAR_MAX)
+				* (UCHAR_MAX / 2 + 1))))
+		++w;
+	s = (const void *)w;
+	while (*s++)
 		;
-	return (len);
+	return (s - s0);
 }

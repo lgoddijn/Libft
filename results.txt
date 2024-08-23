@@ -1,0 +1,48 @@
+-------------------------------------
+Benchmarking over 100,000 iterations.
+16384 bytes (4 pages) per iteration.
+-------------------------------------
+
+-------------------------------------
+Using -O0 optimization flag...
+
+glibc's strlen took 0.001000ms
+Luca's strlen took 0.001000ms
+
+Same amount of time
+-------------------------------------
+
+-------------------------------------
+Using -O1 optimization flag...
+
+glibc's strlen took 0.001000ms
+Luca's strlen took 0.001000ms
+
+Same amount of time
+-------------------------------------
+
+-------------------------------------
+Using -O2 optimization flag...
+
+glibc's strlen took 0.002000ms
+Luca's strlen took 0.001000ms
+
+Luca's strlen was faster by -0.001000ms
+-------------------------------------
+
+Using -O3 optimization flag...
+
+glibc's strlen took 0.001000ms
+Luca's strlen took 0.001000ms
+
+Same amount of time
+-------------------------------------
+
+-------------------------------------
+Using -Ofast optimization flag...
+
+glibc's strlen took 0.002000ms
+Luca's strlen took 0.001000ms
+
+Luca's strlen was faster by -0.001000ms
+-------------------------------------
