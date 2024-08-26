@@ -25,7 +25,7 @@
 #define ITER	100000000
 #define BUFSIZE	4096 * 4
 
-size_t	ft_strlen(const char *__restrict__ s)
+__always_inline size_t	ft_strlen(const char *__restrict__ s)
 {
 #if defined(__GNUC__) // GNUC needed for builtins
 	typedef unsigned long int __attribute__ ((__may_alias__)) word_t;
