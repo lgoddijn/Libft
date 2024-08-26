@@ -25,15 +25,26 @@
 #define ITER	100000
 #define BUFSIZE	4096 * 4
 
-void	*ft_memcpy(void *__restrict__ dst, const void *__restrict__ src, size_t n);
+typedef unsigned char	t_byte;
+
+#define OPSIZ	sizeof(unsigned long int __attribute__ ((__may_alias__)));
+
+static __always_inline	__cpy_fwd(byte_t *__restrict__ dst, const byte_t *__restrict__ src, size_t n)
+{
+	while (n > 0)
+	{
+		*dst = *src;
+		++src;
+		++dst;
+		--n;
+	}
+}
 
 void	*ft_memcpy2(void *dest, const void *src, size_t n)
 {
 	unsigned char		*ptr1;
 	const unsigned char	*ptr2;
 
-	if (!dest || !src)
-		return (dest);
 	ptr1 = (unsigned char *)dest;
 	ptr2 = (const unsigned char *)src;
 	while (n--)
