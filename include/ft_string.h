@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:40:39 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 12:44:59 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:20:10 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,32 @@
 
 # define FT_STRING_H
 
-# include "ft_heap.h"
+# include "ft_memory.h"
 
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
 # include <limits.h>
+
+# if __SIZEOF_POINTER__ == 8
+#  define __WORD_SIZE	8
+# elif __SIZEOF_POINTER == 4
+#  define __WORD_SIZE	4
+# else
+#  define WORD_SIZE	-1
+# endif
+
+# if defined(__GNUC__)
+
+typedef unsigned long int __attribute__ ((__may_alias__))	t_word;
+typedef unsigned long int __attribute__ ((__may_alias__))	t_bytemask;
+
+# else
+
+typedef unsigned long int									t_word;
+typedef unsigned long int									t_bytemask;
+
+# endif
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strnlen(const char *s, size_t n);

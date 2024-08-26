@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 17:38:48 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:27:29 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:49:29 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 pid_t	ft_getpgrp(void)
 {
-	return ((pid_t)__syscall(__NR_getpgrp));
+	return ((pid_t)__syscall0(__NR_getpgrp));
 }

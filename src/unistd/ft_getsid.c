@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 17:50:08 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:27:39 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:49:54 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 pid_t	ft_getsid(pid_t __pid)
 {
-	return ((pid_t)__syscall(__NR_getsid, __pid));
+	return ((pid_t)__syscall1(__NR_getsid, __pid));
 }

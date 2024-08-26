@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 14:08:06 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:54:50 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <stdbool.h>
 # include <fcntl.h>
 
-# include "ft_internal.h"
+# include "ft_syscall.h"
 # include "ft_values.h"
 
 int32_t			ft_access(const char *__path, int32_t __mode);
@@ -40,6 +40,7 @@ int32_t			ft_execve(
 					const char *__path,
 					char *const __argv[],
 					char *const __envp[]);
+_Noreturn void	ft_exit_group(int32_t __status);
 _Noreturn void	ft_exit(int32_t __status);
 int32_t			ft_fchdir(int32_t __fd);
 int32_t			ft_fchown(int32_t __fd, uid_t __uid, gid_t __gid);
@@ -56,8 +57,12 @@ pid_t			ft_getpgrp(void);
 pid_t			ft_getpid(void);
 pid_t			ft_getppid(void);
 pid_t			ft_getsid(pid_t __pid);
+pid_t			ft_gettid(void);
 uid_t			ft_getuid(void);
-int32_t			ft_lchown(const char *__path, uid_t __uid, gid_t __gid);
+int32_t			ft_lchown(
+					const char *__path,
+					uid_t __uid,
+					gid_t __gid);
 int32_t			ft_link(const char *__existing, const char *__new);
 off_t			ft_lseek(int32_t __fd, off_t __offset, int32_t __whence);
 int32_t			ft_mkdir(const char *__path, mode_t __mode);
@@ -73,8 +78,8 @@ int32_t			ft_close(int32_t __fd);
 pid_t			ft_waitpid(pid_t __pid, int32_t *__status, int32_t __options);
 pid_t			ft_wait(int32_t *__status);
 ssize_t			ft_readlink(
-					const char *restrict path,
-					char *restrict buf,
+					const char *__restrict__ path,
+					char *__restrict__ buf,
 					size_t size);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/31 12:45:43 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/08/26 18:35:22 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,9 @@ CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes		\
 			  -fstack-protector-strong -O2 -g -I../../include
 
 SUBMODULES	= src/env			\
-			  src/file			\
-			  src/heap			\
-			  src/internal		\
 			  src/memory		\
-			  src/signal		\
 			  src/string		\
+			  src/syscall		\
 			  src/unistd		\
 			  src/vector
 

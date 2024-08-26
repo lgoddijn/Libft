@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 15:53:48 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:24:26 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:48:07 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int32_t	ft_chdir(const char *__path)
 {
-	return (__syscall(__NR_chdir, (int64_t)__path));
+	return (__syscall1(__NR_chdir, (long)__path));
 }

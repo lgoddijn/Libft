@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 18:21:59 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:28:24 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:02:05 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int32_t	ft_pipe(int32_t __fd[2])
 {
-	return ((int32_t)__syscall(__NR_pipe, (int64_t)__fd));
+	return ((int32_t)__syscall1(__NR_pipe, (long)__fd));
 }

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:46:43 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/23 17:38:58 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:20:20 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,41 @@
 
 @notes
 	Throw everything out the window, hyper optimize it,
-	pray and finally find out its not faster than glibc
+	pray and finally find out its not faster than glibc.
+	This is a stupid fucking function.
+
+	Way I do it is to abuse cpu words where on 32 bit arch
+	a word is 4 bytes and 64bit would be 8 bytes. Then by
+	masking out bytes to the size of a word repeatedly I can
+	quickly check word chunks of the string for 0s, aka the
+	end of the string.
+
+	Also this only works on a little endian byte order 64bit cpu
+	cuz Im too lazy to norminette 5 billion preproc statements
 
 */
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *__restrict__ s)
 {
-	const size_t __attribute__	((__may_alias__))	*w;
-	const char										*s0 = s;
+	register const uintptr_t	s0 = (uintptr_t)s;
+	register const t_word		*w = (const t_word *)(((uintptr_t)s) & \
+									-((uintptr_t)(sizeof(t_word))));
+	const register t_word		m = ((t_word)-1 / 0xff) * 0x7f;
+	register t_bytemask			mask;
+	register t_word				wi;
 
-	if (!s)
+	if (!s || !*s)
 		return (0);
-	while ((uintptr_t)s % sizeof(size_t))
-		if (!*s++)
-			return (s - s0 - 1);
-	w = (const void *)s;
-	while (!((*w) - ((size_t)-1 / UCHAR_MAX) & ~(*w)
-			& (((size_t)-1 / UCHAR_MAX)
-				* (UCHAR_MAX / 2 + 1))))
-		++w;
-	s = (const void *)w;
-	while (*s++)
-		;
-	return (s - s0);
+	wi = *w;
+	mask = ~(((wi & m) + m) | wi | m) >> (
+			CHAR_BIT * (s0 % sizeof (t_word)));
+	if (mask)
+		return (__builtin_ctzl(mask) / CHAR_BIT);
+	wi = *++w;
+	while (!((wi - (((t_word)-1 / 0xff) * 0x01))
+			& ~wi & (((t_word)-1 / 0xff) * 0x80)))
+		wi = *++w;
+	wi = (wi - ((t_word)-1 / 0xff) * 0x01) & ~wi & ((t_word)-1 / 0xff) * 0x80;
+	wi = (__builtin_ctzl(wi) / CHAR_BIT);
+	return (((const char *)w) + wi - s);
 }

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/23 18:05:34 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:13:49 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,37 +74,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	while (n--)
 		*ptr1++ = *ptr2++;
 	return (dest);
-}
-
-void	*ft_memcpy(void *__restrict__ dst, const void *__restrict__ src, size_t n)
-{
-	__asm__ (
-		"mov %rdi, %rax\n"
-		"cmp $8, %rdx\n"
-		"jc 1f\n"
-		"test $7, %rdi\n"
-		"jz 1f\n"
-		"2:\n"
-		"movsb\n"
-		"dec %rdx\n"
-		"test $7, %rdi\n"
-		"jnz 2b\n"
-		"1:\n"
-		"mov %rdx, %rcx\n"
-		"shr $3, %rcx\n"
-		"rep\n"
-		"movsq\n"
-		"and $7, %edx\n"
-		"jz 1f\n"
-		"2:\n"
-		"movsb\n"
-		"dec %edx\n"
-		"jnz 2b\n"
-		"1:\n"
-		"ret\n"
-		:
-		: "D" (dst), "S" (src), "d" (n)
-		: "rax", "rcx", "memory"
-	);
-	return (dst);
 }

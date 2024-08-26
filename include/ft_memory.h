@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:41:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/23 17:36:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:06:16 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 typedef unsigned char	t_byte;
 
-__inline__ bool	ft_isnull(void *ptr)
+__always_inline bool	ft_isnull(void *ptr)
 {
 	return (ptr == NULL);
 }
@@ -36,5 +36,8 @@ void	*ft_memset(void *s, int32_t c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 bool	ft_memequals(const void *lhs, const void *rhs);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_realloc(void *ptr, size_t size);
+void	ft_free2d(void **ptr);
 
 #endif

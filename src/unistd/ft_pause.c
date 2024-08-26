@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 18:19:13 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:28:21 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:50:33 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int32_t	ft_pause(void)
 {
-	return ((int32_t)__syscall(__NR_pause));
+	return ((int32_t)__syscall0(__NR_pause));
 }

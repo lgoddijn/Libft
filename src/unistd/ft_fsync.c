@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:46:10 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:25:50 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:48:55 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int32_t	ft_fsync(int32_t __fd)
 {
-	return ((int32_t)__syscall(__NR_fsync, __fd));
+	return ((int32_t)__syscall1(__NR_fsync, __fd));
 }

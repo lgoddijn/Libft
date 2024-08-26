@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/19 22:38:38 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/19 23:35:56 by lgoddijn         ###   ########.fr        #
+#    Created: 2024/08/26 18:33:09 by lgoddijn          #+#    #+#              #
+#    Updated: 2024/08/26 18:56:48 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= signal.a
+NAME	= syscall.a
 
 CC		= cc
 
@@ -18,10 +18,9 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
-SRC		= ft_raise.c	\
-		  ft_kill.c		\
-		  ft_abort.c	\
-		  ft_signal.c
+SRC		= __syscall4.c	\
+		  __syscall5.c	\
+		  __syscall6.c
 
 OBJ		= $(SRC:.c=.o)
 

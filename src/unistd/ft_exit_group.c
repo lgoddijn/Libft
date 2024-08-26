@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_resolve.h                                       :+:      :+:    :+:   */
+/*   ft_exit_group.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 15:48:52 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/20 15:53:22 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/01/01 16:24:20 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/08/26 18:48:37 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RESOLVE_H
+#include "../../include/ft_unistd.h"
 
-# define FT_RESOLVE_H
-
-# include "ft_string.h"
-# include "ft_memory.h"
-# include "ft_unistd.h"
-# include "ft_env.h"
-
-char	*ft_realpath(const char *__restrict__ path, char resolved[PATH_MAX]);
-
-#endif
+_Noreturn void	ft_exit_group(int32_t __status)
+{
+	(void)__syscall1(__NR_exit_group, __status);
+	while (1)
+		(void)__syscall1(__NR_exit_group, __status);
+}

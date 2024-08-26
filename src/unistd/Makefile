@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 16:07:03 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/31 14:07:56 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/08/26 17:57:56 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC		= ft_write.c		\
 		  ft_dup.c			\
 		  ft_dup2.c			\
 		  ft_execve.c		\
+		  ft_exit_group.c	\
 		  ft_exit.c			\
 		  ft_fchdir.c		\
 		  ft_fchown.c		\
@@ -46,6 +47,7 @@ SRC		= ft_write.c		\
 		  ft_getpid.c		\
 		  ft_getppid.c		\
 		  ft_getsid.c		\
+		  ft_gettid.c		\
 		  ft_getuid.c		\
 		  ft_lchown.c		\
 		  ft_link.c			\

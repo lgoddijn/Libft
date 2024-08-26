@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 18:47:27 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:29:38 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:50:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int32_t	ft_symlink(const char *__existing, const char *__new)
 {
-	return ((int32_t)__syscall(__NR_symlink,
-			(int64_t)__existing,
-			(int64_t)__new));
+	return ((int32_t)__syscall2(__NR_symlink,
+			(long)__existing,
+			(long)__new));
 }

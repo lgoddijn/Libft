@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 14:08:23 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:28:22 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,8 @@
 # define LIBFT_H
 
 # include "ft_env.h"
-# include "ft_file.h"
-# include "ft_heap.h"
-# include "ft_internal.h"
+# include "ft_syscall.h"
 # include "ft_memory.h"
-# include "ft_signal.h"
 # include "ft_string.h"
 # include "ft_unistd.h"
 # include "ft_values.h"

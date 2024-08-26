@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 17:00:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:26:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:49:09 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 uid_t	ft_geteuid(void)
 {
-	return ((uid_t)__syscall(__NR_geteuid));
+	return ((uid_t)__syscall0(__NR_geteuid));
 }

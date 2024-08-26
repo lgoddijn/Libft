@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 18:52:03 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:29:45 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:51:01 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_sync(void)
 {
-	(void)__syscall(__NR_sync);
+	(void)__syscall0(__NR_sync);
 }

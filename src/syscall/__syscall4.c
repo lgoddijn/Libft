@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_raise.c                                         :+:      :+:    :+:   */
+/*   __syscall4.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 22:10:30 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:42:24 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/08/26 18:30:07 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/08/26 19:00:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_signal.h"
+#include "../../include/ft_syscall.h"
 
-int32_t	ft_raise(int32_t __signo)
+long	__syscall4(long n, long a[4])
 {
-	pid_t		tid;
-	sigset_t	set;
-	int32_t		ret;
+	const register long r10	__asm__("r10") = a[3];
+	unsigned long			r;
 
-	__block_app_sigs(&set);
-	tid = __syscall(__NR_gettid);
-	if (tid == -1)
-		return (-1);
-	ret = ft_kill(tid, __signo);
-	__restore_sigs(&set);
-	return (ret);
+	__asm__ (
+		"syscall" : "=a"(r) : "a"(n), "D"(a[0]), "S"(a[1]),
+		"d"(a[2]), "r"(r10) : "rcx", "r11", "memory");
+	return ((long)r);
 }

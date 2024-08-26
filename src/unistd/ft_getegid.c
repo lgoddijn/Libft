@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:57:45 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:26:43 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:49:03 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 gid_t	ft_getegid(void)
 {
-	return ((gid_t)__syscall(__NR_getegid));
+	return ((gid_t)__syscall0(__NR_getegid));
 }

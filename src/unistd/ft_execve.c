@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:37:19 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:25:06 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:04:15 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,9 @@ int32_t	ft_execve(
 	char *const __envp[]
 	)
 {
-	return ((int32_t)__syscall(__NR_execve, __path, __argv, __envp));
+	return ((int32_t)__syscall3(
+			__NR_execve,
+			(long)__path,
+			(long)__argv,
+			(long)__envp));
 }

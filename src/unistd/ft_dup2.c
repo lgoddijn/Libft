@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:09:48 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 13:25:02 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:48:26 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int32_t	ft_dup2(int32_t __old, int32_t __new)
 {
-	return ((int32_t)__syscall(__NR_dup2, __old, __new));
+	return ((int32_t)__syscall2(__NR_dup2, __old, __new));
 }
