@@ -12,47 +12,43 @@
 
 #include "../../include/ft_env.h"
 
-static __inline__ void	do_realloc(
-	char **__restrict__ env_alloc,
-	char *__restrict__ new,
-	size_t env_bytes
-	)
+static __inline__ void	get_env_size(void)
 {
-	char	**t;
+	char	**__env0;
 
-	if (!new)
-		return ;
-	t = (char **)ft_realloc(
-			(void *)env_alloc,
-			sizeof(*t) * (env_bytes + 1));
-	if (!t)
-		return ;
-	env_alloc = t;
-	env_alloc[env_bytes++] = new;
+	__env0 = __environ;
+	while ((*__env0)++)
+		;
+	return (__env0 - __environ);
 }
 
 // This function not for you! shoo, shoo!
 __attribute__((__visibility__("hidden"))) void \
 	__env_rm_add(char *__restrict__ old, char *__restrict__ new)
 {
-	static char		**env_alloc;
-	static size_t	env_bytes;
+	static char		**env_alloc = __environ;
+	static size_t	env_bytes = get_env_size();
+	char			**t;
 	size_t			i;
 
 	i = 0;
-	while (i < env_bytes)
-	{
-		if (env_alloc[i] == old)
+	while (++i < env_bytes + 1)
+		if (env_alloc[i - 1] == old)
 		{
-			env_alloc[i] = new;
+			env_alloc[i - 1] = new;
 			free((void *)old);
 			return ;
 		}
-		if (!env_alloc[i] && new)
+		else if (!env_alloc[i - 1] && new)
 		{
-			env_alloc[i] = new;
+			env_alloc[i - 1] = new;
 			new = 0;
 		}
-	}
-	do_realloc(env_alloc, new, env_bytes);
+	if (!new)
+		return ;
+	t = ft_realloc((void *)env_alloc, sizeof(*t) * (env_bytes + 1));
+	if (!t)
+		return ;
+	env_alloc = t;
+	env_alloc[env_bytes++] = new;
 }
