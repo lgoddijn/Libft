@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 14:44:40 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/08/26 18:35:22 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/10/13 20:21:15 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= bin/Libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes		\
 			  -Wmissing-prototypes -Wpedantic -std=gnu17	\
-			  -fstack-protector-strong -O2 -g -I../../include
+			  -fstack-protector-strong -O2 -g -I./include
 
 SUBMODULES	= src/env			\
 			  src/memory		\

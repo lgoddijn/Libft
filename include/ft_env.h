@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:33:05 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/13 18:16:41 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:14:22 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# include "ft_memory.h"
 # include "ft_string.h"
 
 void	__envp_rm_add(char *old, char *new);

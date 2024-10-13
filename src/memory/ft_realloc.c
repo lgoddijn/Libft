@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:23:49 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/17 00:46:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:21:39 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_heap.h"
+#include "../../include/ft_memory.h"
 
 /*
 

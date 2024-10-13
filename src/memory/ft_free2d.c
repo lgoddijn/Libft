@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:22:42 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/17 00:46:37 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:21:31 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_heap.h"
+#include "../../include/ft_memory.h"
 
 void	ft_free2d(void **ptr)
 {

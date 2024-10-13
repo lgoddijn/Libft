@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:56:40 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/01/01 14:55:22 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:21:24 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_heap.h"
+#include "../../include/ft_memory.h"
 
 /*
 

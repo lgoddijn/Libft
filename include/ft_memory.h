@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:41:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/26 18:06:16 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:21:04 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
+# include <stdlib.h>
 
 # include "ft_values.h"
 
