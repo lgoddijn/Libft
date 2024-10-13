@@ -3,16 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_setenvp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:05:55 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/01 15:11:57 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:49:00 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_env.h"
 
-int32_t	ft_setenvp(const char *__restrict__ key, const char *__restrict__ value)
+int	ft_setenvp(
+	const char *__restrict__ key,
+	const char *__restrict__ value,
+	char ***__envp)
 {
 	const size_t	l1 = ft_strchrnul(key, '=') - key;
 	const size_t	l2 = ft_strlen(value);
@@ -34,7 +37,7 @@ int32_t	ft_setenvp(const char *__restrict__ key, const char *__restrict__ value)
 		free((void *)s);
 		return (-1);
 	}
-	ret = ft_putenvp_heap(s, s2);
+	ret = ft_putenvp_heap(s, s2, __envp);
 	if (s2)
 		free((void *)s2);
 	return (ret);

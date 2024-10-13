@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsetenvp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:07:13 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/01 14:07:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:08:51 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_env.h"
 
-int32_t	ft_unsetenvp(const char *__restrict__ key, char *__envp[])
+int	ft_unsetenvp(const char *__restrict__ key, char ***__envp)
 {
 	const size_t	l = ft_strchrnul(key, '=') - key;
 	char			**eo;
@@ -20,9 +20,9 @@ int32_t	ft_unsetenvp(const char *__restrict__ key, char *__envp[])
 
 	if (!l || key[l])
 		return (-1);
-	if (__envp)
+	if (*__envp)
 	{
-		e = __envp - 1;
+		e = *__envp - 1;
 		eo = e + 1;
 		while (*++e)
 		{

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_clearenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 17:12:45 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/04 17:14:47 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/10/13 15:52:28 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/10/13 15:53:40 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "../../include/ft_env.h"
 
-int main()
+int	ft_clearenv(void)
 {
-	for (int i = 0; __environ[i]; ++i)
-	{
-		printf("%s\n", __environ[i]);
-	}
-	return 0;
+	char	**e;
+
+	e = __environ;
+	__environ = 0;
+	if (e)
+		while (*e)
+			__env_rm_add(*e++, 0);
+	return (EXIT_SUCCESS);
 }

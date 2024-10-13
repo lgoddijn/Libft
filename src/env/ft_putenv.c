@@ -6,13 +6,13 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:42:06 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 12:40:11 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:37:47 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_env.h"
 
-static __inline__ int32_t	handle_new_env(
+static __inline__ int	handle_new_env(
 		char **__restrict__ new,
 		char *__restrict__ r,
 		size_t i
@@ -33,7 +33,7 @@ static __inline__ int32_t	handle_new_env(
 	return (EXIT_SUCCESS);
 }
 
-static __inline__ int32_t	handle_old_env(
+static __inline__ int	handle_old_env(
 		char **__restrict__ old,
 		char **__restrict__ new,
 		char *__restrict__ r,
@@ -50,7 +50,7 @@ static __inline__ int32_t	handle_old_env(
 	return (EXIT_SUCCESS);
 }
 
-static __inline__ int32_t	handle_env_alloc(
+static __inline__ int	handle_env_alloc(
 		char *__restrict__ s,
 		char *__restrict__ r,
 		size_t i
@@ -78,7 +78,7 @@ static __inline__ int32_t	handle_env_alloc(
 	return (EXIT_SUCCESS);
 }
 
-int32_t	ft_putenv_heap(char *__restrict__ s, char *__restrict__ r)
+int	ft_putenv_heap(char *__restrict__ s, char *__restrict__ r)
 {
 	const size_t	l = ft_strchrnul(s, '=') - s;
 	char			*tmp;
@@ -104,7 +104,7 @@ int32_t	ft_putenv_heap(char *__restrict__ s, char *__restrict__ r)
 	return (handle_env_alloc(s, r, i));
 }
 
-int32_t	ft_putenv(char *__restrict__ s)
+int	ft_putenv(char *__restrict__ s)
 {
 	return (ft_putenv_heap(s, NULL));
 }

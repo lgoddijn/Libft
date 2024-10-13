@@ -6,13 +6,13 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:31 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/07/31 12:27:29 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:04:06 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_env.h"
 
-int32_t	ft_setenv(const char *__restrict__ key, const char *__restrict__ value)
+int	ft_setenv(const char *__restrict__ key, const char *__restrict__ value)
 {
 	const size_t	l1 = ft_strchrnul(key, '=') - key;
 	const size_t	l2 = ft_strlen(value);

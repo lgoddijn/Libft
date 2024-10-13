@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getenvp.c                                       :+:      :+:    :+:   */
+/*   ft_clearenvp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:57:10 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/13 17:43:02 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/10/13 15:54:02 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/10/13 15:56:31 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_env.h"
 
-char	*ft_getenvp(const char *__restrict__ key, char **__envp)
+int	ft_clearenvp(char ***envp)
 {
-	const size_t	l = ft_strchrnul(key, '=') - key;
-	char			**e;
+	char	**e;
 
-	if (l && !key[l] && __envp)
-	{
-		e = __envp - 1;
-		while (*++e)
-			if (!ft_strncmp(key, *e, l) && l[*e] == '=')
-				return (*e + l + 1);
-	}
-	return (NULL);
+	e = *envp;
+	*envp = 0;
+	if (e)
+		while (*e)
+			__env_rm_add(*e++, 0);
+	return (EXIT_SUCCESS);
 }
