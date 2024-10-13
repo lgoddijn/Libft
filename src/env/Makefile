@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 12:28:07 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/31 12:29:28 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/10/13 19:57:50 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,15 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 		  -fstack-protector-strong -O2 -g -I../../include
 
 SRC		= __env_rm_add.c	\
+		  __envp_rm_add.c	\
 		  ft_getenv.c		\
+		  ft_getenvp.c		\
 		  ft_putenv.c		\
+		  ft_putenvp.c		\
 		  ft_setenv.c		\
-		  ft_unsetenv.c
+		  ft_setenvp.c		\
+		  ft_unsetenv.c		\
+		  ft_unsetenvp.c
 
 OBJ		= $(SRC:.c=.o)
 
