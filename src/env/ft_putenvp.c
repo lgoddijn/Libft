@@ -6,110 +6,100 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:00:34 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/13 17:41:12 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:49:03 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_env.h"
 
-static __inline__ int	handle_new_env(
-		char **__restrict__ new,
-		char *__restrict__ r,
-		size_t i,
-		char ***__envp
-	)
+static __inline__ int	__update_existing(t_args1 *args)
 {
-	new = (char **)malloc(sizeof(*new) * (i + 2));
-	if (!new)
+	char		*tmp;
+	char		**e;
+
+	args->i = 0;
+	if (*(args->__envp))
 	{
-		if (r)
-			free((void *)r);
-		return (-1);
-	}
-	if (i)
-		ft_memcpy(
-			(void *)new,
-			(const void *)*__envp,
-			sizeof(*new) * i);
-	return (EXIT_SUCCESS);
-}
-
-static __inline__ int	handle_old_env(
-		char **__restrict__ old,
-		char **__restrict__ new,
-		char *__restrict__ r,
-		size_t i
-	)
-{
-	new = (char **)ft_realloc((void *)old, sizeof(*new) * (i + 1));
-	if (!new)
-	{
-		if (r)
-			free((void *)r);
-		return (-1);
-	}
-	return (EXIT_SUCCESS);
-}
-
-static __inline__ int	handle_env_alloc(
-		char *__restrict__ s,
-		char *__restrict__ r,
-		size_t i,
-		char ***__envp
-	)
-{
-	static char	**old;
-	char		**new;
-
-	new = NULL;
-	if (*__envp == old
-		&& handle_old_env(old, new, r, i) != EXIT_SUCCESS)
-		return (-1);
-	else
-	{
-		if (handle_new_env(new, r, i, __envp) != EXIT_SUCCESS)
-			return (-1);
-		free((void *)old);
-	}
-	new[i] = s;
-	new[i + 1] = 0;
-	old = new;
-	*__envp = old;
-	if (r)
-		__env_rm_add(NULL, r);
-	return (EXIT_SUCCESS);
-}
-
-int	ft_putenvp_heap(
-		char *__restrict__ s,
-		char *__restrict__ r,
-		char ***__envp)
-{
-	const size_t	l = ft_strchrnul(s, '=') - s;
-	char			*tmp;
-	char			**e;
-	size_t			i;
-
-	i = 0;
-	if (!l || !s[l])
-		return (ft_unsetenv(s));
-	if (*__envp)
-	{
-		e = *__envp - 1;
-		while (*++e && ++i)
+		e = *(args->__envp);
+		while (*e)
 		{
-			if (!ft_strncmp(s, *e, l + 1))
+			if (!ft_strncmp(args->s, *e, args->l + 1))
 			{
 				tmp = *e;
-				*e = s;
-				__env_rm_add(tmp, 0);
+				*e = args->s;
+				__envp_rm_add(tmp, args->r);
+				return (EXIT_SUCCESS);
 			}
+			++args->i;
+			++e;
 		}
 	}
-	return (handle_env_alloc(s, r, i, __envp));
+	return (1);
 }
 
-int	ft_putenvp(char *__restrict__ s, char ***__envp)
+static __inline__ int	__do_env_alloc(
+		char ***oldenv,
+		char ***newenv,
+		t_args2 *args)
 {
-	return (ft_putenvp_heap(s, NULL, __envp));
+	if (*(args->__envp) == *oldenv)
+	{
+		*newenv = (char **)ft_realloc(
+				*oldenv, sizeof(**newenv) * (args->i + 2));
+		if (!*newenv)
+		{
+			free((void *)args->r);
+			return (-1);
+		}
+	}
+	else
+	{
+		*newenv = (char **)malloc(sizeof(**newenv) * (args->i + 2));
+		if (!*newenv)
+		{
+			free((void *)args->r);
+			return (-1);
+		}
+		if (args->i)
+			ft_memcpy(*newenv, *(args->__envp), sizeof(**newenv) * args->i);
+		free((void *)*oldenv);
+	}
+	return (EXIT_SUCCESS);
+}
+
+int	__ft_putenvp(char *s, size_t l, char *r, char ***__envp)
+{
+	static char	**oldenv;
+	char		**newenv;
+	t_args1		args1;
+	t_args2		args2;
+
+	args1.s = s;
+	args1.r = r;
+	args1.i = 0;
+	args1.l = l;
+	args1.__envp = __envp;
+	if (__update_existing(&args1) == 0)
+		return (EXIT_SUCCESS);
+	args2.i = args1.i;
+	args2.r = r;
+	args2.__envp = __envp;
+	if (__do_env_alloc(&oldenv, &newenv, &args2) == -1)
+		return (-1);
+	newenv[args2.i] = s;
+	newenv[args2.i + 1] = 0;
+	oldenv = newenv;
+	*__envp = oldenv;
+	if (r)
+		__env_rm_add(0, r);
+	return (EXIT_SUCCESS);
+}
+
+int	ft_putenvp(char *s, char ***__envp)
+{
+	const size_t	l = ft_strchrnul(s, '=') - s;
+
+	if (!l || !s[l])
+		return (ft_unsetenvp(s, __envp));
+	return (__ft_putenvp(s, l, 0, __envp));
 }

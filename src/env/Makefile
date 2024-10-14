@@ -6,7 +6,7 @@
 #    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 12:28:07 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/10/13 19:57:50 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/10/14 17:19:15 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ SRC		= __env_rm_add.c	\
 		  ft_setenv.c		\
 		  ft_setenvp.c		\
 		  ft_unsetenv.c		\
-		  ft_unsetenvp.c
+		  ft_unsetenvp.c	\
+		  ft_clearenv.c		\
+		  ft_clearenvp.c
 
 OBJ		= $(SRC:.c=.o)
 
