@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:23:18 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 15:49:12 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:42:05 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,34 @@ typedef struct s_scandir_locale
 	int				oerrno;
 }	t_scandir_locale;
 
-static
-inline size_t	__offsetof(void)
+typedef struct s_kernel_dirent
 {
-	return ((size_t)((char *)&(((struct s_dirstream *)0)->buf) - (char *)0));
+	unsigned long	d_ino;
+	unsigned long	d_off;
+	unsigned short	d_reclen;
+	char			d_name[];
+}	t_kernel_dirent;
+
+/*	Stupid kernel is outdated,
+	dirent kernel struct doesn't
+	match userspace dirent struct */
+static __inline__
+struct dirent	*__align_kernel_dirent(t_kernel_dirent *lde)
+{
+	static struct dirent	de;
+
+	de.d_ino = lde->d_ino;
+	de.d_off = lde->d_off;
+	de.d_reclen = lde->d_reclen;
+	ft_memcpy(de.d_name, lde->d_name, sizeof(de.d_name) - 1);
+	de.d_name[sizeof(de.d_name) - 1] = '\0';
+	de.d_type = 0;
+	return (&de);
 }
 
-typedef char	t_dirstream_buf_alignment_check[1 - 2 * (int)(offsetof(
-					struct s_dirstream, buf) % sizeof(off_t))];
+/* Compile time alignment check */
+typedef char	t_dirstream_buf_alignment_check[1 - 2 * (int)(
+					offsetof(t_dir, buf) % sizeof(off_t))];
 
 int				ft_alphasort(
 					const struct dirent **a,
