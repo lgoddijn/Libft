@@ -65,6 +65,9 @@ float		ft_angle_v3(t_vector3 from, t_vector3 to);
 float		ft_signed_angle_v3(t_vector3 from, t_vector3 to, t_vector3 axis);
 float		ft_distance_v3(t_vector3 a, t_vector3 b);
 t_vector3	ft_clamp_magnitude_v3(t_vector3 v, float max_len);
+void		ft_srt_cmp(
+				void *b, size_t nel, size_t w,
+				int (*cmp)(const void *, const void *));
 t_vector3	ft_min_v3(t_vector3 lhs, t_vector3 rhs);
 t_vector3	ft_max_v3(t_vector3 lhs, t_vector3 rhs);
 t_vector3	ft_slerp_v3(t_vector3 v1, t_vector3 v2, float t);

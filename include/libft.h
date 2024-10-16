@@ -42,6 +42,7 @@
 
 # define LIBFT_H
 
+# include "ft_dirent.h"
 # include "ft_env.h"
 # include "ft_syscall.h"
 # include "ft_memory.h"

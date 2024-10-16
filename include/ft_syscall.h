@@ -18,8 +18,19 @@
 # include <sys/sysinfo.h>
 # include <stdint.h>
 # include <stdarg.h>
+# include <errno.h>
 
 # if defined(__x86_64__)
+
+static __always_inline long	__syscall_r(unsigned long r)
+{
+	if (r > -4096UL)
+	{
+		errno = -r;
+		return (-1);
+	}
+	return (r);
+}
 
 static __always_inline long	__syscall0(long n)
 {

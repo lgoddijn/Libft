@@ -14,7 +14,7 @@
 
 long	__syscall4(long n, long a[4])
 {
-	const register long r10	__asm__("r10") = a[3];
+	register const long r10	__asm__("r10") = a[3];
 	unsigned long			r;
 
 	__asm__ (

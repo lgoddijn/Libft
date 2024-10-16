@@ -14,9 +14,9 @@
 
 long	__syscall6(long n, long a[6])
 {
-	const register long r10	__asm__("r10") = a[3];
-	const register long r8	__asm__("r8") = a[4];
-	const register long r9	__asm__("r9") = a[5];
+	register const long r10	__asm__("r10") = a[3];
+	register const long r8	__asm__("r8") = a[4];
+	register const long r9	__asm__("r9") = a[5];
 	unsigned long			r;
 
 	__asm__ (

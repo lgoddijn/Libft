@@ -54,7 +54,7 @@ size_t	ft_strlen(const char *__restrict__ s)
 	register const uintptr_t	s0 = (uintptr_t)s;
 	register const t_word		*w = (const t_word *)(((uintptr_t)s) & \
 									-((uintptr_t)(sizeof(t_word))));
-	const register t_word		m = ((t_word)-1 / 0xff) * 0x7f;
+	register const t_word		m = ((t_word)-1 / 0xff) * 0x7f;
 	register t_bytemask			mask;
 	register t_word				wi;
 

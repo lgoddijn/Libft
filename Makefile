@@ -17,7 +17,8 @@ CFLAGS		= -Wall -Wextra -Werror -Wstrict-prototypes		\
 			  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 			  -fstack-protector-strong -O2 -g -I./include
 
-SUBMODULES	= src/env			\
+SUBMODULES	= src/dirent		\
+			  src/env			\
 			  src/memory		\
 			  src/string		\
 			  src/syscall		\
