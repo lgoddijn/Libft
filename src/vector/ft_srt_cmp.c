@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_srt_cmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 01:36:15 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 01:36:48 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:57:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_srt_cmp(
 		void *b, size_t nel, size_t w,
 		int (*cmp)(const void *, const void *))
 {
-	return (qsort(b, nel, w, cmp));
+	qsort(b, nel, w, cmp);
 }

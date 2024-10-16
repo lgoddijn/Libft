@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+         #
+#    By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/31 18:29:47 by lgoddijn          #+#    #+#              #
-#    Updated: 2024/07/16 19:05:59 by lgoddijn         ###   ########.fr        #
+#    Updated: 2024/10/16 15:58:15 by lgoddijn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC		= ft_add_v3.c				\
 		  ft_signed_angle_v3.c		\
 		  ft_slerp_v3.c				\
 		  ft_sqr_magnitude_v3.c		\
+		  ft_srt_cmp.c				\
 		  ft_sub_v3.c				\
 		  ft_sum_v3.c				\
 		  ft_remains_v3.c			\
