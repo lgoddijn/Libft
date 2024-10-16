@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_readdir_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:37:41 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 01:34:30 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:38:48 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_dirent.h"
 
 int	ft_readdir_r(
-	DIR *__restrict__ dir,
+	t_dir *__restrict__ dir,
 	struct dirent *__restrict__ buf,
 	struct dirent **__restrict__ result)
 {

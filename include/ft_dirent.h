@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dirent.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:23:18 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 02:04:23 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:49:12 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 # include <limits.h>
 # include <sys/stat.h>
 
-struct s_dirstream
+/* Cuz DIR struct is opaque */
+typedef struct s_dirstream
 {
 	off_t			tell;
 	int				fd;
@@ -37,7 +38,7 @@ struct s_dirstream
 	int				buf_end;
 	volatile int	lock[1];
 	char			buf[2048];
-};
+}	t_dir;
 
 typedef struct s_scandir_args
 {
@@ -69,28 +70,29 @@ typedef char	t_dirstream_buf_alignment_check[1 - 2 * (int)(offsetof(
 int				ft_alphasort(
 					const struct dirent **a,
 					const struct dirent **b);
-DIR				*ft_opendir(const char *name);
-int				ft_closedir(DIR *dir);
-struct dirent	*ft_readdir(DIR *dir);
+t_dir			*ft_opendir(const char *path);
+int				ft_closedir(t_dir *dir);
+struct dirent	*ft_readdir(t_dir *dir);
 int				ft_readdir_r(
-					DIR *__restrict__ dir,
+					t_dir *__restrict__ dir,
 					struct dirent *__restrict__ buf,
 					struct dirent **__restrict__ result);
-void			seekdir(DIR *dir, long off);
-void			ft_rewinddir(DIR *dir);
-DIR				*ft_fdopendir(int fd);
+void			ft_seekdir(t_dir *dir, long off);
+void			ft_rewinddir(t_dir *dir);
+t_dir			*ft_fdopendir(int fd);
 ssize_t			ft_posix_getdents(
 					int fd,
 					void *buf,
 					size_t len,
 					int flags);
+int				ft_scandir(t_scandir_args *args);
 
-static __inline__ int	ft_dirfd(DIR *d)
+static __inline__ int	ft_dirfd(t_dir *d)
 {
 	return (d->fd);
 }
 
-static __inline__ long	ft_telldir(DIR *dir)
+static __inline__ long	ft_telldir(t_dir *dir)
 {
 	return (dir->tell);
 }

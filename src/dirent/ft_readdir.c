@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_readdir.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:28:12 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 00:30:26 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:48:40 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_dirent.h"
 
-struct dirent	*ft_readdir(DIR *dir)
+struct dirent	*ft_readdir(t_dir *dir)
 {
 	struct dirent	*de;
 	int				len;
 
 	if (dir->buf_pos >= dir->buf_end)
 	{
-		len = __syscall3(__NR_getdents, dir->fd, dir->buf, sizeof(dir->buf));
+		len = __syscall3(
+				__NR_getdents,
+				dir->fd, (long)dir->buf,
+				sizeof(dir->buf));
 		if (len <= 0)
 		{
 			if (len < 0 && len != -ENOENT)
