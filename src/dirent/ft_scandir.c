@@ -6,13 +6,13 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:32:55 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 01:37:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:58:54 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_dirent.h"
 
-static __inline__	do_loop(
+static __inline__	__do_loop(
 		t_scandir_args *args,
 		t_scandir_locale *loc,
 		const DIR **d)
