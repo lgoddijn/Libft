@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:41:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/13 20:21:04 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:09:20 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,17 @@
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
+# include <limits.h>
 
 # include "ft_values.h"
 
-typedef unsigned char							t_byte;
-typedef uint32_t __attribute__((__may_alias__))	t_u32;
-typedef uint64_t __attribute__((__may_alias__))	t_u64;
-typedef size_t __attribute__((__may_alias__))	t_wt;
+# define __WORD_SIZE	8
+
+typedef unsigned char										t_byte;
+typedef size_t __attribute__ ((__may_alias__))				t_word;
+typedef uint32_t __attribute__((__may_alias__))				t_u32;
+typedef uint64_t __attribute__((__may_alias__))				t_u64;
+typedef size_t __attribute__((__may_alias__))				t_wt;
 
 static __always_inline int	ft_isnull(void *ptr)
 {
@@ -34,9 +38,8 @@ static __always_inline int	ft_isnull(void *ptr)
 }
 
 void	*ft_memcpy(
-			void *__restrict__ dst,
-			const void *__restrict__ src,
-			size_t n);
+								void *__restrict__ dst,
+								const void *__restrict__ src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memset(void *dst, int c, size_t n);

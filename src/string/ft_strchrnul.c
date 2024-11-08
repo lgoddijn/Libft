@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 17:22:01 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/04 17:50:55 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:57:28 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*ft_strchrnul(const char *s, int c)
 	c = (unsigned char)c;
 	if (!c)
 		return ((char *)s + ft_strlen(s));
-	while ((uintptr_t)s++ & sizeof(size_t))
-		if (!*(s - 1) || *(unsigned char *)(s - 1) == c)
+	while ((uintptr_t)s & sizeof(size_t))
+		if (!*s++ || *(unsigned char *)(s - 1) == c)
 			return ((char *)(s - 1));
 	k = ((size_t) - 1 / UCHAR_MAX) * c;
 	w = (void *)s;

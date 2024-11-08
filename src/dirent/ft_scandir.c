@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:32:55 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/16 17:42:26 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:04:18 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ static __inline__ void	__do_loop(
 			loc->len = 2 * loc->len + 1;
 			if (loc->len > SIZE_MAX / sizeof(*loc->names))
 				break ;
-			loc->tmp = (struct dirent **)ft_realloc(
-					loc->names, loc->cnt * sizeof(*loc->names),
-					loc->len * sizeof(*loc->names));
+			loc->tmp = ft_realloc(loc->names, loc->cnt * sizeof(*loc->names),
+						loc->len * sizeof(*loc->names));
 			if (!loc->tmp)
 				break ;
 			loc->names = loc->tmp;

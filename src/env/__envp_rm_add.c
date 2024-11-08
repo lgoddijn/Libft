@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:11:32 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/13 18:17:27 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:06:34 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	__envp_rm_add(char *old, char *new)
 	if (!new)
 		return ;
 	t = (char **)ft_realloc(
-			alloc, sizeof(*t) \
-			* (env_n + 1));
+			alloc, sizeof(*t) * env_n,
+			sizeof(*t) * (env_n + 1));
 	if (!t)
 		return ;
 	alloc = t;

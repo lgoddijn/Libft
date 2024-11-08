@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:23:49 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/13 20:21:39 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:19:08 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_realloc(void *p, size_t psize, size_t size)
 	alloc = malloc(size);
 	if (!alloc)
 		return (NULL);
-	ft_memcpy(new, p, psize);
+	ft_memcpy(alloc, p, psize);
 	free((void *)p);
 	return (alloc);
 }

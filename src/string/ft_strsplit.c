@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:37:37 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/06/10 14:13:44 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:00:10 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	**ft_strsplit(
 		if (!tokens[size - 1])
 			return (alloc_fail(tokens, copy));
 		tokens = ft_realloc(tokens, size
-			* sizeof(char *), (size + 1) * sizeof(char *));
+				* sizeof(char *), (size + 1) * sizeof(char *));
 		if (!tokens)
 			return (alloc_fail(tokens, copy));
 		token = ft_strtok(NULL, set);

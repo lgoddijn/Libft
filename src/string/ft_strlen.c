@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:46:43 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/10/12 19:21:12 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 17:47:25 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t	ft_strlen(const char *__restrict__ s)
 		return (0);
 	wi = *w;
 	mask = ~(((wi & m) + m) | wi | m) >> (
-			CHAR_BIT * (s0 % sizeof (t_word)));
+			CHAR_BIT * (s0 % sizeof(t_word)));
 	if (mask)
 		return (__builtin_ctzl(mask) / CHAR_BIT);
 	wi = *++w;

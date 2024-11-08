@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:52:45 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:07:15 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:42:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static __always_inline void	*__fwd_move(
 		while ((uintptr_t)d % sizeof(t_wt))
 		{
 			if (!n--)
-				return (*dst);
+				return (dst);
 			*d++ = *s++;
 		}
 		while (n >= sizeof(t_wt))
@@ -44,7 +44,7 @@ static __always_inline void	*__bwd_move(
 		while ((uintptr_t)(d + n) % sizeof(t_wt))
 		{
 			if (!n--)
-				return (dest);
+				return (dst);
 			d[n] = s[n];
 		}
 		while (n >= sizeof(t_wt))

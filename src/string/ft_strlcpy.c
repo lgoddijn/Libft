@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2023/12/31 18:11:13 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:59:57 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static __always_inline void	__do_da_funky_loop(
 	while (n >= sizeof(size_t)
 		&& !((*ws) - ((size_t) - 1 / UCHAR_MAX)
 			& ~(*ws) & (((size_t)-1 / UCHAR_MAX)
-			* (UCHAR_MAX / 2 + 1))) && ++ws && ++wd)
+				* (UCHAR_MAX / 2 + 1))) && ++ws && ++wd)
 	{
 		*(wd - 1) = *(ws - 1);
 		n -= sizeof(size_t);

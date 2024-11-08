@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:49:03 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:29:46 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:19:56 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	register const char	*r = ft_strchrnul(s, c);
 
-	if (*(unsigned char *)r == (unsigned char c))
-		return (r);
+	if (*(unsigned char *)r == (unsigned char)c)
+		return ((char *)r);
 	return (0);
 }

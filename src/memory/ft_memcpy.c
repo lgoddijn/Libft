@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:50:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/26 18:13:49 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:55:16 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,15 +146,13 @@ static __always_inline void	__shift_offset_align(
 {
 	register uint32_t	w;
 	register uint32_t	x;
+	register int		i;
 
-	if (off < 1 || off > 3)
-		return ;
 	w = *(t_u32 *)s;
-	*d++ = *s++;
-	*d++ = *s++;
-	*d++ = *s++;
-	*n -= 4 - off;
-	while (*n >= 16 + off)
+	i = (int)(4 - off);
+	while (*n-- >= (size_t)(4 - off))
+		*d++ = *s++;
+	while (*n >= (size_t)(16 + off))
 	{
 		x = *(t_u32 *)(s + 1);
 		*(t_u32 *)(d + 0) = (w >> (32 - 8 * off)) | (x << (off * 8));
@@ -181,8 +179,11 @@ void	*ft_memcpy(
 	if (!dst || !src)
 		return (dst);
 	d = dst;
-	while ((uintptr_t)s % 4 && n--)
+	while ((uintptr_t)s % 4 && n)
+	{
 		*d++ = *s++;
+		--n;
+	}
 	if ((uintptr_t)d % 4 == 0)
 		return (__do_aligned_blocks(s, d, dst, n));
 	if (n < 32)
@@ -191,6 +192,6 @@ void	*ft_memcpy(
 			*d++ = *s++;
 		return (dst);
 	}
-	__shift_offset_align(s, d, n, (uintptr_t)d % 4);
+	__shift_offset_align(s, d, &n, (uintptr_t)d % 4);
 	return (__do_final_alignment(s, d, dst, n));
 }

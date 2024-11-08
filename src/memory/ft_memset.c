@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:51:26 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:22:50 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:18:45 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static __always_inline int	__pad_buffer_align(
 	*(t_u32 *)(s + n - 16) = c32;
 	return (0);
 }
+
 /*
 	If this loop is reached, 28 tail bytes have already been
 	filled, so any remainder when n drops below 32 can be ignored.
@@ -107,10 +108,10 @@ void	*ft_memset(void *dst, int c, size_t n)
 	if (!dst)
 		return (dst);
 	s = dst;
-	if (__fill_bounds_align(&s, c, &n))
+	if (__fill_bounds_align(s, c, &n))
 		return (dst);
 	c32 = ((t_u32) - 1) / 255 * (unsigned char)c;
-	if (__pad_buffer_align(&s, n, &c32))
+	if (__pad_buffer_align(s, n, c32))
 		return (dst);
 	c64 = c32 | ((t_u64)c32 << 32);
 	k = 24 + ((uintptr_t)s & 4);

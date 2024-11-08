@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:48:26 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/07 16:49:33 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:01:31 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_memrchr(const void *m, int c, size_t n)
 	c = (unsigned char)c;
 	while (n--)
 		if (s[n] == c)
-			return (void *)(s + n);
+			return ((void *)(s + n));
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:50:29 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/26 19:00:13 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:52:48 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <errno.h>
 
 # define __INTERNAL_SYSCALL_EXTEND
-#  include "ft_syscall2.h"
+# include "ft_syscall2.h"
 # undef __INTERNAL_SYSCALL_EXTEND
 
 static __always_inline long	__syscall0(long n)

@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:51:52 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/04/14 18:22:24 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:45:58 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,16 @@
 
 */
 
+static __always_inline void	__do_loop(
+		size_t *n, const t_word *w, size_t k)
+{
+	while (*n >= sizeof(size_t)
+	&& !((*w ^ k) - ((size_t) - 1 / UCHAR_MAX)
+		& ~(*w ^ k) & (((size_t) - 1 / UCHAR_MAX)
+			* (UCHAR_MAX / 2 + 1))) && ++w)
+	*n -= sizeof(size_t);
+}
+
 void	*ft_memchr(const void *src, int c, size_t n)
 {
 	register const unsigned char	*s = src;
@@ -62,20 +72,20 @@ void	*ft_memchr(const void *src, int c, size_t n)
 	if (!src || !n)
 		return (NULL);
 	c = (unsigned char)c;
-	while ((uintptr_t)s & (sizeof(size_t) - 1)
-		&& n && *s != c && ++s && --n)
-		;
+	while ((uintptr_t)s & (sizeof(size_t) - 1) && n && *s != c)
+	{
+		++s;
+		--n;
+	}
 	if (n && *s != c)
 	{
-		k = ((size_t) - 1 / UCHAR_MAX) * c;
+		k = ((size_t)-1 / UCHAR_MAX) * c;
 		w = (const void *)s;
-		while (n >= sizeof(size_t)
-			&& !((*w ^ k) - ((size_t) - 1 / UCHAR_MAX)
-				& ~(*w ^ k) & (((size_t) - 1 / UCHAR_MAX)
-					* (UCHAR_MAX / 2 + 1))) && ++w)
-			n -= sizeof(size_t);
+		__do_loop(&n, w, k);
 		s = (const void *)w;
 	}
+	while (n && *s != c && --n)
+		++s;
 	if (n)
 		return ((void *)s);
 	return (0);
