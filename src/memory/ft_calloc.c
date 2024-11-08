@@ -101,6 +101,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (SIZE_MAX / nmemb < size)
 		return (NULL);
 	alloc = malloc(nmemb * size);
-	ft_bzero(alloc, nmemb * size);
+	ft_memset(alloc, 0, nmemb * size);
 	return (alloc);
 }

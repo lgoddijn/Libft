@@ -78,8 +78,8 @@ int32_t			ft_close(int32_t __fd);
 pid_t			ft_waitpid(pid_t __pid, int32_t *__status, int32_t __options);
 pid_t			ft_wait(int32_t *__status);
 ssize_t			ft_readlink(
-					const char *__restrict__ path,
-					char *__restrict__ buf,
+					const char *path,
+					char *buf,
 					size_t size);
 
 #endif

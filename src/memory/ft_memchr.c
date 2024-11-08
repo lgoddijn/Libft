@@ -53,17 +53,30 @@
 
 */
 
-void	*ft_memchr(const void *s, int32_t c, size_t n)
+void	*ft_memchr(const void *src, int c, size_t n)
 {
-	unsigned char		*ptr;
-	unsigned char		target;
+	register const unsigned char	*s = src;
+	register const t_word			*w;
+	register size_t					k;
 
-	if (!s || !n)
+	if (!src || !n)
 		return (NULL);
-	ptr = (unsigned char *)s;
-	target = (unsigned char)c;
-	while (n--)
-		if (*ptr++ == target)
-			return ((void *)--ptr);
-	return (NULL);
+	c = (unsigned char)c;
+	while ((uintptr_t)s & (sizeof(size_t) - 1)
+		&& n && *s != c && ++s && --n)
+		;
+	if (n && *s != c)
+	{
+		k = ((size_t) - 1 / UCHAR_MAX) * c;
+		w = (const void *)s;
+		while (n >= sizeof(size_t)
+			&& !((*w ^ k) - ((size_t) - 1 / UCHAR_MAX)
+				& ~(*w ^ k) & (((size_t) - 1 / UCHAR_MAX)
+					* (UCHAR_MAX / 2 + 1))) && ++w)
+			n -= sizeof(size_t);
+		s = (const void *)w;
+	}
+	if (n)
+		return ((void *)s);
+	return (0);
 }

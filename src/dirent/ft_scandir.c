@@ -31,7 +31,8 @@ static __inline__ void	__do_loop(
 			if (loc->len > SIZE_MAX / sizeof(*loc->names))
 				break ;
 			loc->tmp = (struct dirent **)ft_realloc(
-					loc->names, loc->len * sizeof(*loc->names));
+					loc->names, loc->cnt * sizeof(*loc->names),
+					loc->len * sizeof(*loc->names));
 			if (!loc->tmp)
 				break ;
 			loc->names = loc->tmp;

@@ -81,20 +81,11 @@
 
 */
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *d, const char *s, size_t n)
 {
-	const size_t	dst_len = ft_strlen(dst);
-	const size_t	src_len = ft_strlen(src);
-	size_t			to_copy;
+	const size_t	l = ft_strnlen(d, n);
 
-	if (!dst)
-		return (src_len);
-	if (dst_len >= size)
-		return (src_len + size);
-	to_copy = size - dst_len - 1;
-	if (to_copy > src_len)
-		to_copy = src_len;
-	ft_memcpy(dst + dst_len, src, to_copy);
-	dst[dst_len + to_copy] = '\0';
-	return (dst_len + src_len);
+	if (l == n)
+		return (l + ft_strlen(s));
+	return (l + ft_strlcpy(d + l, s, n - l));
 }

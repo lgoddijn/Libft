@@ -55,16 +55,11 @@
 
 */
 
-char	*ft_strchr(const char *s, int32_t c)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	x;
+	register const char	*r = ft_strchrnul(s, c);
 
-	if (!s)
-		return (NULL);
-	x = (unsigned char)c;
-	while (*s && *s != x)
-		++s;
-	if (*s == x)
-		return ((char *)s);
-	return (NULL);
+	if (*(unsigned char *)r == (unsigned char c))
+		return (r);
+	return (0);
 }

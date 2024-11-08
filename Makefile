@@ -21,7 +21,6 @@ SUBMODULES	= src/dirent		\
 			  src/env			\
 			  src/memory		\
 			  src/string		\
-			  src/syscall		\
 			  src/unistd		\
 			  src/vector
 

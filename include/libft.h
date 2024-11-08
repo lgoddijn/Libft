@@ -42,6 +42,18 @@
 
 # define LIBFT_H
 
+# ifndef __GNUC__
+#  error "GNUC Required Due To Type Aliasing."
+# endif
+
+# if !defined(__x86_64__) || __SIZEOF_POINTER__ != 8
+#  error "Only x86_64 Architecture Supported."
+# endif
+
+# if __BYTE_ORDER != __LITTLE_ENDIAN
+#  error "Only Little Endian Byte Order Supported."
+# endif
+
 # include "ft_dirent.h"
 # include "ft_env.h"
 # include "ft_syscall.h"

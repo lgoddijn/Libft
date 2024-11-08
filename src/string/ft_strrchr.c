@@ -56,21 +56,7 @@
 
 */
 
-char	*ft_strrchr(const char *s, int32_t c)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*ptr;
-	unsigned char	target;
-	unsigned char	*cmp_s;
-
-	if (!s)
-		return (NULL);
-	cmp_s = (unsigned char *)s;
-	ptr = cmp_s + ft_strlen(s);
-	target = (unsigned char)c;
-	if (target == '\0')
-		return ((char *)ptr);
-	while (ptr >= cmp_s)
-		if (*ptr-- == target)
-			return ((char *)++ptr);
-	return (NULL);
+	return (ft_memrchr(s, c, ft_strlen(s) + 1));
 }

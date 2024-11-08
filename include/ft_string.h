@@ -21,25 +21,10 @@
 # include <stdbool.h>
 # include <limits.h>
 
-# if __SIZEOF_POINTER__ == 8
-#  define __WORD_SIZE	8
-# elif __SIZEOF_POINTER == 4
-#  define __WORD_SIZE	4
-# else
-#  define WORD_SIZE	-1
-# endif
-
-# if defined(__GNUC__)
+# define __WORD_SIZE	8
 
 typedef unsigned long int __attribute__ ((__may_alias__))	t_word;
 typedef unsigned long int __attribute__ ((__may_alias__))	t_bytemask;
-
-# else
-
-typedef unsigned long int									t_word;
-typedef unsigned long int									t_bytemask;
-
-# endif
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strnlen(const char *s, size_t n);
@@ -53,23 +38,25 @@ char	**ft_strsplit(
 			const char *__restrict__ s,
 			const char *__restrict__ set
 			);
-char	*ft_strchr(const char *s, int32_t c);
+char	*ft_strncpy(char *__restrict__ d, const char *__restrict__ s, size_t n);
+char	*ft_stpncpy(char *__restrict__ d, const char *__restrict__ s, size_t n);
+char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 bool	ft_strequals(const char *lhs, const char *rhs);
 void	ft_striteri(char *s, void (*f)(uint32_t, char*));
 char	*ft_strjoin(const char *s1, const char *s2);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *d, const char *s, size_t n);
+size_t	ft_strlcpy(char *d, const char *s, size_t n);
 char	*ft_strmapi(const char *s, char (*f)(uint32_t, char));
 int32_t	ft_strcmp(const char *s1, const char *s2);
 int32_t	ft_strncmp(const char *s1, const char *s2, size_t n);
 bool	ft_strnequals(const char *lhs, const char *rhs, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-char	*ft_strrchr(const char *s, int32_t c);
+char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, uint32_t start, size_t len);
 char	*ft_strnjoin(char **strings, size_t n);
-char	*ft_strchrnul(const char *s, int32_t c);
+char	*ft_strchrnul(const char *s, int c);
 size_t	ft_strspn(const char *s, const char *set);
 size_t	ft_strcspn(const char *s, const char *set);
 char	*ft_strpbrk(const char *s, const char *b);
@@ -79,6 +66,7 @@ char	*ft_strtok_r(
 			const char *__restrict__ sep,
 			char **__restrict__ p
 			);
+char	*ft_strsep(char **str, const char *sep);
 int32_t	ft_toupper(int32_t c);
 int32_t	ft_tolower(int32_t c);
 int32_t	ft_isalnum(int32_t c);

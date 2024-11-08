@@ -61,18 +61,62 @@
 
 */
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+static __always_inline void	__prep_align_cpy(char *d, const char *s, size_t n)
 {
-	const size_t	src_len = ft_strlen(src);
-	size_t			to_copy;
+	while ((uintptr_t)s & sizeof(size_t) - 1 && n--)
+	{
+		*d = *s;
+		++s;
+		++d;
+	}
+}
 
-	to_copy = 0;
-	if (dstsize > 0)
-		to_copy = dstsize - 1;
-	if (to_copy > src_len)
-		to_copy = src_len;
-	ft_memcpy(dst, src, to_copy);
-	if (dstsize > 0)
-		dst[to_copy] = '\0';
-	return (src_len);
+static __always_inline void	__do_da_funky_loop(
+		const t_word *ws, size_t *wd, size_t n)
+{
+	while (n >= sizeof(size_t)
+		&& !((*ws) - ((size_t) - 1 / UCHAR_MAX)
+			& ~(*ws) & (((size_t)-1 / UCHAR_MAX)
+			* (UCHAR_MAX / 2 + 1))) && ++ws && ++wd)
+	{
+		*(wd - 1) = *(ws - 1);
+		n -= sizeof(size_t);
+	}
+}
+
+static __always_inline void	__final_cpy(
+		char *d, const char *s, size_t n)
+{
+	while (n--)
+	{
+		*d = *s;
+		++s;
+		++d;
+	}
+	*d = 0;
+}
+
+size_t	ft_strlcpy(char *d, const char *s, size_t n)
+{
+	const char		*d0 = d;
+	const t_word	*ws;
+	size_t			*wd;
+
+	if (!n--)
+		return (d - d0 + ft_strlen(s));
+	if (((uintptr_t)s & sizeof(size_t) - 1) \
+	== ((uintptr_t)d & sizeof(size_t) - 1))
+	{
+		__prep_align_cpy(d, s, n);
+		if (n && *s)
+		{
+			wd = (void *)d;
+			ws = (const void *)s;
+			__do_da_funky_loop(ws, wd, n);
+			d = (void *)wd;
+			s = (const void *)ws;
+		}
+	}
+	__final_cpy(d, s, n);
+	return (d - d0 + ft_strlen(s));
 }

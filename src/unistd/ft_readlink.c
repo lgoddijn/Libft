@@ -15,8 +15,8 @@
 #if defined(__NR_readlink)
 
 ssize_t	ft_readlink(
-		const char *__restrict__ path,
-		char *__restrict__ buf, size_t size
+		const char *path,
+		char *buf, size_t size
 		)
 {
 	return ((ssize_t)__syscall3(__NR_readlink, (long)path, (long)buf, size));
@@ -25,8 +25,8 @@ ssize_t	ft_readlink(
 #else
 
 ssize_t	ft_readlink(
-		const char *__restrict__ path,
-		char *__restrict__ buf, size_t size
+		const char *path,
+		char *buf, size_t size
 		)
 {
 	return ((ssize_t)__syscall4(__NR_readlinkat,

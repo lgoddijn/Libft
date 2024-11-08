@@ -23,22 +23,29 @@
 
 # include "ft_values.h"
 
-typedef unsigned char	t_byte;
+typedef unsigned char							t_byte;
+typedef uint32_t __attribute__((__may_alias__))	t_u32;
+typedef uint64_t __attribute__((__may_alias__))	t_u64;
+typedef size_t __attribute__((__may_alias__))	t_wt;
 
-__always_inline bool	ft_isnull(void *ptr)
+static __always_inline int	ft_isnull(void *ptr)
 {
-	return (ptr == NULL);
+	return (!ptr);
 }
 
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memchr(const void *s, int32_t c, size_t n);
-int32_t	ft_memcmp(const void *s1, const void *s2, size_t n);
-void	*ft_memset(void *s, int32_t c, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memcpy(
+			void *__restrict__ dst,
+			const void *__restrict__ src,
+			size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_memset(void *dst, int c, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t n);
+void	*ft_memrchr(const void *m, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 bool	ft_memequals(const void *lhs, const void *rhs);
 void	*ft_calloc(size_t nmemb, size_t size);
-void	*ft_realloc(void *ptr, size_t size);
+void	*ft_realloc(void *p, size_t psize, size_t size);
 void	ft_free2d(void **ptr);
 
 #endif

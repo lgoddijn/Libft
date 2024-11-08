@@ -32,6 +32,9 @@ SRC		= ft_atod.c				\
 		  ft_isprint.c			\
 		  ft_isspace.c			\
 		  ft_itoa.c				\
+		  ft_stpncpy.c			\
+		  ft_strncpy.c			\
+		  ft_strsep.c			\
 		  ft_strsplit.c			\
 		  ft_strchr.c			\
 		  ft_strdup.c			\

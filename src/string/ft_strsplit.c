@@ -44,12 +44,12 @@ char	**ft_strsplit(
 		tokens[size++] = ft_strdup(token);
 		if (!tokens[size - 1])
 			return (alloc_fail(tokens, copy));
-		tokens = ft_realloc(tokens, (size + 1) * sizeof(char *));
+		tokens = ft_realloc(tokens, size
+			* sizeof(char *), (size + 1) * sizeof(char *));
 		if (!tokens)
 			return (alloc_fail(tokens, copy));
 		token = ft_strtok(NULL, set);
 	}
 	tokens[size] = NULL;
-	free((void *)copy);
-	return (tokens);
+	return (free((void *)copy), tokens);
 }

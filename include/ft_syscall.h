@@ -20,64 +20,46 @@
 # include <stdarg.h>
 # include <errno.h>
 
-# if defined(__x86_64__)
-
-static __always_inline long	__syscall_r(unsigned long r)
-{
-	if (r > -4096UL)
-	{
-		errno = -r;
-		return (-1);
-	}
-	return (r);
-}
+# define __INTERNAL_SYSCALL_EXTEND
+#  include "ft_syscall2.h"
+# undef __INTERNAL_SYSCALL_EXTEND
 
 static __always_inline long	__syscall0(long n)
 {
-	unsigned long	r;
+	register unsigned long	r;
 
 	__asm__ ("syscall" : "=a"(r) : "a"(n) : "rcx", "r11", "memory");
-	return ((long)r);
+	return (__syscall_r(r));
 }
 
 static __always_inline long	__syscall1(long n, long a1)
 {
-	unsigned long	r;
+	register unsigned long	r;
 
 	__asm__ (
 		"syscall" : "=a"(r) : "a"(n), "D"(a1)
 		: "rcx", "r11", "memory");
-	return ((long)r);
+	return (__syscall_r(r));
 }
 
 static __always_inline long	__syscall2(long n, long a1, long a2)
 {
-	unsigned long	r;
+	register unsigned long	r;
 
 	__asm__ (
 		"syscall" : "=a"(r) : "a"(n), "D"(a1),
 		"S"(a2) : "rcx", "r11", "memory");
-	return ((long)r);
+	return (__syscall_r(r));
 }
 
 static __always_inline long	__syscall3(long n, long a1, long a2, long a3)
 {
-	unsigned long	r;
+	register unsigned long	r;
 
 	__asm__ (
 		"syscall" : "=a"(r) : "a"(n), "D"(a1),
 		"S"(a2), "d"(a3) : "rcx", "r11", "memory");
-	return ((long)r);
+	return (__syscall_r(r));
 }
-
-long	__syscall4(long n, long a[4]);
-long	__syscall5(long n, long a[5]);
-long	__syscall6(long n, long a[6]);
-
-# else
-
-#  error "Only 64-bit x86_64 Little Endian architecture supported"
-
-# endif
 
 #endif

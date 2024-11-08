@@ -25,6 +25,7 @@ SRC		= ft_bzero.c		\
 		  ft_memcmp.c 		\
 		  ft_memcpy.c		\
 		  ft_memmove.c		\
+		  ft_memrchr.c		\
 		  ft_memset.c		\
 		  ft_memequals.c	\
 		  ft_realloc.c
