@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/08 19:58:54 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/11 22:51:22 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 # define LIBFT_H
 
 # ifndef __GNUC__
-#  error "GNUC Required Due To Type Aliasing."
+#  error "GNUC Required."
 # endif
 
-# if !defined(__x86_64__) || __SIZEOF_POINTER__ != 8
+/* Stupid norminette be like no OR gates allowed istg */
+# if !defined(__x86_64__)
+#  error "Only x86_64 Architecture Supported."
+# elif __SIZEOF_POINTER__ != 8
 #  error "Only x86_64 Architecture Supported."
 # endif
 
@@ -30,6 +33,7 @@
 # include "ft_env.h"
 # include "ft_syscall.h"
 # include "ft_memory.h"
+# include "ft_misc.h"
 # include "ft_string.h"
 # include "ft_unistd.h"
 # include "ft_values.h"

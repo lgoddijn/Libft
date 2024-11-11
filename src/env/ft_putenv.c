@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:42:06 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/08 20:08:55 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/11 20:56:14 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static __inline__ int	__do_env_alloc(
 	if (__environ == *oldenv)
 	{
 		*newenv = (char **)ft_realloc(
-			*oldenv,
-			sizeof(**newenv) * i,
-			sizeof(**newenv) * (i + 2));
+				*oldenv,
+				sizeof(**newenv) * i,
+				sizeof(**newenv) * (i + 2));
 		if (!*newenv)
 		{
 			free((void *)r);
