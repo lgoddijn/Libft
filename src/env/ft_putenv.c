@@ -68,7 +68,7 @@ static __inline__ int	__do_env_alloc(
 	}
 	else
 	{
-		*newenv = (char **)malloc(sizeof(**newenv) * (i + 2));
+		*newenv = (char **)ft_calloc((i + 2), sizeof(**newenv));
 		if (!*newenv)
 		{
 			free((void *)r);
