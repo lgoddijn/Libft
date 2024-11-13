@@ -78,7 +78,7 @@ static __always_inline t_lstatus	__resolv_component(t_loc *lc)
 	return (DEFAULT);
 }
 
-t_loc	*__do_loop(t_loc *lc)
+t_loc	*__do_resolv_loop(t_loc *lc)
 {
 	t_lstatus	status;
 

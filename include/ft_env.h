@@ -19,6 +19,7 @@
 
 # include "ft_memory.h"
 # include "ft_string.h"
+# include "ft_misc.h"
 
 typedef struct s_args1
 {
@@ -41,6 +42,9 @@ typedef enum e_rmadd_ret
 	NARET,
 	RETURN,
 }	t_rmadd_ret;
+
+
+void	__free2d_env_alloc(void *alloc);
 
 void	__envp_rm_add(char *old, char *new);
 void	__env_rm_add(char *old, char *new);

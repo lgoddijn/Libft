@@ -18,7 +18,8 @@ CFLAGS	= -Wall -Wextra -Werror -Wstrict-prototypes		\
 		  -Wmissing-prototypes -Wpedantic -std=gnu17	\
 		  -fstack-protector-strong -O2 -g -I../../include
 
-SRC		= __env_rm_add.c	\
+SRC		= __cleanup.c		\
+		  __env_rm_add.c	\
 		  __envp_rm_add.c	\
 		  ft_getenv.c		\
 		  ft_getenvp.c		\

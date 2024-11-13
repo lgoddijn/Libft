@@ -18,7 +18,7 @@ static char	*__frpath(const char *__restrict__ path, char resolved[PATH_MAX])
 
 	if (!__init(path, &lc))
 		return (NULL);
-	if (!__do_loop(&lc))
+	if (!__do_resolv_loop(&lc))
 		return (NULL);
 	if (!__finalize_stack(&lc))
 		return (NULL);

@@ -12,6 +12,19 @@
 
 #include "../../include/ft_env.h"
 
+static __always_inline int	__register_cleanup(char ***alloc)
+{
+	static int	registered = 0;
+
+	if (!registered)
+	{
+		if (ft_atexit(__free2d_env_alloc, (void *)alloc) != 0)
+			return (-1);
+		registered = 1;
+	}
+	return (EXIT_SUCCESS);
+}
+
 static __always_inline t_rmadd_ret	__loop(
 		char **alloc, size_t env_n,
 		char **__restrict__ old,
@@ -43,6 +56,8 @@ void	__env_rm_add(char *old, char *new)
 	static size_t	env_n;
 	char			**t;
 
+	if (__register_cleanup(&alloc) != 0)
+		return ;
 	if (__loop(
 			alloc,
 			env_n,

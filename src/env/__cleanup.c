@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit_group.c                                    :+:      :+:    :+:   */
+/*   __cleanup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 16:24:20 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/08/26 18:48:37 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/11/13 12:15:04 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/11/13 14:11:44 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_unistd.h"
+#include "../../include/ft_env.h"
 
-_Noreturn void	ft_exit_group(int32_t __status)
+/* Expecting ref to 2d allocated structure */
+void	__free2d_env_alloc(void *alloc)
 {
-	__call_on_exit();
-	(void)__syscall1(__NR_exit_group, __status);
-	while (1)
-		(void)__syscall1(__NR_exit_group, __status);
+	char	***a;
+	char	**e;
+
+	a = (char ***)alloc;
+	if (*a)
+	{
+		e = *a;
+		while (*e)
+			free(*e++);
+		free(*a);
+		*a = 0;
+	}
 }

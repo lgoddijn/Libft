@@ -12,6 +12,19 @@
 
 #include "../../include/ft_env.h"
 
+static __always_inline int	__register_cleanup(char ***alloc)
+{
+	static int	registered = 0;
+
+	if (!registered)
+	{
+		if (ft_atexit(__free2d_env_alloc, (void *)alloc) != 0)
+			return (-1);
+		registered = 1;
+	}
+	return (EXIT_SUCCESS);
+}
+
 static __inline__ int	__update_existing(char *s, size_t l, char *r, size_t *i)
 {
 	char		*tmp;
@@ -74,6 +87,8 @@ int	__ft_putenv(char *s, size_t l, char *r)
 	char		**newenv;
 	size_t		i;
 
+	if (__register_cleanup(&oldenv) != 0)
+		return (-1);
 	if (__update_existing(s, l, r, &i) == 0)
 		return (EXIT_SUCCESS);
 	if (__do_env_alloc(&oldenv, &newenv, i, r) == -1)

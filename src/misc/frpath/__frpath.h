@@ -83,7 +83,7 @@ t_loc		*__init(const char *__restrict__ path, t_loc *lc);
 
 t_lstatus	__do_absolute(t_loc *lc);
 t_lstatus	__do_readlink(t_loc *lc);
-t_loc		*__do_loop(t_loc *lc);
+t_loc		*__do_resolv_loop(t_loc *lc);
 t_loc		*__finalize_stack(t_loc *lc);
 
 #endif

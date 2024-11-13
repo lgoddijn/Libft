@@ -22,6 +22,30 @@
 
 # include "../src/misc/frpath/__frpath.h"
 
+#define __at_exit_stack_handlers	32
+
+typedef struct s_fl
+{
+	struct s_fl	*next;
+	void		(*f[__at_exit_stack_handlers])(void *);
+	void		*a[__at_exit_stack_handlers];
+}	t_fl;
+
+typedef struct s_exit_ctx
+{
+	struct s_fl	*head;
+	struct s_fl	builtin;
+	int			finished;
+	int			slot;
+}	t_exit_ctx;
+
+/* Path resolution. Doesn't handle `~` (home) expansion */
 char	*frpath(const char *__restrict__ path, char resolved[PATH_MAX]);
+
+/* Only use if you know what you're doing */
+void	__call_on_exit(void);
+
+/* Use to assign functions to run on program termination */
+int		ft_atexit(void (*fn)(void *), void *arg);
 
 #endif

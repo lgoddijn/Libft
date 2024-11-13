@@ -28,6 +28,7 @@
 
 # include "ft_syscall.h"
 # include "ft_values.h"
+# include "ft_misc.h"
 
 int32_t			ft_access(const char *__path, int32_t __mode);
 uint32_t		ft_alarm(uint32_t seconds);

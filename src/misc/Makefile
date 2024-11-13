@@ -24,6 +24,7 @@ SRC		= frpath/__frpath_abspath.c		\
 		  frpath/__frpath_init.c		\
 		  frpath/__frpath_loop.c		\
 		  frpath/__frpath.c				\
+		  ft_atexit.c
 
 OBJ		= $(SRC:.c=.o)
 

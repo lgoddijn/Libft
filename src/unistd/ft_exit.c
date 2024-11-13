@@ -14,6 +14,7 @@
 
 _Noreturn void	ft_exit(int32_t __status)
 {
+	__call_on_exit();
 	(void)__syscall1(__NR_exit, __status);
 	while (1)
 		(void)__syscall1(__NR_exit, __status);
