@@ -38,6 +38,7 @@ SRC		= ft_atod.c				\
 		  ft_strsplit.c			\
 		  ft_strchr.c			\
 		  ft_strdup.c			\
+		  ft_strndup.c			\
 		  ft_striteri.c			\
 		  ft_strequals.c		\
 		  ft_strjoin.c			\

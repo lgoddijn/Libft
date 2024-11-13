@@ -57,7 +57,7 @@ static __always_inline void	__do_loop(
 		size_t *n, const t_word *w, size_t k)
 {
 	while (*n >= sizeof(size_t)
-		&& !((*w ^ k) - ((size_t) - 1 / UCHAR_MAX)
+		&& !(((*w ^ k) - ((size_t) - 1 / UCHAR_MAX))
 			& ~(*w ^ k) & (((size_t) - 1 / UCHAR_MAX)
 				* (UCHAR_MAX / 2 + 1))) && ++w)
 		*n -= sizeof(size_t);

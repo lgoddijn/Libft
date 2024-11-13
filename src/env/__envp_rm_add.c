@@ -12,9 +12,7 @@
 
 #include "../../include/ft_env.h"
 
-#include "../../include/ft_env.h"
-
-static __inline__ void	__loop(
+static __always_inline t_rmadd_ret	__loop(
 		char **alloc, size_t env_n,
 		char **__restrict__ old,
 		char **__restrict__ new)
@@ -28,7 +26,7 @@ static __inline__ void	__loop(
 		{
 			alloc[i - 1] = *new;
 			free((void *)*old);
-			return ;
+			return (RETURN);
 		}
 		else if (!alloc[i - 1] && *new)
 		{
@@ -36,23 +34,21 @@ static __inline__ void	__loop(
 			*new = 0;
 		}
 	}
+	return (NARET);
 }
 
-/*
-	Literally the same as envrmadd,
-	but has to be diff allocation
-*/
 void	__envp_rm_add(char *old, char *new)
 {
 	static char		**alloc;
 	static size_t	env_n;
 	char			**t;
 
-	__loop(
-		alloc,
-		env_n,
-		&old,
-		&new);
+	if (__loop(
+			alloc,
+			env_n,
+			&old,
+			&new) == RETURN)
+		return ;
 	if (!new)
 		return ;
 	t = (char **)ft_realloc(

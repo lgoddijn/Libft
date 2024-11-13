@@ -25,9 +25,9 @@ char	*ft_strchrnul(const char *s, int c)
 			return ((char *)(s - 1));
 	k = ((size_t) - 1 / UCHAR_MAX) * c;
 	w = (void *)s;
-	while (!((*w) - ((size_t) - 1 / UCHAR_MAX) & ~(*w)
+	while (!(((*w) - ((size_t) - 1 / UCHAR_MAX)) & ~(*w)
 			& (((size_t) - 1 / UCHAR_MAX) * (UCHAR_MAX / 2 + 1)))
-		&& !((*w ^ k) - ((size_t) - 1 / UCHAR_MAX) & ~(*w ^ k)
+		&& !(((*w ^ k) - ((size_t) - 1 / UCHAR_MAX)) & ~(*w ^ k)
 			& (((size_t) - 1 / UCHAR_MAX) * (UCHAR_MAX / 2 + 1))))
 		++w;
 	s = (void *)w;

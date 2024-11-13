@@ -63,7 +63,7 @@
 
 static __always_inline void	__prep_align_cpy(char *d, const char *s, size_t n)
 {
-	while ((uintptr_t)s & sizeof(size_t) - 1 && n--)
+	while ((uintptr_t)s & (sizeof(size_t) - 1) && n--)
 	{
 		*d = *s;
 		++s;
@@ -75,7 +75,7 @@ static __always_inline void	__do_da_funky_loop(
 		const t_word *ws, size_t *wd, size_t n)
 {
 	while (n >= sizeof(size_t)
-		&& !((*ws) - ((size_t) - 1 / UCHAR_MAX)
+		&& !(((*ws) - ((size_t) - 1 / UCHAR_MAX))
 			& ~(*ws) & (((size_t)-1 / UCHAR_MAX)
 				* (UCHAR_MAX / 2 + 1))) && ++ws && ++wd)
 	{
@@ -104,8 +104,8 @@ size_t	ft_strlcpy(char *d, const char *s, size_t n)
 
 	if (!n--)
 		return (d - d0 + ft_strlen(s));
-	if (((uintptr_t)s & sizeof(size_t) - 1) \
-	== ((uintptr_t)d & sizeof(size_t) - 1))
+	if (((uintptr_t)s & (sizeof(size_t) - 1)) \
+	== ((uintptr_t)d & (sizeof(size_t) - 1)))
 	{
 		__prep_align_cpy(d, s, n);
 		if (n && *s)

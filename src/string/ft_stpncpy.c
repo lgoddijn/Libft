@@ -16,7 +16,7 @@ static __always_inline void	__do_da_funky_loop(
 		const t_word *ws, t_word *wd, size_t *n)
 {
 	while (*n >= sizeof(size_t)
-		&& !((*ws) - ((size_t) - 1 / UCHAR_MAX)
+		&& !(((*ws) - ((size_t) - 1 / UCHAR_MAX))
 			& ~(*ws) & ((size_t) - 1 / UCHAR_MAX)
 			* (UCHAR_MAX / 2 + 1)))
 	{
@@ -30,7 +30,7 @@ static __always_inline void	__do_da_funky_loop(
 static __always_inline int	__do_cpy_align(
 		char *__restrict__ d, const char *__restrict__ s, size_t *n)
 {
-	while ((uintptr_t)s & sizeof(size_t) - 1 && *n)
+	while ((uintptr_t)s & (sizeof(size_t) - 1) && *n)
 	{
 		*d = *s;
 		(*n)--;
@@ -50,8 +50,8 @@ char	*ft_stpncpy(char *__restrict__ d, const char *__restrict__ s, size_t n)
 	const t_word	*ws;
 	t_word			*wd;
 
-	if (((uintptr_t)s & sizeof(size_t) - 1) == (
-			(uintptr_t)d & sizeof(size_t) - 1))
+	if (((uintptr_t)s & (sizeof(size_t) - 1)) == (
+			(uintptr_t)d & (sizeof(size_t) - 1)))
 	{
 		if (__do_cpy_align(d, s, &n))
 			return (d);

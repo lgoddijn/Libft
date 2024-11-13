@@ -36,6 +36,12 @@ typedef struct s_args2
 	size_t	i;
 }	t_args2;
 
+typedef enum e_rmadd_ret
+{
+	NARET,
+	RETURN,
+}	t_rmadd_ret;
+
 void	__envp_rm_add(char *old, char *new);
 void	__env_rm_add(char *old, char *new);
 

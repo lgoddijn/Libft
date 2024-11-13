@@ -57,6 +57,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, uint32_t start, size_t len);
 char	*ft_strnjoin(char **strings, size_t n);
 char	*ft_strchrnul(const char *s, int c);
+char	*ft_strndup(const char *s, size_t n);
 size_t	ft_strspn(const char *s, const char *set);
 size_t	ft_strcspn(const char *s, const char *set);
 char	*ft_strpbrk(const char *s, const char *b);

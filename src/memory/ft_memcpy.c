@@ -96,10 +96,8 @@ static __always_inline void	__shift_offset_align(
 {
 	register uint32_t	w;
 	register uint32_t	x;
-	register int		i;
 
 	w = *(t_u32 *)s;
-	i = (int)(4 - off);
 	while (*n-- >= (size_t)(4 - off))
 		*d++ = *s++;
 	while (*n >= (size_t)(16 + off))
