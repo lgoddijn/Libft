@@ -6,13 +6,11 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:45:21 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/13 14:29:26 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:54:19 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/ft_misc.h"
-
-#include <stdio.h>
 
 static __always_inline t_exit_ctx	*__get_exit_context(void)
 {
@@ -50,7 +48,9 @@ __attribute__((destructor)) void	__call_on_exit(void)
 }
 
 /* 
-   Multithreading safety: Not protected, assuming single-threaded context.
+	Multithreading safety: Not protected,
+	assuming single-threaded context.
+	Or external mutex lock.
 */
 static int	__ft_cxa_atexit(void (*fn)(void *), void *arg)
 {

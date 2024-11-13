@@ -69,7 +69,7 @@ static __inline__ int	__do_env_alloc(
 	}
 	else
 	{
-		*newenv = (char **)malloc(sizeof(**newenv) * (args->i + 2));
+		*newenv = (char **)ft_calloc(args->i + 2, sizeof(**newenv));
 		if (!*newenv)
 		{
 			free((void *)args->r);
@@ -89,8 +89,6 @@ int	__ft_putenvp(char *s, size_t l, char *r, char ***__envp)
 	t_args1		args1;
 	t_args2		args2;
 
-	if (__register_cleanup(&oldenv) != 0)
-		return (-1);
 	args1.s = s;
 	args1.r = r;
 	args1.i = 0;
@@ -102,6 +100,8 @@ int	__ft_putenvp(char *s, size_t l, char *r, char ***__envp)
 	args2.r = r;
 	args2.__envp = __envp;
 	if (__do_env_alloc(&oldenv, &newenv, &args2) == -1)
+		return (-1);
+	if (__register_cleanup(&oldenv) != 0)
 		return (-1);
 	newenv[args2.i] = s;
 	newenv[args2.i + 1] = 0;

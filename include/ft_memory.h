@@ -26,15 +26,23 @@
 
 # define __WORD_SIZE	8
 
-typedef unsigned char										t_byte;
-typedef size_t __attribute__ ((__may_alias__))				t_word;
-typedef uint32_t __attribute__((__may_alias__))				t_u32;
-typedef uint64_t __attribute__((__may_alias__))				t_u64;
-typedef size_t __attribute__((__may_alias__))				t_wt;
+typedef unsigned char							t_byte;
+typedef size_t __attribute__ ((__may_alias__))	t_word;
+typedef uint32_t __attribute__((__may_alias__))	t_u32;
+typedef uint64_t __attribute__((__may_alias__))	t_u64;
+typedef size_t __attribute__((__may_alias__))	t_wt;
 
-static __always_inline int	ft_isnull(void *ptr)
+static __always_inline int	isnull(void *ptr)
 {
 	return (!ptr);
+}
+
+static __always_inline int	is_likely_stack_ptr(void *p)
+{
+	char	stack_var;
+
+	return ((uintptr_t)p >= (uintptr_t)&stack_var - (1 << 20)
+		&& (uintptr_t)p <= (uintptr_t)&stack_var + (1 << 20));
 }
 
 void	*ft_memcpy(

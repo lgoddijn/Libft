@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __cleanup.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 12:15:04 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/13 18:14:38 by lgoddijn         ###   ########.fr       */
+/*   Created: 2024/11/13 17:14:59 by lgoddijn          #+#    #+#             */
+/*   Updated: 2024/11/13 17:19:55 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_env.h"
+#include "include/libft.h"
 
-/* Expecting ref to 2d allocated structure */
-void	__free2d_env_alloc(void *alloc)
+void	test_setenv(char **envp)
 {
-	char	***a;
-	char	**e;
+	ft_setenvp("TESTABC", "ABC", 1, &envp);
 
-	a = (char ***)alloc;
-	if (*a)
-	{
-		e = *a;
-		while (*e++)
-			if (!is_likely_stack_ptr(*(e - 1)))
-				free(*(e - 1));
-		free(*a);
-		*a = 0;
-	}
+	if (!ft_getenvp("TESTABC", envp))
+		printf("FAILED\n");
+	else
+		printf("PASSED\n");
+}
+
+int main(int argc, char **av, char **envp)
+{
+	test_setenv(envp);
+	return (0);
 }

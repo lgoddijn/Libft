@@ -67,10 +67,11 @@ void	__env_rm_add(char *old, char *new)
 	if (!new)
 		return ;
 	t = (char **)ft_realloc(
-			alloc, sizeof(*t) * env_n,
-			sizeof(*t) * (env_n + 1));
+			alloc, sizeof(*t) * (env_n + 1),
+			sizeof(*t) * (env_n + 2));
 	if (!t)
 		return ;
 	alloc = t;
 	alloc[env_n++] = new;
+	alloc[env_n] = 0;
 }
