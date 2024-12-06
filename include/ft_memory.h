@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:41:07 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/08 21:09:20 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/17 21:02:21 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <errno.h>
 
 # include "ft_values.h"
+# include "__vm.h"
 
 # define __WORD_SIZE	8
 

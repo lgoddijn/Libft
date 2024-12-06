@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_syscall2.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoddijn <lgoddijn@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:59:23 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/08 13:59:33 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/14 21:23:25 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

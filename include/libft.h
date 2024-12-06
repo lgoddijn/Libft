@@ -6,7 +6,7 @@
 /*   By: lgoddijn <lgoddijn@student.codam.nl >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:48:53 by lgoddijn          #+#    #+#             */
-/*   Updated: 2024/11/11 22:51:22 by lgoddijn         ###   ########.fr       */
+/*   Updated: 2024/11/17 20:33:01 by lgoddijn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 #  error "Only Little Endian Byte Order Supported."
 # endif
 
+# include "ft_atomic_arch.h"
 # include "ft_dirent.h"
 # include "ft_env.h"
 # include "ft_syscall.h"
